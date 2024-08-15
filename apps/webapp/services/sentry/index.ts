@@ -1,6 +1,6 @@
 // Import necessary modules and configurations
+import { AppError } from '@/lib/app-errors'
 import { appConfig } from '@/lib/config'
-import { AppError } from '@/types/errors'
 import * as Sentry from '@sentry/nextjs'
 
 // Initialize Sentry with configuration

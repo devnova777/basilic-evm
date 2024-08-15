@@ -50,7 +50,6 @@ This webapp is designed to be modular and flexible, allowing developers to easil
 - [uuid](https://github.com/uuidjs/uuid): UUID generation library.
 - [vconsole](https://github.com/Tencent/vConsole): Mobile-friendly console for debugging.
 
-
 ## Error Handling
 
 This section outlines the error handling strategies implemented in the application:
@@ -107,4 +106,24 @@ This section outlines the error handling strategies implemented in the applicati
 8. **Error Logging**: Errors are logged to Sentry for comprehensive error tracking, monitoring, and analysis. This includes error codes, messages, and additional context for efficient debugging and issue resolution.
 
 
-These practices aim to create a consistent and maintainable error handling system throughout the application.
+These practices aim to create a consistent and maintainable error handling system throughout the application. 
+
+
+## Code Collocation
+
+Code collocation is a principle in React development that emphasizes organizing code by feature or functionality rather than by file type. This approach, championed by Kent C. Dodds and others in the React community, offers several benefits:
+
+1. **Improved Maintainability**: By keeping related code close together, it's easier to understand and modify features.
+
+2. **Better Scalability**: As your application grows, collocated code remains manageable and doesn't spread across multiple directories.
+
+3. **Faster Development**: Developers can focus on one feature at a time without jumping between different files and folders.
+
+4. **Easier Refactoring**: When code is collocated, it's simpler to extract or move features as needed.
+
+In practice, code collocation in React might look like this:
+
+- Instead of separate directories for components, styles, and tests, you might have a feature-based structure.
+- Related components, hooks, utilities, and tests are kept in the same directory.
+
+For a more detailed explanation and examples, refer to Kent C. Dodds' article on the subject: [Colocation](https://kentcdodds.com/blog/colocation).

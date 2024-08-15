@@ -1,9 +1,9 @@
 // this service is used to interact with the defined.fi api
 // services always throw user-friendly errors that tanStackQuery can catch and show to the user
 
-import { appErrors } from '@/lib/app-errors'
+import { AppError, appErrors } from '@/lib/app-errors'
 import { appConfig } from '@/lib/config'
-import { AppError } from '@/types/errors'
+
 import { Defined } from '@definedfi/sdk'
 import type {
   EnhancedToken,
@@ -22,7 +22,8 @@ const codex = new Defined(appConfig.services.codexApiKey)
 export async function getTokenInfo(
   address: string,
   networkId: number,
-): Promise<EnhancedToken[]> {
+): Promise<EnhancedToken> {
+  console.log('getTokenInfo', address, networkId)
   try {
     const res = await codex.queries.token({
       input: {
@@ -31,8 +32,11 @@ export async function getTokenInfo(
       },
     })
     if (!res?.tokens) throw new AppError(appErrors.FETCH_ERROR)
-    return res.tokens.filter(Boolean) as EnhancedToken[]
+    const filteredTokens = res.tokens.filter(Boolean) as EnhancedToken[]
+    if (filteredTokens.length === 0) throw new AppError(appErrors.FETCH_ERROR)
+    return filteredTokens[0]
   } catch (error) {
+    console.log('getTokenInfo error', error)
     throw error instanceof AppError
       ? error
       : new AppError(appErrors.UNKNOWN_ERROR)

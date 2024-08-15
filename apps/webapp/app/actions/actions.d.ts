@@ -15,7 +15,7 @@
  * that are clear and actionable for the end-user.
  */
 
-import type { AppErrorData } from './errors'
+import type { AppErrorData } from '../../lib/app-errors/errors'
 
 export interface ActionResponse<T = unknown> {
   success: boolean

@@ -10,3 +10,7 @@ export const appConfig = {
     someFlag: process.env.NEXT_PUBLIC_SOME_FLAG === 'true',
   },
 } as const
+
+console.log('==============================')
+console.log('appConfig.services', appConfig.services)
+console.log('==============================')

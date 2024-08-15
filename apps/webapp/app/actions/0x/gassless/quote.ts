@@ -1,13 +1,13 @@
 'use server'
 
-import { appErrors } from '@/lib/app-errors'
 import type {
   GaslessGetQuoteData,
   GaslessGetQuoteResponse,
 } from '@/services/0x'
 import { gaslessGetQuote } from '@/services/0x'
-import type { ActionResponse } from '@/types/actions'
-import { AppError } from '@/types/errors'
+
+import type { ActionResponse } from '@/app/actions/actions'
+import { AppError, appErrors } from '@/lib/app-errors'
 import { createSafeActionClient } from 'next-safe-action'
 import { z } from 'zod'
 

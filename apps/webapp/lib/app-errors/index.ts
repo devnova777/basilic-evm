@@ -1,4 +1,4 @@
-import type { AppErrorData } from '@/types/errors'
+import type { AppErrorData } from './errors'
 
 export const appErrors: Record<string, AppErrorData> = {
   INVALID_INPUT: { code: 'INVALID_INPUT', message: 'Invalid input provided' },
@@ -40,3 +40,25 @@ export const appErrors: Record<string, AppErrorData> = {
     message: 'An error occurred while interacting with the 0x API',
   },
 } as const
+
+/**
+ * Custom error class for application-specific errors.
+ * This class extends the built-in Error class and includes additional properties
+ * for more detailed error information.
+ */
+export class AppError extends Error {
+  /**
+   * Creates a new AppError instance.
+   * @param errorData The AppErrorData object containing error details.
+   */
+  constructor(public errorData: AppErrorData) {
+    super(errorData.message)
+    this.code = errorData.code
+  }
+
+  /**
+   * The error code associated with this error.
+   * This allows for programmatic error handling and categorization.
+   */
+  code: string
+}
