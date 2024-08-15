@@ -1,0 +1,9 @@
+{
+  "name": "@repo/project-contracts",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.19.4"
+  }
+}
