@@ -22,3 +22,20 @@ The `lib/` directory in this Next.js application is designed to house functions,
 - For shared resources across projects, use the `@repo/project-lib` package instead of this local lib folder.
 
 By adhering to these principles and practices, we maintain a clean, efficient, and easily maintainable library of app-specific resources while leveraging shared resources from `@repo/project-lib` for cross-project functionality.
+
+## Lib Location Flexibility
+
+While functions and utilities are typically located in this `lib/` directory within the webapp, it's important to note that they can be moved to a shared location if needed. Specifically:
+
+- **Shared Utilities**: If a function or utility needs to be used across multiple applications or components of our project ecosystem, it can be relocated to `packages/project-lib`.
+
+- **Rationale for Sharing**: This flexibility allows for code reuse and maintains consistency across different parts of the project that may require the same functionality.
+
+- **Decision Process**: When deciding to move a utility to the shared location, consider:
+  1. The scope of its usage (is it used in multiple apps?)
+  2. The potential for future reuse
+  3. The impact on maintainability and versioning
+
+- **Implementation**: If a utility is moved to `packages/project-lib`, ensure that it's properly exported and that all existing references are updated accordingly.
+
+This approach promotes modularity and scalability in our project architecture, allowing utilities to be easily shared and maintained across different applications as needed.

@@ -6,6 +6,24 @@
 
 BasilicaEVM is a comprehensive development stack designed for building modern, performant, and scalable EVM-based applications. It combines cutting-edge web technologies with robust blockchain integration, providing developers with a powerful toolkit for creating decentralized applications (dApps) and DeFi platforms. Leveraging the best and fastest development tools, BasilicaEVM ensures a smooth and efficient development process, enabling teams to focus on building innovative Web3 products.
 
+
+## Key Benefits
+
+BasilicaEVM provides a state-of-the-art architecture, carefully curated tech stack, and industry-leading patterns and practices, allowing developers to:
+
+1. **Focus on Features**: By providing a robust, pre-configured development environment, BasilicaEVM enables teams to concentrate on building unique features and business logic rather than setting up infrastructure.
+
+2. **Reduce Time to Market**: With its optimized toolchain and ready-to-use components, BasilicaEVM significantly accelerates the development process, helping projects launch faster and iterate more quickly.
+
+3. **Ensure Best Practices**: The stack incorporates established best practices for EVM development, security, and performance, reducing the risk of common pitfalls and vulnerabilities.
+
+4. **Scale Efficiently**: The modular architecture and performance-optimized tools allow applications to scale seamlessly as user bases grow.
+
+5. **Maintain Consistency**: Shared configurations and standardized patterns across the monorepo ensure code consistency and ease of maintenance.
+
+By leveraging BasilicaEVM, development teams can bypass the time-consuming process of assembling and integrating a modern Web3 stack, instead diving directly into creating innovative blockchain-based solutions with confidence.
+
+
 ## The BasilicaEVM Stack
 
 At its core, the BasilicaEVM Stack leverages:
@@ -20,41 +38,48 @@ At its core, the BasilicaEVM Stack leverages:
   - **viem**: Type-safe, lightweight library for low-level EVM interactions.
   - **wagmi**: React hooks for seamless EVM integration.
   - **Rainbow Kit**: Polished, customizable wallet connection UI for enhanced user experience.
-- **Additional Tools**:
-  - **TanStack Query**: Powerful data fetching, caching, and state management for optimized performance.
-  - **Zod**: Runtime type checking and validation.
-  - **date-fns**: Comprehensive date manipulation library.
-  - **Framer Motion**: Production-ready animations for fluid user interfaces.
-  - **Radix UI**: Unstyled, accessible components for building high-quality design systems.
+  - **Codex API**: Integration with codex.io for enhanced blockchain data and insights.
 
 ## Project Structure
+
+For detailed information on each component, please refer to their respective README files.
 
 ### Applications
 
 - **Webapp (`/apps/webapp`)**: The main front-end application for user interactions. [More details](/apps/webapp/README.md)
-- **Faucet (`/apps/faucet`)**: Utility for distributing test tokens in development environments.
+- **Faucet (`/apps/faucet`)**: Utility for distributing test tokens in development environments. [More details](/apps/faucet/README.md)
 
 ### Packages
 
-- **Config TypeScript (`/packages/config-typescript`)**: Shared TypeScript configurations.
-- **Project Contracts (`/packages/app-contracts`)**: Smart contract interfaces, data and utilities.
-- **Project Lib (`/packages/project-lib`)**: Reusable code library.
+- **Config TypeScript (`/packages/config-typescript`)**: Shared TypeScript configurations. 
+- **Project Contracts (`/packages/app-contracts`)**: Smart contract interfaces, data and utilities. [More details](/packages/app-contracts/README.md)
+- **Project Lib (`/packages/project-lib`)**: Reusable code library. [More details](/packages/project-lib/README.md)
 
 ### Hardhat (`/hardhat`)
 
-Contains configurations and scripts for smart contract development, testing, and deployment.
+Contains configurations and scripts for smart contract development, testing, and deployment. [More details](/hardhat/README.md)
 
-## Development Conventions
+## Development Conventions and AI Workflow
 
-We utilize the Cursor.so AI editor to enhance development speed. Our code style guidelines are detailed in the [.cursorrules](./.cursorrules) file.
+We leverage various AI-powered tools to enhance development speed and efficiency:
 
-Key Cursor.so commands:
-- **Prompt an edit**: Highlight code and press Cmd+K
-- **Accept autocomplete**: Press Tab when a suggestion appears
-- **Ask a question**: Use Cmd+L to open chat, @ to import files/docs
-- **Focus AI on code**: Highlight code and press Cmd+Shift+L
+1. **[Cursor.so](https://cursor.so/) AI Editor**: Our primary code editor for AI-assisted development. Our code style guidelines are detailed in the [.cursorrules](./.cursorrules) file. It is crucial that all team members read and understand these conventions to maintain consistency and efficiency in our development process.
 
-For more features, visit cursor.sh/features. For support, post on forum.cursor.sh.
+   Key Cursor.so commands:
+   - **Prompt an edit**: Highlight code and press Cmd+K
+   - **Accept autocomplete**: Press Tab when a suggestion appears
+   - **Ask a question**: Use Cmd+L to open chat, @ to import files/docs
+   - **Focus AI on code**: Highlight code and press Cmd+Shift+L
+
+   For more features, visit [cursor.sh/features](https://cursor.sh/features). For support, post on [forum.cursor.sh](https://forum.cursor.sh/).
+
+   We recommend using the Claude Sonnet API key in Cursor settings, as this model has shown superiority when dealing with code.
+
+2. **[v0.dev](https://v0.dev/)**: We use this tool to rapidly generate markup for components, streamlining UI development.
+
+3. **[postgres.new](https://postgres.new/)**: This tool assists in database work, allowing for quick schema design and query testing.
+
+These AI-powered tools significantly accelerate our development process, enabling us to focus more on core functionality and complex problem-solving.
 
 ## Installation
 

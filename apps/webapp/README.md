@@ -7,12 +7,14 @@ This webapp is designed to be modular and flexible, allowing developers to easil
 ## Tech Stack
 
 - [Next.js](https://nextjs.org) 14, with React Server Components, App Router, and server actions.
-  - [next-themes](https://github.com/pacocoursey/next-themes): Theme management for Next.js.
+  - [next-themes](https://github.com/pacocoursey/next-themes): Theme management.
+  - [next-safe-action](https://github.com/TheEdoRan/next-safe-action): Type-safe server actions.
+  - [nuqs](https://github.com/47ng/nuqs): URL query string management.
+  - [@next/env](https://github.com/vercel/next.js/tree/canary/packages/next-env): Environment variable loading.
+  - [nookies](https://github.com/maticzav/nookies): Cookie management.
+  - [@sentry/nextjs](https://docs.sentry.io/platforms/javascript/guides/nextjs/): Error tracking and performance monitoring.
   - [negotiator](https://github.com/jshttp/negotiator): HTTP content negotiation library.
-  - [nuqs](https://github.com/47ng/nuqs): Next.js URL query string management.
-  - [@next/env](https://github.com/vercel/next.js/tree/canary/packages/next-env): Environment variable loading for Next.js.
-  - [nookies](https://github.com/maticzav/nookies): Cookie management for Next.js.
-  - [@next/third-parties](https://github.com/vercel/next.js/tree/canary/packages/third-parties): Third-party integrations for Next.js.
+  - [@next/third-parties](https://github.com/vercel/next.js/tree/canary/packages/third-parties): Third-party integrations.
   - [@vercel/analytics](https://vercel.com/analytics): Analytics for Vercel-hosted applications.
   - [@vercel/speed-insights](https://vercel.com/docs/speed-insights): Performance monitoring for Vercel deployments.
   - [@next/bundle-analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer): Analyzer for Next.js bundle sizes.
@@ -38,7 +40,7 @@ This webapp is designed to be modular and flexible, allowing developers to easil
 - [@repo/project-lib](workspace:*): Internal project library.
 - [@repo/project-contracts](workspace:*): Smart contract interfaces and utilities.
 - [@radix-ui/react-slot](https://www.radix-ui.com/primitives/docs/utilities/slot): Utility component for flexible composition.
-- [@blockmatic/hooks-utils](https://github.com/blockmatic/hooks-utils): A collection of useful React hooks.
+- [@blockmatic/hooks-utils](https://github.com/blockmatic/hooks-utils): A collection of useful React hooks, including createContextHook for easy context creation and consumption.
 - [pino-pretty](https://github.com/pinojs/pino-pretty): Prettifier for Pino logs. WalletConnect uses pino for logging.
 - [react-device-detect](https://github.com/duskload/react-device-detect): Device detection for React applications.
 - [react-hook-form](https://react-hook-form.com/): Performant form management for React.
