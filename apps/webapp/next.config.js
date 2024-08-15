@@ -53,11 +53,14 @@ const nextConfig = {
 const withBundleAnalyzer = require('@next/bundle-analyzer')()
 const { withSentryConfig } = require('@sentry/nextjs')
 
-const sentryWebpackPluginOptions = {
-  // Additional options for Sentry Webpack plugin
-}
-
 module.exports = withSentryConfig(
   process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig,
-  sentryWebpackPluginOptions,
+  {
+    org: 'basilica',
+    project: 'basilica-evm',
+    // An auth token is required for uploading source maps.
+    authToken: process.env.SENTRY_AUTH_TOKEN || '',
+    telemetry: false,
+    silent: false, // Can be used to suppress logs
+  },
 )
