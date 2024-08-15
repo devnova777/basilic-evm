@@ -1,7 +1,6 @@
 'use client'
 
-import { useTokenBalance } from '@/hooks/use-balance'
-import { loadingBalance } from '@/lib/constants'
+import { useTokenBalance } from '@/hooks/evm/use-balance'
 import { getToken } from '@repo/project-contracts'
 import type { Token } from '@repo/project-contracts/src/types'
 import { erc20Abi } from 'abitype/abis'

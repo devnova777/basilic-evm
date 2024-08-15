@@ -2,20 +2,28 @@
 
 import type { ActionResponse } from '@/app/actions/actions'
 import { AppError, appErrors } from '@/lib/app-errors'
+import { logger } from '@/lib/logger'
 import { getTokenInfo } from '@/services/codex'
 import type { EnhancedToken } from '@definedfi/sdk/dist/resources/graphql'
 import { tokens } from '@repo/project-contracts'
+import { getErrorMessage } from '@repo/project-lib'
 import { createSafeActionClient } from 'next-safe-action'
+import pino from 'pino-pretty'
 import { z } from 'zod'
 
 const getTokensDataSchema = z.object({})
+
+// prevent rate limit on free plan
+const fewTokens = tokens.slice(0, 4)
 
 export const getTokensData = createSafeActionClient()
   .schema(getTokensDataSchema)
   .action(async (): Promise<ActionResponse<EnhancedToken[]>> => {
     try {
       const data = await Promise.all(
-        tokens.map(async (token) => getTokenInfo(token.address, token.chainId)),
+        fewTokens.map(async (token) =>
+          getTokenInfo(token.address, token.chainId),
+        ),
       )
 
       return {
@@ -23,9 +31,10 @@ export const getTokensData = createSafeActionClient()
         data,
       }
     } catch (error) {
+      logger.error(getErrorMessage(error))
       return {
         success: false,
-        error: error instanceof AppError ? error : appErrors.UNKNOWN_ERROR,
+        error: error instanceof AppError ? error : appErrors.UNEXPECTED_ERROR,
       }
     }
   })

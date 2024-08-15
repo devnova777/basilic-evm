@@ -1,3 +1,5 @@
+import { logger } from './logger'
+
 export const appConfig = {
   services: {
     codexApiKey: process.env.CODEX_API_KEY || '',
@@ -11,6 +13,6 @@ export const appConfig = {
   },
 } as const
 
-console.log('==============================')
-console.log('appConfig.services', appConfig.services)
-console.log('==============================')
+// logger.info('=======================================================')
+// logger.info(JSON.stringify(appConfig))
+// logger.info('=======================================================')

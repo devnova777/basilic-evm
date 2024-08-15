@@ -20,6 +20,8 @@ This webapp is designed to be modular and flexible, allowing developers to easil
   - [@next/bundle-analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer): Analyzer for Next.js bundle sizes.
   - [server-only](https://github.com/vercel/server-only): Utility for server-side only code.
   - [sharp](https://sharp.pixelplumbing.com/): High-performance image processing.
+  - [pino](https://getpino.io/): Fast and low overhead logging library for Node.js 
+  -[pino-pretty](https://github.com/pinojs/pino-pretty): Prettifier for Pino logs, enhancing readability during development.
 - [shadcn/ui](https://ui.shadcn.com)
   - Styling with [Tailwind CSS](https://tailwindcss.com).
   - [Radix UI](https://radix-ui.com) for headless component primitives.
@@ -127,3 +129,64 @@ In practice, code collocation in React might look like this:
 - Related components, hooks, utilities, and tests are kept in the same directory.
 
 For a more detailed explanation and examples, refer to Kent C. Dodds' article on the subject: [Colocation](https://kentcdodds.com/blog/colocation).
+
+
+## Directory Structure
+
+```
+.
+├── app                                 # Next.js app directory
+│   ├── (routes)                        # Route groups
+│   │   ├── layout.tsx                  # Root layout component
+│   │   └── page.tsx                    # Root page component
+│   ├── actions                         # Server actions
+│   │   ├── 0x                          # 0x protocol related actions
+│   │   ├── actions.d.ts                # Type definitions for actions
+│   │   ├── codex                       # Codex related actions
+│   │   └── evm                         # EVM related actions
+│   ├── global-error.tsx                # Global error handling component
+│   └── globals.css                     # Global CSS styles
+├── assets                              # Static assets (images, fonts, etc.)
+├── components                          # React components
+│   ├── layout                          # Layout components
+│   │   ├── footer                      # Footer components
+│   │   ├── header                      # Header components
+│   │   └── providers.tsx               # Context providers
+│   ├── routes                          # Route-specific components
+│   │   └── home                        # Home page components
+│   ├── shared                          # Shared components
+│   │   └── token-balance.tsx           # Token balance component
+│   └── ui                              # UI components
+│       ├── button.tsx                  # Button component
+│       └── table.tsx                   # Table component
+├── components.json                     # Shadcn UI components configuration
+├── hooks                               # Custom React hooks
+│   ├── codex                           # Codex related hooks
+│   │   └── use-top-tokens.ts           # Hook for fetching top tokens
+│   ├── evm                             # EVM related hooks
+│   │   └── use-balance.ts              # Hook for fetching balance
+│   └── ui-ux                           # UI/UX related hooks
+│       └── use-mobile-navigation.tsx   # Hook for mobile navigation
+├── image.png                           # Example image file
+├── lib                                 # Utility functions and modules
+│   ├── app-errors                      # Error handling utilities
+│   │   ├── errors.d.ts                 # Error type definitions
+│   │   └── index.ts                    # Error handling main file
+│   ├── config.ts                       # Application configuration
+│   ├── constants.ts                    # Constant values
+│   ├── devtools.ts                     # Development tools
+│   ├── logger.ts                       # Logging utility
+│   └── utils.ts                        # General utility functions
+├── next-env.d.ts                       # Next.js TypeScript declarations
+├── next.config.js                      # Next.js configuration
+├── package.json                        # Project dependencies and scripts
+├── postcss.config.js                   # PostCSS configuration
+├── public                              # Public assets
+├── services                            # External services integration
+│   ├── 0x                              # 0x protocol service
+│   ├── codex                           # Codex service
+│   └── sentry                          # Sentry error tracking service
+├── tailwind.config.js                  # Tailwind CSS configuration
+└── tsconfig.json                       # TypeScript configuration
+
+```

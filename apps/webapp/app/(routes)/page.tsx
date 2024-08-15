@@ -1,4 +1,5 @@
 import { getTokensData } from '@/app/actions/codex/get-tokens-data'
+import { TokenDataTable } from '@/components/routes/home/token-data-table'
 import {
   Table,
   TableBody,
@@ -24,33 +25,7 @@ export default async function IndexPage() {
 
   return (
     <div className="container max-w-[100vw] !overflow-hidden !px-4">
-      <Table>
-        <TableCaption>Token Information</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Name</TableHead>
-            <TableHead>Symbol</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Market Cap</TableHead>
-            <TableHead>Volume (24h)</TableHead>
-            <TableHead>Balance</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {tokens.map((token, index) => (
-            <TableRow key={token.address}>
-              <TableCell>{tokenData[index]?.name ?? 'N/A'}</TableCell>
-              <TableCell>{tokenData[index]?.symbol ?? 'N/A'}</TableCell>
-              <TableCell>N/A</TableCell>
-              <TableCell>N/A</TableCell>
-              <TableCell>N/A</TableCell>
-              <TableCell>
-                <TokenBalance token={token} />
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <TokenDataTable tokenData={tokenData} />
     </div>
   )
 }

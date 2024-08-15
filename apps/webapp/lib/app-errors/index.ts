@@ -1,6 +1,6 @@
 import type { AppErrorData } from './errors'
 
-export const appErrors: Record<string, AppErrorData> = {
+export const appErrors = {
   INVALID_INPUT: { code: 'INVALID_INPUT', message: 'Invalid input provided' },
   NETWORK_ERROR: { code: 'NETWORK_ERROR', message: 'A network error occurred' },
   INVALID_SIGNATURE: {

@@ -75,7 +75,7 @@ export const getGaslessQuote = createSafeActionClient()
       } catch (error) {
         return {
           success: false,
-          error: error instanceof AppError ? error : appErrors.UNKNOWN_ERROR,
+          error: error instanceof AppError ? error : appErrors.UNEXPECTED_ERROR,
         }
       }
     },
