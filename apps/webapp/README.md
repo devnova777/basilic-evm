@@ -47,3 +47,62 @@ This webapp is designed to be modular and flexible, allowing developers to easil
 - [react-wrap-balancer](https://github.com/shuding/react-wrap-balancer): Text wrapping component for React.
 - [uuid](https://github.com/uuidjs/uuid): UUID generation library.
 - [vconsole](https://github.com/Tencent/vConsole): Mobile-friendly console for debugging.
+
+
+## Error Handling
+
+This section outlines the error handling strategies implemented in the application:
+
+1. **Server Actions**: Expected errors are modeled as return values, avoiding try/catch for predictable scenarios. `useActionState` manages these errors and communicates them to the client.
+
+2. **Error Boundaries**: Unexpected errors are handled using error boundaries implemented in `error.tsx` and `global-error.tsx`, providing fallback UIs.
+
+3. **Form Validation**: `useActionState` is combined with `react-hook-form` and `zod` for form validation.
+
+4. **Service Layer**: The `services/` directory throws user-friendly errors, which TanStack Query catches and displays.
+
+5. **Standardized Response Structure**: Server actions follow this pattern:
+
+   ```typescript
+   interface ActionResponse<T = unknown> {
+     success: boolean
+     message?: string
+     data?: T
+     error?: AppErrorData
+   }
+   ```
+6. **Centralized Error Management**: A centralized error object in `lib/app-errors.ts` maps error codes to descriptive messages:
+
+   ```typescript
+   const appErrors = {
+     INVALID_INPUT: { code: 'INVALID_INPUT', message: 'Invalid input provided' },
+     NETWORK_ERROR: { code: 'NETWORK_ERROR', message: 'A network error occurred' },
+     // Additional error definitions...
+   } as const
+   ```
+
+
+7. **Server Action Error Return Example**: When handling errors in server actions, use the `ActionResponse` interface and the `appErrors` object for consistency:
+
+   ```typescript
+   // Example of returning an error from a server action
+   return {
+     success: false,
+     error: appErrors.INVALID_SIGNATURE
+   }
+   ```
+
+   This approach ensures that all server actions return a consistent error structure, making it easier for the client to handle and display errors appropriately.
+
+   Use this `appErrors` object in server actions for consistent error handling. In services, throw new `AppError` instances:
+
+   ```typescript
+   throw new AppError(appErrors.INVALID_INPUT)
+   ```
+
+7. **Custom Error Objects**: Custom error objects with `code` and `message` properties are thrown based on centralized definitions.
+
+8. **Error Logging**: Errors are logged to Sentry for comprehensive error tracking, monitoring, and analysis. This includes error codes, messages, and additional context for efficient debugging and issue resolution.
+
+
+These practices aim to create a consistent and maintainable error handling system throughout the application.

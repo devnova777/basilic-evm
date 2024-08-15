@@ -51,7 +51,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           {/* hamburger layout ends here */}
         </Providers>
 
-        <GoogleAnalytics gaId={appConfig.googleAnalyticsId} />
+        <GoogleAnalytics gaId={appConfig.services.googleAnalyticsId} />
         <Analytics />
         <SpeedInsights />
       </body>
