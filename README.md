@@ -11,17 +11,16 @@ BasilicaEVM is a comprehensive development stack designed for building modern, p
 
 At its core, the BasilicaEVM Stack leverages:
 
-- **Hardhat**: Robust framework for EVM smart contract development, testing, and deployment.
 - **Turbo Monorepo**: Efficient codebase management and optimized build processes for large-scale projects.
+- **Bun**: Ultra-fast JavaScript runtime, package manager, and build tool, enhancing development speed and efficiency.
+- **Biome**: Modern, fast, and extensible toolchain for web projects, providing linting, formatting, and more.
+- **Hardhat**: Robust framework for EVM smart contract development, testing, and deployment.
 - **Next.js 14**: Cutting-edge full-stack development with React Server Components, App Router, and server actions.
-- **TypeScript**: Ensuring type safety and improved developer experience throughout the project.
 - **Tailwind CSS & shadcn/ui**: Rapid, customizable UI development with utility-first CSS and accessible component primitives.
 - **EVM Integration**:
   - **viem**: Type-safe, lightweight library for low-level EVM interactions.
   - **wagmi**: React hooks for seamless EVM integration.
   - **Rainbow Kit**: Polished, customizable wallet connection UI for enhanced user experience.
-- **Biome**: Modern, fast, and extensible toolchain for web projects, providing linting, formatting, and more.
-- **Turbo Monorepo**: Efficient codebase management and optimized build processes for large-scale projects.
 - **Additional Tools**:
   - **TanStack Query**: Powerful data fetching, caching, and state management for optimized performance.
   - **Zod**: Runtime type checking and validation.
