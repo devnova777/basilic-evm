@@ -11,8 +11,6 @@ BasilicaEVM is a comprehensive development stack designed for building modern, p
 
 At its core, the BasilicaEVM Stack leverages:
 
-## Tech Stack Highlights
-
 - **Hardhat**: Robust framework for EVM smart contract development, testing, and deployment.
 - **Turbo Monorepo**: Efficient codebase management and optimized build processes for large-scale projects.
 - **Next.js 14**: Cutting-edge full-stack development with React Server Components, App Router, and server actions.
