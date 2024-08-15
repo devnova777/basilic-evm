@@ -35,4 +35,8 @@ export const appErrors: Record<string, AppErrorData> = {
     code: 'FETCH_ERROR',
     message: 'An error occurred while fetching data',
   },
+  ZERO_X_API_ERROR: {
+    code: 'ZERO_X_API_ERROR',
+    message: 'An error occurred while interacting with the 0x API',
+  },
 } as const

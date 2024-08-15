@@ -8,5 +8,8 @@
   "scripts": {
     "generate": "npx @hey-api/openapi-ts -i openapi/0x-v2-spec.yaml -o src/client -c @hey-api/client-fetch"
   },
-  "dependencies": { "@hey-api/client-fetch": "^0.2.4" }
+  "dependencies": { "@hey-api/client-fetch": "^0.2.4" },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.52.8"
+  }
 }

@@ -3,6 +3,7 @@ export const appConfig = {
     codexApiKey: process.env.CODEX_API_KEY || '',
     googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
     sentryDsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
+    zeroExToken: process.env.ZEROEX_TOKEN || '',
   },
   // feature flags
   features: {
