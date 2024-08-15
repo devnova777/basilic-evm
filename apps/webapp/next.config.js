@@ -51,6 +51,13 @@ const nextConfig = {
 }
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')()
+const { withSentryConfig } = require('@sentry/nextjs')
 
-module.exports =
-  process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig
+const sentryWebpackPluginOptions = {
+  // Additional options for Sentry Webpack plugin
+}
+
+module.exports = withSentryConfig(
+  process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig,
+  sentryWebpackPluginOptions,
+)
