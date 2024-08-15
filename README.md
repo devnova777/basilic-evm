@@ -2,10 +2,9 @@
 
 <img width="892" alt="image" src="https://697788980-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZ9TDrZUmPgINqUrCxxId%2Fuploads%2Fae1Zeh49ADF1WWrQ5PIW%2Fimage.png?alt=media&token=daf2165f-f530-4f4e-875b-b6d936012a10">
 
-
 ## Overview
 
-BasilicaEVM is a comprehensive development stack designed for building modern, performant, and scalable EVM-based applications. It combines cutting-edge web technologies with robust blockchain integration, providing developers with a powerful toolkit for creating decentralized applications (dApps) and DeFi platforms. Leveraging the best and fastest development tools for linting and code quality, BasilicaEVM ensures a smooth and efficient development process, enabling teams to focus on building innovative blockchain solutions.
+BasilicaEVM is a comprehensive development stack designed for building modern, performant, and scalable EVM-based applications. It combines cutting-edge web technologies with robust blockchain integration, providing developers with a powerful toolkit for creating decentralized applications (dApps) and DeFi platforms. Leveraging the best and fastest development tools, BasilicaEVM ensures a smooth and efficient development process, enabling teams to focus on building innovative Web3 products.
 
 ## The BasilicaEVM Stack
 
@@ -28,9 +27,6 @@ At its core, the BasilicaEVM Stack leverages:
   - **Framer Motion**: Production-ready animations for fluid user interfaces.
   - **Radix UI**: Unstyled, accessible components for building high-quality design systems.
 
-
-This meticulously curated tech stack is designed to work in harmony, addressing common challenges in EVM application development while offering flexibility for project-specific requirements. The integration of Biome further enhances code quality and development workflow, ensuring a consistent and efficient development experience across the entire project.
-
 ## Project Structure
 
 ### Applications
@@ -40,9 +36,9 @@ This meticulously curated tech stack is designed to work in harmony, addressing 
 
 ### Packages
 
-- **Config TypeScript (`/packages/config-typescript`)**: Shared TypeScript configuration.
-- **Project Contracts (`/packages/app-contracts`)**: Smart contract interfaces and utilities.
-- **Project Lib (`/packages/project-lib`)**: Reusable code library for the BasilicaEVM platform.
+- **Config TypeScript (`/packages/config-typescript`)**: Shared TypeScript configurations.
+- **Project Contracts (`/packages/app-contracts`)**: Smart contract interfaces, data and utilities.
+- **Project Lib (`/packages/project-lib`)**: Reusable code library.
 
 ### Hardhat (`/hardhat`)
 
@@ -60,9 +56,26 @@ Key Cursor.so commands:
 
 For more features, visit cursor.sh/features. For support, post on forum.cursor.sh.
 
-## Requirements
+## Installation
 
-- **Bun**: Faster JavaScript runtime for enhanced development efficiency.
+1. Install Bun globally:
+   ```
+   curl -fsSL https://bun.sh/install | bash
+   ```
+
+2. Clone the repository:
+   ```
+   git clone https://github.com/your-username/basilica-eth.git
+   cd basilica-eth
+   ```
+
+3. Install dependencies and start the development server:
+   ```
+   bun install
+   bun dev
+   ```
+
+This setup provides a faster JavaScript runtime and efficient package management for enhanced development efficiency.
 
 ## Contributing
 
