@@ -14,7 +14,7 @@ export function initializeSentry() {
 }
 
 // Capture and log exceptions with appropriate tags
-export function captureException(error: AppError | Error) {
+export function sentryCaptureException(error: AppError | Error) {
   if (error instanceof AppError) {
     // For AppError, use its code as a tag
     Sentry.captureException(error, { tags: { code: error.code } })

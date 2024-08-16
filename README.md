@@ -7,14 +7,20 @@
 BasilicaEVM is a comprehensive development stack designed for building modern, performant, and scalable EVM-based applications. It combines cutting-edge web technologies with robust blockchain integration, providing developers with a powerful toolkit for creating decentralized applications (dApps) and DeFi platforms. Leveraging the best and fastest development tools, BasilicaEVM ensures a smooth and efficient development process, enabling teams to focus on building innovative Web3 products.
 
 ## Features
+- 🔄 **0x Integration:** Built-in support for 0x API v2, enabling secure, gasless asset transfers, swaps, and liquidity aggregation.
 
-- 🔄 **0x Integration:** Built-in support for 0x API v2, enabling gassless, efficient and secure asset transfers, swaps, and liquidity aggregation.
 - 📊 **Codex Integration:** Streamline your dApp's data management and indexing with Codex, optimizing performance and ensuring scalability.
-- 🧩 **Modular Architecture:** Flexible and modular architecture, allowing for easy customization and extension based on your specific project needs.
+
+- 🧩 **Modular Architecture:** Flexible and modular architecture allows for easy customization and extension based on your specific project needs.
+
 - 🛠️ **TypeScript SDK:** A robust TypeScript SDK for interacting with 0x, ensuring type safety and a smooth developer experience.
+
 - 👛 **Wallet Integration:** Out-of-the-box wallet integration for secure transactions and user authentication.
-- ⚡ **Efficient Dev Workflow:** State of the art devtools and workflows for rapid prototyping, testing, and deployment.
-- 🤖 **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev
+
+- ⚡ **Efficient Dev Workflow:** State-of-the-art devtools and workflows for rapid prototyping, testing, and deployment.
+
+- 🤖 **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev.
+
 - 📚 **Documentation:** Detailed documentation covering project structure, conventions, and best practices.
 
 ## The BasilicaEVM Stack
