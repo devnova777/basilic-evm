@@ -6,21 +6,6 @@
 
 BasilicaEVM is a comprehensive development stack designed for building modern, performant, and scalable EVM-based applications. It combines cutting-edge web technologies with robust blockchain integration, providing developers with a powerful toolkit for creating decentralized applications (dApps) and DeFi platforms. Leveraging the best and fastest development tools, BasilicaEVM ensures a smooth and efficient development process, enabling teams to focus on building innovative Web3 products.
 
-## Key Benefits
-
-BasilicaEVM provides a state-of-the-art architecture, carefully curated tech stack, and industry-leading patterns and practices, allowing developers to:
-
-1. **Focus on Features**: By providing a robust, pre-configured development environment, BasilicaEVM enables teams to concentrate on building unique features and business logic rather than setting up infrastructure.
-
-2. **Reduce Time to Market**: With its optimized toolchain and ready-to-use components, BasilicaEVM significantly accelerates the development process, helping projects launch faster and iterate more quickly.
-
-3. **Ensure Best Practices**: The stack incorporates established best practices for EVM development, security, and performance, reducing the risk of common pitfalls and vulnerabilities.
-
-4. **Scale Efficiently**: The modular architecture and performance-optimized tools allow applications to scale seamlessly as user bases grow.
-
-5. **Maintain Consistency**: Shared configurations and standardized patterns across the monorepo ensure code consistency and ease of maintenance.
-
-By leveraging BasilicaEVM, development teams can bypass the time-consuming process of assembling and integrating a modern Web3 stack, instead diving directly into creating innovative blockchain-based solutions with confidence.
 
 
 ## The BasilicaEVM Stack
@@ -101,6 +86,23 @@ These AI-powered tools significantly accelerate our development process, enablin
    ```
 
 This setup provides a faster JavaScript runtime and efficient package management for enhanced development efficiency.
+
+## Key Benefits
+
+BasilicaEVM provides a state-of-the-art architecture, carefully curated tech stack, and industry-leading patterns and practices, allowing developers to:
+
+1. **Focus on Features**: By providing a robust, pre-configured development environment, BasilicaEVM enables teams to concentrate on building unique features and business logic rather than setting up infrastructure.
+
+2. **Reduce Time to Market**: With its optimized toolchain and ready-to-use components, BasilicaEVM significantly accelerates the development process, helping projects launch faster and iterate more quickly.
+
+3. **Ensure Best Practices**: The stack incorporates established best practices for EVM development, security, and performance, reducing the risk of common pitfalls and vulnerabilities.
+
+4. **Scale Efficiently**: The modular architecture and performance-optimized tools allow applications to scale seamlessly as user bases grow.
+
+5. **Maintain Consistency**: Shared configurations and standardized patterns across the monorepo ensure code consistency and ease of maintenance.
+
+By leveraging BasilicaEVM, development teams can bypass the time-consuming process of assembling and integrating a modern Web3 stack, instead diving directly into creating innovative blockchain-based solutions with confidence.
+
 
 ## Contributing
 
