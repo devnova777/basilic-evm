@@ -39,6 +39,7 @@ At its core, the BasilicaEVM Stack leverages:
   - **wagmi**: React hooks for seamless EVM integration.
   - **Rainbow Kit**: Polished, customizable wallet connection UI for enhanced user experience.
   - **Codex API**: Integration with codex.io for enhanced blockchain data and insights.
+  - **0x**: Powerful, flexible, and efficient Ethereum development framework for building decentralized applications.
 
 ## Project Structure
 
