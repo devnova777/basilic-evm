@@ -23,6 +23,8 @@ BasilicaEVM is a comprehensive development stack designed for building modern, p
 
 - 📚 **Documentation:** Detailed documentation covering project structure, conventions, and best practices.
 
+- 🔨 **Hardhat:** Robust framework for EVM smart contract development, testing, and deployment.
+
 ## The BasilicaEVM Stack
 
 At its core, the BasilicaEVM Stack leverages:
