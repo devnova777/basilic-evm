@@ -8,14 +8,14 @@ BasilicaEVM is a comprehensive development stack designed for building modern, p
 
 ## Features
 
-- **0x Integration:** Built-in support for 0x API v2, enabling gassless, efficient and secure asset transfers, swaps, and liquidity aggregation.
-- **Codex Integration:** Streamline your dApp's data management and indexing with Codex, optimizing performance and ensuring scalability.
-- **Modular Architecture:** Flexible and modular architecture, allowing for easy customization and extension based on your specific project needs.
-- **TypeScript SDK:** A robust TypeScript SDK for interacting with 0x, ensuring type safety and a smooth developer experience.
-- **Wallet Integration:** Out-of-the-box wallet integration for secure transactions and user authentication.
-- **Efficient Dev Workflow:** State of the art devtools and workflows for rapid prototyping, testing, and deployment.
-- **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev
-- **Documentation:** Detailed documentation covering project structure, conventions, and best practices.
+- 🔄 **0x Integration:** Built-in support for 0x API v2, enabling gassless, efficient and secure asset transfers, swaps, and liquidity aggregation.
+- 📊 **Codex Integration:** Streamline your dApp's data management and indexing with Codex, optimizing performance and ensuring scalability.
+- 🧩 **Modular Architecture:** Flexible and modular architecture, allowing for easy customization and extension based on your specific project needs.
+- 🛠️ **TypeScript SDK:** A robust TypeScript SDK for interacting with 0x, ensuring type safety and a smooth developer experience.
+- 👛 **Wallet Integration:** Out-of-the-box wallet integration for secure transactions and user authentication.
+- ⚡ **Efficient Dev Workflow:** State of the art devtools and workflows for rapid prototyping, testing, and deployment.
+- 🤖 **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev
+- 📚 **Documentation:** Detailed documentation covering project structure, conventions, and best practices.
 
 ## The BasilicaEVM Stack
 
@@ -46,7 +46,8 @@ For detailed information on each component, please refer to their respective REA
 
 - **Config TypeScript (`/packages/config-typescript`)**: Shared TypeScript configurations. 
 - **Project Contracts (`/packages/app-contracts`)**: Smart contract interfaces, data and utilities. [More details](/packages/app-contracts/README.md)
-- **Project Lib (`/packages/project-lib`)**: Reusable code library. [More details](/packages/project-lib/README.md)
+- **Project Lib (`/packages/project-lib`)**: Shared project library. [More details](/packages/project-lib/README.md)
+- **0x API (`/packages/0x-api`)**: SDK for interacting with the 0x API v2. [More details](/packages/0x-api/README.md)
 
 ### Hardhat (`/hardhat`)
 
