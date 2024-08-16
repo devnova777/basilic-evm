@@ -114,10 +114,12 @@ By leveraging BasilicaEVM, development teams can bypass the time-consuming proce
 
 ## References
 
+- [Introducing BasilicaEVM](https://gaboesquivel.com/blog/2024-08-basilica-evm)
 - [0x Protocol Gasless API Documentation](https://0x.org/docs/gasless-api/introduction)
 - [0x Protocol Gasless API Guides](https://0x.org/docs/gasless-api/guides/understanding-gasless-api)
 - [EIP-2771: Secure Protocol for Native Meta Transactions](https://eips.ethereum.org/EIPS/eip-2771)
 - [Codex API Documentation](https://www.codex.io/)
+- [TypeScript tooling for Ethereum](https://github.com/wevm)
 - [Comparing Ethers.js and Viem/Wagmi](https://gaboesquivel.com/blog/2024-07-viem-wagmi-ethers)
 
 ## Contributing
