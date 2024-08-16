@@ -112,6 +112,13 @@ BasilicaEVM provides a state-of-the-art architecture, carefully curated tech sta
 
 By leveraging BasilicaEVM, development teams can bypass the time-consuming process of assembling and integrating a modern Web3 stack, instead diving directly into creating innovative blockchain-based solutions with confidence.
 
+## References
+
+- [0x Protocol Gasless API Documentation](https://0x.org/docs/gasless-api/introduction)
+- [0x Protocol Gasless API Guides](https://0x.org/docs/gasless-api/guides/understanding-gasless-api)
+- [EIP-2771: Secure Protocol for Native Meta Transactions](https://eips.ethereum.org/EIPS/eip-2771)
+- [Codex API Documentation](https://www.codex.io/)
+- [Comparing Ethers.js and Viem/Wagmi](https://gaboesquivel.com/blog/2024-07-viem-wagmi-ethers)
 
 ## Contributing
 
