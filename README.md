@@ -8,46 +8,14 @@ BasilicaEVM is a comprehensive development stack designed for building modern, p
 
 ## Features
 
-- **Gasless Swaps**: Revolutionizing user experience by eliminating gas-related friction.
-  - Reduces failed trades by up to 85% compared to traditional DEXes.
-  - Confirms transactions on-chain an average of 1 block earlier.
-  - Protects thousands of trades from MEV attacks.
-  - Powered by Tx Relay API, similar to Matcha Auto's implementation.
-  - Simplifies the trading experience by removing gas complexities.
-  - Significantly reduces trading funnel drop-offs caused by insufficient gas.
-
-- **Blockchain data insights**: Empowering developers with comprehensive and real-time blockchain analytics.
-  - Comprehensive data coverage:
-    - 6M+ TOKENS: From established (WETH, SOL, WBNB, ARB) to emerging alt-coins.
-    - 1B+ NFTs: Complete data for collections across all supported networks.
-    - 60+ NETWORKS: Including Ethereum, Solana, Arbitrum, Base, Optimism, Blast, Avalanche, Polygon, and more.
-  - Simplifies complex blockchain data parsing, eliminating the need for custom indexers.
-  - Provides instant access to:
-    - Real-time and historical token & NFT pricing in USD.
-    - Comprehensive, real-time charts with fast and accurate data.
-    - Aggregated data including volume, liquidity, and unique wallet information.
-    - Detailed holder and balance information.
-  - Enables rapid development of data-rich blockchain applications without infrastructure overhead.
-  - Facilitates informed decision-making through deep insights into market trends and user behaviors.
-
-- **Wallet integration**: Seamless connection to blockchain wallets for secure transactions and user authentication.
-   - Out of the box support for RainbowKit, a popular wallet connection library that provides a polished and customizable UI for connecting to various wallets.
-   - Effortless integration with EVM chains using viem and wagmi, modern EVM toolkits that offer type-safe interactions and React hooks for blockchain functionality.
-
-- **Modern Stack**: Cutting-edge front-end technologies enabling:
-  - Lightning-fast initial page loads and seamless transitions between pages
-  - Efficient server-side rendering for improved SEO and performance
-  - Secure server-side operations with robust authentication and encryption protocols
-  - Enhanced data protection through server-side validation and sanitization
-  - Scalable server architecture supporting high-concurrency operations
-  - Rapid UI development with flexible styling options
-  - Consistent and accessible design patterns across the application
-  - Optimized build processes for large-scale projects
-  - Rapid prototyping capabilities for quick iteration and testing
-  - Clear conventions and AI-assisted development using cursor.so
-  - Fast prototyping available through v0.dev
-   - Efficient code sharing and management across multiple applications
-  - Fast and thorough code quality checks
+- **0x Integration:** Built-in support for 0x API v2, enabling gassless, efficient and secure asset transfers, swaps, and liquidity aggregation.
+- **Codex Integration:** Streamline your dApp's data management and indexing with Codex, optimizing performance and ensuring scalability.
+- **Modular Architecture:** Flexible and modular architecture, allowing for easy customization and extension based on your specific project needs.
+- **TypeScript SDK:** A robust TypeScript SDK for interacting with 0x, ensuring type safety and a smooth developer experience.
+- **Wallet Integration:** Out-of-the-box wallet integration for secure transactions and user authentication.
+- **Efficient Dev Workflow:** State of the art devtools and workflows for rapid prototyping, testing, and deployment.
+- **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev
+- **Documentation:** Detailed documentation covering project structure, conventions, and best practices.
 
 ## The BasilicaEVM Stack
 
@@ -73,7 +41,6 @@ For detailed information on each component, please refer to their respective REA
 ### Applications
 
 - **Webapp (`/apps/webapp`)**: The main front-end application for user interactions. [More details](/apps/webapp/README.md)
-- **Faucet (`/apps/faucet`)**: Utility for distributing test tokens in development environments. [More details](/apps/faucet/README.md)
 
 ### Packages
 
