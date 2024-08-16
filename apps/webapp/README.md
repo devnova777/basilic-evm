@@ -29,6 +29,8 @@ This webapp is designed to be modular and flexible, allowing developers to easil
   - [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin): Plugin for beautiful typographic defaults.
   - [clsx](https://github.com/lukeed/clsx): Utility for constructing className strings.
 - [viem](https://viem.sh/): TypeScript interface for Ethereum.
+- [0x](https://github.com/0xProject): Ethereum development framework for dApps and token swaps.
+- [codex.io](https://codex.io): Blockchain data indexing and querying for real-time on-chain analytics.
 - [wagmi](https://wagmi.sh/): React hooks for Ethereum.
   - [@wagmi/connectors](https://wagmi.sh/react/connectors): Wallet connectors for wagmi.
   - [@rainbow-me/rainbowkit](https://www.rainbowkit.com/): Wallet connection UI for Ethereum dApps.
