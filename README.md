@@ -7,6 +7,7 @@
 BasilicaEVM is a comprehensive development stack designed for building modern, performant, and scalable EVM-based applications. It combines cutting-edge web technologies with robust blockchain integration, providing developers with a powerful toolkit for creating decentralized applications (dApps) and DeFi platforms. Leveraging the best and fastest development tools, BasilicaEVM ensures a smooth and efficient development process, enabling teams to focus on building innovative Web3 products.
 
 ## Features
+
 - 🔄 **0x Integration:** Built-in support for 0x API v2, enabling secure, gasless asset transfers, swaps, and liquidity aggregation.
 
 - 📊 **Codex Integration:** Streamline your dApp's data management and indexing with Codex, optimizing performance and ensuring scalability.
@@ -19,11 +20,12 @@ BasilicaEVM is a comprehensive development stack designed for building modern, p
 
 - ⚡ **Efficient Dev Workflow:** State-of-the-art devtools and workflows for rapid prototyping, testing, and deployment.
 
+- 🔨 **Hardhat:** Robust framework for EVM smart contract development, testing, and deployment.
+
 - 🤖 **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev.
 
 - 📚 **Documentation:** Detailed documentation covering project structure, conventions, and best practices.
 
-- 🔨 **Hardhat:** Robust framework for EVM smart contract development, testing, and deployment.
 
 ## The BasilicaEVM Stack
 
