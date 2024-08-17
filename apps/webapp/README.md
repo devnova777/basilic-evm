@@ -11,7 +11,6 @@ This webapp is designed to be modular and flexible, allowing developers to easil
   - [next-safe-action](https://github.com/TheEdoRan/next-safe-action): Type-safe server actions.
   - [nuqs](https://github.com/47ng/nuqs): URL query string management.
   - [@next/env](https://github.com/vercel/next.js/tree/canary/packages/next-env): Environment variable loading.
-  - [nookies](https://github.com/maticzav/nookies): Cookie management.
   - [@sentry/nextjs](https://docs.sentry.io/platforms/javascript/guides/nextjs/): Error tracking and performance monitoring.
   - [negotiator](https://github.com/jshttp/negotiator): HTTP content negotiation library.
   - [@next/third-parties](https://github.com/vercel/next.js/tree/canary/packages/third-parties): Third-party integrations.
