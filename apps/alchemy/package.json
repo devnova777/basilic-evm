@@ -1,0 +1,14 @@
+{
+  "name": "alchemy-hooks",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "alchemy-sdk": "^3.4.1"
+  }
+}

@@ -52,6 +52,7 @@ For detailed information on each component, please refer to their respective REA
 
 - **Webapp (`/apps/webapp`)**: The main front-end application for user interactions. [More details](/apps/webapp/README.md)
 - **Trigger Dev Jobs (`/apps/trigger`)**: Background jobs for the Basilica project. [More details](/apps/trigger/README.md)
+- **Alchemy Webhooks (`/apps/alchemy`)**: Alchemy webhooks for listening to blockchain events. [More details](/apps/alchemy/README.md)
 
 ### Packages
 
