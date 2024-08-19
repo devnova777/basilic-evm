@@ -17,3 +17,16 @@ For more information on how to use Alchemy's services and set up webhooks, refer
 For details on how these webhooks are processed and used in our Trigger.dev jobs, please see the [Trigger App README](../trigger/README.md).
 
 
+To install dependencies:
+
+```bash
+bun install
+```
+
+To run:
+
+```bash
+bun run src/index.ts
+```
+
+This project was created using `bun init` in bun v1.1.24. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
