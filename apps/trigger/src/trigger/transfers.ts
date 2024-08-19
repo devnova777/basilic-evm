@@ -1,6 +1,6 @@
 import { logger, task, wait } from "@trigger.dev/sdk/v3";
 
-export const issuePresaleTokensTask = task({
+export const tokenTransfersTask = task({
   id: "token-transfers",
   run: async (payload: any, { ctx }) => {
     try {
