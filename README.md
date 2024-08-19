@@ -51,6 +51,7 @@ For detailed information on each component, please refer to their respective REA
 ### Applications
 
 - **Webapp (`/apps/webapp`)**: The main front-end application for user interactions. [More details](/apps/webapp/README.md)
+- **Trigger Dev Jobs (`/apps/trigger`)**: Background jobs for the Basilica project. [More details](/apps/trigger/README.md)
 
 ### Packages
 
