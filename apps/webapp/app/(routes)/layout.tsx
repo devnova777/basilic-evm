@@ -80,8 +80,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://basilica.xyz',
     title: 'basilica',
-    description:
-      'Be part of the intelligent future and join the Ai/Web3 revolution now!',
+    description: 'Basilica dApp Starter',
     images: [
       {
         url: 'https://basilica.xyz/images/og-image.webp',
