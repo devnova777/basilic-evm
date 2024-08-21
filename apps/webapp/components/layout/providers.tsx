@@ -21,7 +21,7 @@ import { polygon } from 'wagmi/chains'
 const queryClient = new QueryClient()
 
 export const wagmiConfig = getDefaultConfig({
-  appName: 'basilica',
+  appName: 'basilic',
   projectId: '25a868c834c1003aa0f0b69aba0ae056',
   wallets: [
     {
@@ -54,7 +54,7 @@ export function Providers({ children, ...props }: ThemeProviderProps) {
             modalSize="compact"
             showRecentTransactions={true}
             appInfo={{
-              appName: 'Basilica',
+              appName: 'Basilic',
             }}
           >
             {children}

@@ -1,6 +1,6 @@
 # Trigger.dev Background Jobs
 
-This directory contains the configuration and implementation of background jobs using Trigger.dev for the Basilica project.
+This directory contains the configuration and implementation of background jobs using Trigger.dev for the Basilic project.
 
 ## Overview
 

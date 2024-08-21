@@ -1,6 +1,6 @@
-# BasilicaEVM Webapp
+# BasilicEVM Webapp
 
-The BasilicaEVM Webapp is a Next.js 14 application designed for building modern, performant, and scalable Ethereum-based web interfaces. It leverages the latest Next.js features and integrates seamlessly with blockchain technologies.
+The BasilicEVM Webapp is a Next.js 14 application designed for building modern, performant, and scalable Ethereum-based web interfaces. It leverages the latest Next.js features and integrates seamlessly with blockchain technologies.
 
 This webapp is designed to be modular and flexible, allowing developers to easily adapt it for various Ethereum-based projects, from simple dApps to complex DeFi platforms.
 

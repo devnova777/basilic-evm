@@ -1,7 +1,7 @@
 {
-  "name": "basilica",
+  "name": "basilic",
   "version": "1.0.0",
-  "description": "basilica monorepo",
+  "description": "basilic monorepo",
   "author": "bitcash.org",
   "license": "MIT",
   "private": true,

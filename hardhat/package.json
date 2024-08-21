@@ -1,5 +1,5 @@
 {
-  "name": "basilica-hardhat",
+  "name": "basilic-hardhat",
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",

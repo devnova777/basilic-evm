@@ -65,11 +65,11 @@ interface RootLayoutProps {
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'basilica',
-    template: '%s | basilica',
+    absolute: 'basilic',
+    template: '%s | basilic',
   },
-  description: 'basilica!',
-  metadataBase: new URL('https://basilica.xyz'),
+  description: 'basilic!',
+  metadataBase: new URL('https://basilic.xyz'),
   alternates: {
     canonical: '/',
     languages: {
@@ -78,24 +78,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://basilica.xyz',
-    title: 'basilica',
-    description: 'Basilica dApp Starter',
+    url: 'https://basilic.xyz',
+    title: 'basilic',
+    description: 'Basilic dApp Starter',
     images: [
       {
-        url: 'https://basilica.xyz/images/og-image.webp',
-        alt: 'basilica',
+        url: 'https://basilic.xyz/images/og-image.webp',
+        alt: 'basilic',
       },
     ],
   },
   twitter: {
-    creator: 'basilica',
-    site: '@basilica',
+    creator: 'basilic',
+    site: '@basilic',
     card: 'summary_large_image',
     images: [
       {
-        url: 'https://basilica.xyz/images/og-image.webp',
-        alt: 'basilica',
+        url: 'https://basilic.xyz/images/og-image.webp',
+        alt: 'basilic',
       },
     ],
   },
