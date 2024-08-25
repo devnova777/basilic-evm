@@ -1,6 +1,6 @@
-# @repo/project-contracts
+# @repo/tokens
 
-The `@repo/project-contracts` package is a crucial part of our project architecture, designed to store and manage contract-related information and utilities. This README outlines the key components and usage of this package.
+The `@repo/tokens` package is a crucial part of our project architecture, designed to store and manage contract-related information and utilities. This README outlines the key components and usage of this package.
 
 ## Key Components
 
@@ -12,7 +12,7 @@ The `@repo/project-contracts` package is a crucial part of our project architect
 
 ## Usage
 
-The `@repo/project-contracts` package can be imported and used across different parts of the project, including the webapp, backend services, and other packages. It serves as a centralized source of truth for contract-related information.
+The `@repo/tokens` package can be imported and used across different parts of the project, including the webapp, backend services, and other packages. It serves as a centralized source of truth for contract-related information.
 
 ## Best Practices
 

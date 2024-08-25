@@ -1,6 +1,6 @@
-# @repo/project-lib
+# @repo/utils
 
-The `@repo/project-lib` package is a crucial part of our project architecture, designed to provide reusable code and utilities across multiple applications and components of our project ecosystem. This README outlines the key components and usage of this package.
+The `@repo/utils` package is a crucial part of our project architecture, designed to provide reusable code and utilities across multiple applications and components of our project ecosystem. This README outlines the key components and usage of this package.
 
 ## Key Components
 
@@ -14,11 +14,11 @@ The `@repo/project-lib` package is a crucial part of our project architecture, d
 
 ## Usage
 
-The `@repo/project-lib` package can be imported and used across different parts of the project, including the webapp, backend services, and other packages. It serves as a centralized source for shared functionality and resources.
+The `@repo/utils` package can be imported and used across different parts of the project, including the webapp, backend services, and other packages. It serves as a centralized source for shared functionality and resources.
 
 ## Libraries
 
-The `@repo/project-lib` package exports the following modules:
+The `@repo/utils` package exports the following modules:
 
 1. **crypto**: Contains cryptographic utilities and functions for handling encryption, decryption, hashing, and other crypto-related operations.
 
@@ -44,4 +44,4 @@ Each of these modules is designed to provide reusable functionality across diffe
 
 ## Flexibility and Scalability
 
-The `@repo/project-lib` package promotes modularity and scalability in our project architecture. It allows for easy sharing and maintenance of utilities across different applications, reducing code duplication and improving overall project consistency.
+The `@repo/utils` package promotes modularity and scalability in our project architecture. It allows for easy sharing and maintenance of utilities across different applications, reducing code duplication and improving overall project consistency.

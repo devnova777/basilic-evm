@@ -40,8 +40,8 @@ This webapp is designed to be modular and flexible, allowing developers to easil
 - [lucide-react](https://lucide.dev/): Icon library for React applications.
 - [mini-svg-data-uri](https://github.com/tigt/mini-svg-data-uri): Optimizes SVGs for data URIs.
 - [zod](https://zod.dev/): TypeScript-first schema validation.
-- [@repo/project-lib](workspace:*): Internal project library.
-- [@repo/project-contracts](workspace:*): Smart contract interfaces and utilities.
+- [@repo/utils](workspace:*): Internal project library.
+- [@repo/tokens](workspace:*): Smart contract interfaces and utilities.
 - [@radix-ui/react-slot](https://www.radix-ui.com/primitives/docs/utilities/slot): Utility component for flexible composition.
 - [@blockmatic/hooks-utils](https://github.com/blockmatic/hooks-utils): A collection of useful React hooks, including createContextHook for easy context creation and consumption.
 - [pino-pretty](https://github.com/pinojs/pino-pretty): Prettifier for Pino logs. WalletConnect uses pino for logging.

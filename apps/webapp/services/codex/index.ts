@@ -10,7 +10,7 @@ import type {
   EnhancedToken,
   Network,
 } from '@definedfi/sdk/dist/sdk/generated/graphql'
-import { getErrorMessage } from '@repo/project-lib'
+import { getErrorMessage } from '@repo/utils'
 
 const codex = new Defined(appConfig.services.codexApiKey)
 

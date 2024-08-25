@@ -50,16 +50,16 @@ For detailed information on each component, please refer to their respective REA
 
 ### Applications
 
-- **Webapp (`/apps/webapp`)**: The main front-end application for user interactions. [More details](/apps/webapp/README.md)
-- **Trigger Dev Jobs (`/apps/trigger`)**: Background jobs for the Basilic project. [More details](/apps/trigger/README.md)
-- **Alchemy Webhooks (`/apps/alchemy`)**: Alchemy webhooks for listening to blockchain events. [More details](/apps/alchemy/README.md)
+- **Webapp (`/apps/webapp`)**: Main front-end application. [Details](/apps/webapp/README.md)
 
 ### Packages
 
-- **Config TypeScript (`/packages/config-typescript`)**: Shared TypeScript configurations. 
-- **Project Contracts (`/packages/app-contracts`)**: Smart contract interfaces, data and utilities. [More details](/packages/app-contracts/README.md)
-- **Project Lib (`/packages/project-lib`)**: Shared project library. [More details](/packages/project-lib/README.md)
-- **0x API (`/packages/0x-api`)**: SDK for interacting with the 0x API v2. [More details](/packages/0x-api/README.md)
+- **Jobs (`/packages/jobs`)**: Background tasks. [Details](/packages/jobs/README.md)
+- **Alchemy (`/packages/alchemy`)**: Blockchain event listeners. [Details](/packages/alchemy/README.md)
+- **TypeScript Config (`/packages/tsconfig`)**: Shared TS configurations.
+- **Tokens (`/packages/tokens`)**: Supported tokens. [Details](/packages/tokens/README.md)
+- **Utils (`/packages/utils`)**: Shared utilities. [Details](/packages/utils/README.md)
+- **0x API (`/packages/0x-api`)**: SDK for 0x API v2. [Details](/packages/0x-api/README.md)
 
 ### Hardhat (`/hardhat`)
 

@@ -1,8 +1,8 @@
 'use client'
 
 import { useTokenBalance } from '@/hooks/evm/use-balance'
-import { getToken } from '@repo/project-contracts'
-import type { Token } from '@repo/project-contracts/src/types'
+import { getToken } from '@repo/tokens'
+import type { Token } from '@repo/tokens'
 import { erc20Abi } from 'abitype/abis'
 import { useAccount } from 'wagmi'
 

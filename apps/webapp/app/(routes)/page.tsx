@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/table'
 import { appConfig } from '@/lib/config'
 import type { EnhancedToken } from '@definedfi/sdk/dist/resources/graphql'
-import { tokens } from '@repo/project-contracts'
+import { tokens } from '@repo/tokens'
 import dynamic from 'next/dynamic'
 
 export default async function IndexPage() {

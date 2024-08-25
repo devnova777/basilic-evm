@@ -9,7 +9,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import type { EnhancedToken } from '@definedfi/sdk/dist/sdk/generated/graphql'
-import { tokens } from '@repo/project-contracts'
+import { tokens } from '@repo/tokens'
 
 export function TokenDataTable({ tokenData }: { tokenData: EnhancedToken[] }) {
   return (

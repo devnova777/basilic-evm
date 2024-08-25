@@ -1,6 +1,6 @@
 # Lib Folder
 
-The `lib/` directory in this Next.js application is designed to house functions, constants, and configuration files specific to this webapp. For shared resources across all projects, please refer to the `@repo/project-lib` package.
+The `lib/` directory in this Next.js application is designed to house functions, constants, and configuration files specific to this webapp. For shared resources across all projects, please refer to the `@repo/utils` package.
 
 ## Key Principles
 
@@ -19,9 +19,9 @@ The `lib/` directory in this Next.js application is designed to house functions,
 - Document each function with clear JSDoc comments.
 - Avoid any direct interactions with external APIs or state management within this folder. Use the `services/` directory for API interactions and state management instead.
 - Regularly review and update the contents to ensure they align with the latest application requirements.
-- For shared resources across projects, use the `@repo/project-lib` package instead of this local lib folder.
+- For shared resources across projects, use the `@repo/utils` package instead of this local lib folder.
 
-By adhering to these principles and practices, we maintain a clean, efficient, and easily maintainable library of app-specific resources while leveraging shared resources from `@repo/project-lib` for cross-project functionality.
+By adhering to these principles and practices, we maintain a clean, efficient, and easily maintainable library of app-specific resources while leveraging shared resources from `@repo/utils` for cross-project functionality.
 
 ## Lib Location Flexibility
 

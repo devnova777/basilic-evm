@@ -9,8 +9,7 @@
     "build": "turbo build --no-daemon",
     "dev": "turbo dev --no-daemon --parallel",
     "format-and-lint": "biome check .",
-    "format-and-lint:fix": "biome check . --write",
-    "clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+    "format-and-lint:fix": "biome check . --write"
   },
   "workspaces": {
     "packages": ["apps/*", "packages/*", "hardhat", "hardhat/**"],
