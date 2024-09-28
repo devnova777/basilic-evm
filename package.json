@@ -12,7 +12,7 @@
     "format-and-lint:fix": "biome check . --write"
   },
   "workspaces": {
-    "packages": ["apps/*", "packages/*", "hardhat", "hardhat/**"],
+    "packages": ["apps/*", "packages/*", "hardhat", "services/*", "tooling/**"],
     "nohoist": [
       "**/vite",
       "**/vite/**",
