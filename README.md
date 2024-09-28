@@ -50,16 +50,22 @@ For detailed information on each component, please refer to their respective REA
 
 ### Applications
 
-- **Webapp (`/apps/webapp`)**: Main front-end application. [Details](/apps/webapp/README.md)
+- **Webapp (`/apps/web`)**: Main front-end application. [Details](/apps/webapp/README.md)
 
 ### Packages
-
-- **Jobs (`/packages/jobs`)**: Background tasks. [Details](/packages/jobs/README.md)
-- **Alchemy (`/packages/alchemy`)**: Blockchain event listeners. [Details](/packages/alchemy/README.md)
-- **TypeScript Config (`/packages/tsconfig`)**: Shared TS configurations.
+- **Errors (`/packages/errors`)**: Errors package. [Details](/packages/errors/README.md)
 - **Tokens (`/packages/tokens`)**: Supported tokens. [Details](/packages/tokens/README.md)
 - **Utils (`/packages/utils`)**: Shared utilities. [Details](/packages/utils/README.md)
-- **0x API (`/packages/0x-api`)**: SDK for 0x API v2. [Details](/packages/0x-api/README.md)
+
+### Services
+
+- **Trigger (`/services/trigger`)**: Background tasks and event-driven jobs. [Details](/services/trigger/README.md)
+- **Alchemy (`/services/alchemy`)**: Blockchain event listeners and data indexing. [Details](/services/alchemy/README.md)
+- **0x API (`/services/0x-api`)**: SDK for 0x API v2 integration. [Details](/services/0x-api/README.md)
+
+### Tooling
+
+- **TypeScript Config (`/tooling/tsconfig`)**: Shared TypeScript configurations.
 
 ### Hardhat (`/hardhat`)
 
