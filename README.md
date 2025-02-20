@@ -20,7 +20,7 @@ BasilicEVM is a comprehensive development stack designed for building modern, pe
 
 - ⚡ **Efficient Dev Workflow:** State-of-the-art devtools and workflows for rapid prototyping, testing, and deployment.
 
-- 🔨 **Hardhat:** Robust framework for EVM smart contract development, testing, and deployment.
+- 🔨 **Foundry:** Robust framework for EVM smart contract development, testing, and deployment.
 
 - 🤖 **AI-Assisted Development:** Clear conventions and AI-assisted development using cursor.so and v0.dev.
 
@@ -34,7 +34,7 @@ At its core, the BasilicEVM Stack leverages:
 - **Turbo Monorepo**: Efficient codebase management and optimized build processes for large-scale projects.
 - **Bun**: Ultra-fast JavaScript runtime, package manager, and build tool, enhancing development speed and efficiency.
 - **Biome**: Modern, fast, and extensible toolchain for web projects, providing linting, formatting, and more.
-- **Hardhat**: Robust framework for EVM smart contract development, testing, and deployment.
+- **Foundry**: Robust framework for EVM smart contract development, testing, and deployment.
 - **Next.js 14**: Cutting-edge full-stack development with React Server Components, App Router, and server actions.
 - **Tailwind CSS & shadcn/ui**: Rapid, customizable UI development with utility-first CSS and accessible component primitives.
 - **EVM Integration**:
@@ -67,9 +67,9 @@ For detailed information on each component, please refer to their respective REA
 
 - **TypeScript Config (`/tooling/tsconfig`)**: Shared TypeScript configurations.
 
-### Hardhat (`/hardhat`)
+### Foundry (`/foundry`)
 
-Contains configurations and scripts for smart contract development, testing, and deployment. [More details](/hardhat/README.md)
+Contains configurations and scripts for smart contract development, testing, and deployment. [More details](/foundry/README.md)
 
 ## Development Conventions and AI Workflow
 
@@ -95,15 +95,17 @@ These AI-powered tools significantly accelerate our development process, enablin
 
 ## Installation
 
-1. Install Bun globally:
+1. Install Bun and Foundry globally:
    ```
    curl -fsSL https://bun.sh/install | bash
+   curl -L https://foundry.paradigm.xyz | bash
+   foundryup
    ```
 
 2. Clone the repository:
    ```
-   git clone https://github.com/your-username/basilic-eth.git
-   cd basilic-eth
+   git clone https://github.com/your-username/basilic-evm.git
+   cd basilic-evm
    ```
 
 3. Install dependencies and start the development server:

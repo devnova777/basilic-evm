@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - "foundry/**"  # Run CI only if changes are made inside /foundry
+  pull_request:
+    paths:
+      - "foundry/**"  # Run CI on pull requests modifying /foundry
+  workflow_dispatch:  # Allow manual triggering of this workflow
+
+env:
+  FOUNDRY_PROFILE: ci  # Use a specific Foundry profile for CI to ensure consistency
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true  # Stop all jobs if any one of them fails
+
+    name: Foundry project
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read  # Restrict permissions for security
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive  # Ensure all submodules (if any) are cloned
+
+      - name: Cache Foundry Build Artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.foundry  # Cache Foundry binaries to speed up subsequent runs
+            foundry/cache  # Cache Foundry's build artifacts to avoid recompiling unchanged code
+          key: ${{ runner.os }}-foundry-${{ hashFiles('**/foundry.toml') }}  # Cache key changes if foundry.toml changes
+          restore-keys: |
+            ${{ runner.os }}-foundry-  # Restore from the latest available cache if an exact match isn't found
+          max-cache-size: 200MB  # Prevent excessive storage usage
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: latest  # Always use the latest Foundry version for builds/tests
+
+      - name: Show Forge version
+        run: forge --version  # Print the installed Foundry version for debugging
+
+      - name: Run Forge fmt
+        run: forge fmt --check  # Check if Solidity files are formatted correctly
+        id: fmt
+
+      - name: Run Forge build
+        run: forge build --sizes  # Compile smart contracts and show storage slot sizes
+        id: build
+
+      - name: Run Forge tests
+        run: forge test -vvv  # Run tests with detailed output
+        id: test
