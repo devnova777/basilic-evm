@@ -1,0 +1,104 @@
+---
+description: Viem v2 integration patterns and best practices
+globs: "**/web3/**/*.{ts,tsx}"
+---
+
+# Viem v2 Best Practices
+
+## Core Principles
+- Use viem 2.x APIs consistently
+- Use getAddress for address validation
+- Never cast directly as Address type
+- Handle RPC errors gracefully
+
+## Address Handling
+```tsx
+import { getAddress, type Address } from 'viem'
+
+// Proper address validation
+function validateAddress(rawAddress: string) {
+  try {
+    return getAddress(rawAddress)
+  } catch (error) {
+    throw new Error('Invalid Ethereum address')
+  }
+}
+
+// Contract interaction pattern
+export async function readContract({
+  address,
+  abi,
+  functionName,
+  args
+}: ReadContractParams) {
+  const contractAddress = getAddress(address)
+  
+  return publicClient.readContract({
+    address: contractAddress,
+    abi,
+    functionName,
+    args
+  })
+}
+```
+
+## Transaction Handling
+```tsx
+import { type Hash, parseEther } from 'viem'
+
+// Send transaction pattern
+export async function sendTransaction({
+  to,
+  value,
+  data
+}: SendTransactionParams) {
+  try {
+    const hash = await walletClient.sendTransaction({
+      to: getAddress(to),
+      value: parseEther(value),
+      data
+    })
+    
+    return { hash }
+  } catch (error) {
+    if (error.code === 'INSUFFICIENT_FUNDS') {
+      throw new Error('Insufficient balance')
+    }
+    throw error
+  }
+}
+```
+
+## Event Handling
+```tsx
+// Event listening pattern
+export function useContractEvent({
+  address,
+  abi,
+  eventName
+}: ContractEventParams) {
+  const unwatch = publicClient.watchContractEvent({
+    address: getAddress(address),
+    abi,
+    eventName,
+    onLogs: (logs) => {
+      // Handle logs
+    }
+  })
+
+  // Cleanup on unmount
+  onUnmount(() => unwatch())
+}
+```
+
+## Error Handling
+- Use proper viem error types
+- Handle common RPC errors gracefully
+- Implement proper fallbacks
+- Provide user-friendly error messages
+
+## Performance
+- Use multicall for batch requests
+- Implement proper caching strategies
+- Handle rate limiting appropriately
+- Use WebSocket for real-time updates 

@@ -3,58 +3,72 @@ name: CI
 on:
   push:
     paths:
-      - "foundry/**"  # Run CI only if changes are made inside /foundry
+      - "contracts/**"
   pull_request:
     paths:
-      - "foundry/**"  # Run CI on pull requests modifying /foundry
-  workflow_dispatch:  # Allow manual triggering of this workflow
+      - "contracts/**"
+  workflow_dispatch:
 
 env:
-  FOUNDRY_PROFILE: ci  # Use a specific Foundry profile for CI to ensure consistency
+  FOUNDRY_PROFILE: ci
 
 jobs:
   check:
     strategy:
-      fail-fast: true  # Stop all jobs if any one of them fails
+      fail-fast: true
 
     name: Foundry project
     runs-on: ubuntu-latest
     permissions:
-      contents: read  # Restrict permissions for security
+      contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # Ensure all submodules (if any) are cloned
+          submodules: recursive
+
+      - name: Install Supabase CLI
+        run: npm install -g supabase
+
+      - name: Authenticate Supabase CLI
+        run: supabase link --project-id ${{ secrets.SUPABASE_PROJECT_ID }} --service-role-key ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Get Supabase Branch Connection URL
+        run: |
+          BRANCH_NAME=$(echo $GITHUB_REF_NAME | sed 's/\//_/g')
+          CONNECTION_URL=$(supabase db branches list --json | jq -r --arg BRANCH "$BRANCH_NAME" '.[] | select(.name == $BRANCH) | .connectionString')
+          echo "SUPABASE_CONNECTION_URL=$CONNECTION_URL" >> $GITHUB_ENV
 
       - name: Cache Foundry Build Artifacts
         uses: actions/cache@v4
         with:
           path: |
-            ~/.foundry  # Cache Foundry binaries to speed up subsequent runs
-            foundry/cache  # Cache Foundry's build artifacts to avoid recompiling unchanged code
-          key: ${{ runner.os }}-foundry-${{ hashFiles('**/foundry.toml') }}  # Cache key changes if foundry.toml changes
+            ~/.foundry
+            foundry/cache
+          key: ${{ runner.os }}-foundry-${{ hashFiles('**/foundry.toml') }}
           restore-keys: |
-            ${{ runner.os }}-foundry-  # Restore from the latest available cache if an exact match isn't found
-          max-cache-size: 200MB  # Prevent excessive storage usage
+            ${{ runner.os }}-foundry-
+          max-cache-size: 200MB
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
-          version: latest  # Always use the latest Foundry version for builds/tests
+          version: latest
 
       - name: Show Forge version
-        run: forge --version  # Print the installed Foundry version for debugging
+        run: forge --version
 
       - name: Run Forge fmt
-        run: forge fmt --check  # Check if Solidity files are formatted correctly
+        run: forge fmt --check
         id: fmt
 
       - name: Run Forge build
-        run: forge build --sizes  # Compile smart contracts and show storage slot sizes
+        run: forge build --sizes
         id: build
 
-      - name: Run Forge tests
-        run: forge test -vvv  # Run tests with detailed output
+      - name: Run Forge tests with Supabase DB
+        env:
+          DATABASE_URL: ${{ env.SUPABASE_CONNECTION_URL }}
+        run: forge test -vvv
         id: test

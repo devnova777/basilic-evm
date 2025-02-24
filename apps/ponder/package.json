@@ -1,0 +1,28 @@
+{
+  "name": "@repo/ponder",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ponder dev",
+    "start": "ponder start",
+    "silent": "ponder dev --log-level silent",
+    "db": "ponder db",
+    "codegen": "ponder codegen",
+    "lint": "eslint .",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.1.2",
+    "hono": "^4.5.0",
+    "ponder": "^0.9.19",
+    "viem": "^2.21.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18.14"
+  }
+}

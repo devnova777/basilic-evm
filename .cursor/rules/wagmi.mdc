@@ -1,0 +1,27 @@
+---
+description: Web3 integration patterns using Wagmi v2
+globs: "**/hooks/**/*.{ts,tsx}"
+---
+
+# Wagmi v2 Best Practices
+
+## Core Principles
+- Use Wagmi 2.x hooks
+- Handle loading and error states
+- Use proper types from wagmi/core
+
+## Hook Patterns
+```tsx
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
+
+function WalletConnect() {
+  const { address } = useAccount()
+  const { connect } = useConnect()
+  const { disconnect } = useDisconnect()
+
+  if (!address) 
+    return <Button onClick={() => connect()}>Connect</Button>
+
+  return <Button onClick={() => disconnect()}>Disconnect</Button>
+}
+``` 

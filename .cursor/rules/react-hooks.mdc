@@ -1,0 +1,113 @@
+---
+description: React hooks patterns and best practices
+globs: "**/hooks/**/*.{ts,tsx}"
+---
+
+# React Hooks Best Practices
+
+## Core Principles
+- Use TanStack Query (React Query) as primary data fetching solution
+- Use useAsync/useAsyncFn for one-off async operations
+- Follow hooks naming conventions
+- Handle loading and error states consistently
+
+## TanStack Query Patterns
+```tsx
+import { useQuery, useMutation } from '@tanstack/react-query'
+
+// Data fetching with proper types
+export function useUserData(userId: string) {
+  return useQuery({
+    queryKey: ['user', userId],
+    queryFn: async () => {
+      const data = await fetchUser(userId)
+      return data as User
+    }
+  })
+}
+
+// Mutation with optimistic updates
+export function useUpdateUser() {
+  const queryClient = useQueryClient()
+  
+  return useMutation({
+    mutationFn: updateUser,
+    onMutate: async (newUser) => {
+      await queryClient.cancelQueries({ queryKey: ['user', newUser.id] })
+      const previousUser = queryClient.getQueryData(['user', newUser.id])
+      
+      queryClient.setQueryData(['user', newUser.id], newUser)
+      return { previousUser }
+    },
+    onError: (err, newUser, context) => {
+      queryClient.setQueryData(
+        ['user', newUser.id],
+        context?.previousUser
+      )
+    }
+  })
+}
+```
+
+## Async Operations
+```tsx
+import { useAsync, useAsyncFn } from 'react-use'
+
+// For values that load once and remain static
+export function useStaticData() {
+  const state = useAsync(async () => {
+    const data = await fetchStaticData()
+    return data
+  }, [])
+
+  return state
+}
+
+// For operations that need manual triggering
+export function useManualOperation() {
+  const [state, execute] = useAsyncFn(async (params) => {
+    const result = await someOperation(params)
+    return result
+  }, [])
+
+  return { state, execute }
+}
+```
+
+## Custom Hooks Patterns
+```tsx
+// Combine multiple queries
+export function useUserWithPosts(userId: string) {
+  const user = useQuery({
+    queryKey: ['user', userId],
+    queryFn: () => fetchUser(userId)
+  })
+  
+  const posts = useQuery({
+    queryKey: ['posts', userId],
+    queryFn: () => fetchUserPosts(userId),
+    enabled: !!user.data
+  })
+
+  return {
+    user: user.data,
+    posts: posts.data,
+    isLoading: user.isLoading || posts.isLoading,
+    error: user.error || posts.error
+  }
+}
+```
+
+## Error Handling
+- Always handle loading, error, and success states
+- Use proper error boundaries for query errors
+- Implement retry logic where appropriate
+- Show user-friendly error messages
+
+## Performance
+- Use proper query keys for caching
+- Implement stale-while-revalidate patterns
+- Use suspense mode when appropriate
+- Handle pagination and infinite queries efficiently
+``` 
+</rewritten_file>

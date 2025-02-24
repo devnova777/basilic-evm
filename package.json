@@ -1,35 +1,23 @@
 {
-	"name": "basilic",
-	"version": "1.0.0",
-	"description": "basilic monorepo",
-	"author": "bitcash.org",
-	"license": "MIT",
-	"private": true,
-	"scripts": {
-		"build": "turbo build --no-daemon",
-		"dev": "turbo dev --no-daemon --parallel",
-		"format-and-lint": "biome check .",
-		"format-and-lint:fix": "biome check . --write"
-	},
-	"workspaces": {
-		"packages": ["apps/*", "packages/*", "services/*", "tooling/**"],
-		"nohoist": [
-			"**/vite",
-			"**/vite/**",
-			"**/cbw-sdk",
-			"**/cbw-sdk/**",
-			"**/wagmi",
-			"**/wagmi/**"
-		]
-	},
-	"packageManager": "bun@1.1.24",
-	"engines": {
-		"node": "20.x"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@types/bn.js": "^5.1.5",
-		"@types/node": "latest",
-		"turbo": "^2.0.13"
-	}
+  "name": "basilic-evm",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "backend": "bash scripts/backend.sh",
+    "dev": "turbo run dev",
+    "check-types": "turbo run check-types",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  },
+  "devDependencies": {
+    "turbo": "^2.4.2",
+    "typescript": "5.7.3",
+    "@biomejs/biome": "^1.9.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@8.15.4",
+  "workspaces": ["apps/*", "packages/*"],
+  "dependencies": {}
 }

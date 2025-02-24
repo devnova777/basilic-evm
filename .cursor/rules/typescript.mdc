@@ -1,0 +1,53 @@
+---
+description: TypeScript coding standards and best practices
+globs: "**/*.{ts,tsx}"
+---
+
+# TypeScript Best Practices
+
+## Core Principles
+- Use "function" keyword for pure functions; omit semicolons
+- Use TypeScript; prefer interfaces over types; avoid enums, use maps
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading)
+- Use the RORO (Receive an Object, Return an Object) pattern
+
+## Error Handling
+- Handle errors early; use early returns
+- Place happy path last for readability
+- Avoid unnecessary else statements; use if-return pattern
+- Use guard clauses for preconditions and invalid states
+- Throw errors from @repo/errors
+
+## File Structure
+
+- File order: main component -> subcomponents -> helpers and utils -> static content -> types
+
+```tsx
+// Export order: main component -> subcomponents -> helpers -> content -> types
+export function MainComponent() {
+  return (
+    <div className="flex flex-col gap-4">
+      <h1>{content.title}</h1>
+      <SubComponent message={content.welcome} />
+      <span>{formatMessage(content.welcome)}</span>
+    </div>
+  )
+}
+
+function SubComponent({ message }: SubComponentProps) {
+  return <p>{message}</p>
+}
+
+function formatMessage(message: string) {
+  return `${message} (${new Date().getFullYear()})`
+}
+
+const content = {
+  title: "Main Component",
+  welcome: "Welcome to our application"
+} as const
+
+interface SubComponentProps {
+  message: string
+}
+``` 

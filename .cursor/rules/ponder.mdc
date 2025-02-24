@@ -1,0 +1,162 @@
+---
+description: Ponder indexing standards and best practices
+globs: "**/ponder/**/*.ts"
+---
+
+# Ponder Best Practices
+
+## Database Operations
+
+### Reading Data
+- Use `db.find()` instead of `db.get()` for single record lookups
+- Use `db.findMany()` for multiple records
+- Always handle null cases when querying data
+
+```ts
+// ❌ Don't use db.get
+const asset = await context.db.get(Asset, { id });
+
+// ✅ Use db.find
+const asset = await context.db.find(Asset, { id });
+if (!asset) {
+  // Handle missing asset case
+}
+```
+
+### Writing Data
+- Use `db.insert()` for creating new records
+- Use `db.update()` for modifying existing records
+- Use transactions for related operations
+- Handle duplicate inserts gracefully
+
+```ts
+await context.db.insert(Asset).values({
+  id,
+  name,
+  symbol,
+  decimals,
+  chainId,
+  address: tokenAddress
+});
+```
+
+## Event Handling
+
+### Event Handler Structure
+- Define event handlers with proper type annotations
+- Destructure event and context parameters
+- Use early returns for guard clauses
+- Log meaningful information for debugging
+
+```ts
+ponder.on(
+  "Contract:Event",
+  async ({
+    event,
+    context
+  }: {
+    event: Event<"Contract:Event">
+    context: Context
+  }) => {
+    const { args, log } = event;
+    // Handler logic
+  }
+);
+```
+
+### Error Handling
+- Wrap chain calls in try/catch blocks
+- Provide fallback values for failed operations
+- Log errors with meaningful context
+- Continue processing where possible
+
+```ts
+try {
+  const result = await context.client.readContract({...});
+} catch (error) {
+  console.error(`Failed to read contract: ${error}`);
+  // Provide fallback or default value
+}
+```
+
+## Contract Interactions
+
+### Reading Contract Data
+- Use `context.client.readContract()` for contract calls
+- Cache frequently accessed data in database
+- Batch related contract calls with `Promise.all`
+- Use proper ABIs from context.contracts
+
+```ts
+const [name, symbol, decimals] = await Promise.all([
+  context.client.readContract({
+    abi: context.contracts.Token.abi,
+    address,
+    functionName: "name"
+  }),
+  // Additional calls...
+]);
+```
+
+### Data Formatting
+- Use `formatUnits()` for token amounts
+- Handle different token decimals appropriately
+- Use BigNumber for precise calculations
+- Format chain IDs consistently
+
+```ts
+const amountFormatted = formatUnits(amount, decimals);
+const chainId = event.block.chainId.toString();
+```
+
+## Schema Design
+
+### Table Structure
+- Use meaningful primary keys
+- Include timestamps and block numbers for events
+- Add indexes for frequent query patterns
+- Use appropriate column types
+
+```ts
+export const SwapEvent = onchainTable("swap_events", (t) => ({
+  id: t.text().primaryKey(),
+  timestamp: t.bigint().notNull(),
+  blockNumber: t.bigint().notNull(),
+  // Additional fields...
+}));
+```
+
+### Data Relationships
+- Use composite IDs for related data
+- Maintain referential integrity
+- Cache related entity data
+- Use consistent ID formats
+
+```ts
+const assetId = `${tokenAddress}-${chainId}`;
+```
+
+## Performance
+
+### Optimization Patterns
+- Cache frequently accessed data
+- Batch database operations
+- Use appropriate indexes
+- Minimize chain calls
+
+```ts
+// Check cache before chain call
+const cached = await context.db.find(Asset, { id });
+if (cached) return cached;
+```
+
+### Logging
+- Log important events and errors
+- Include relevant transaction data
+- Use structured logging format
+- Add context for debugging
+
+```ts
+console.log(`[Event] Type: Swap, Pool: ${poolAddress}`);
+console.log(`Details: Amount0=${amount0}, Amount1=${amount1}`);
+```
