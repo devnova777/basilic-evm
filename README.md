@@ -118,11 +118,12 @@ BasilicEVM provides a state-of-the-art architecture, carefully curated tech stac
 
 By leveraging BasilicEVM, development teams can bypass the time-consuming process of assembling and integrating a modern Web3 stack, instead diving directly into creating innovative blockchain-based solutions with confidence.
 
-## Other Recommended Web3 Services
+## Other Recommended Services
 
 - 🔄 **0x Integration:** Built-in support for 0x API v2, enabling secure, gasless asset transfers, swaps, and liquidity aggregation.
 - 📊 **Codex Integration:** Streamline your dApp's data management and indexing with Codex, optimizing performance and ensuring scalability.
 - 📊 **Space and Time:** Blockchain for ZK-Proven Data - SQL for smart contracts with ZK proofs, APIs to join onchain/offchain data, and sub-second indexing with realtime blockchain data.
+- 🔄 **Trigger.dev:** Trigger.dev is a platform for building and running background jobs.
 
 ## References
 
