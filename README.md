@@ -50,7 +50,7 @@ For detailed information on each component, please refer to their respective REA
 ### Packages
 - **Supabase (`/packages/supabase`)**: Supabase package. [Details](/packages/supabase/README.md)
 - **Errors (`/packages/errors`)**: Errors package. [Details](/packages/errors/README.md)
-- **Utils (`/packages/utils`)**: Shared utilities. [Details](/packages/utils/README.md)
+- **lib (`/packages/lib`)**: Shared pure functions utils library. [Details](/packages/lib/README.md)
 - **TypeScript Config (`/packages/tsconfig`)**: Shared TypeScript configurations.
 
 ### Foundry (`/foundry`)
@@ -79,28 +79,35 @@ We leverage various AI-powered tools to enhance development speed and efficiency
 
 These AI-powered tools significantly accelerate our development process, enabling us to focus more on core functionality and complex problem-solving.
 
-## Installation
+## Quick Start
 
-1. Install Bun and Foundry globally:
-   ```
-   curl -fsSL https://bun.sh/install | bash
+1. **Prerequisites**
+   - Node.js 18+
+   - pnpm
+   - Foundry
+   - Git
+
+2. **Installation**
+   ```bash
+   # Install pnpm if you haven't already
+   npm install -g pnpm
+
+   # Install Foundry
    curl -L https://foundry.paradigm.xyz | bash
    foundryup
-   ```
-
-2. Clone the repository:
-   ```
+   
+   # Clone and install dependencies
    git clone https://github.com/your-username/basilic-evm.git
    cd basilic-evm
+   pnpm install
    ```
 
-3. Install dependencies and start the development server:
+3. **Development**
+   ```bash
+   pnpm dev        # Start development server
+   pnpm test       # Run tests
+   pnpm build      # Build for production
    ```
-   bun install
-   bun dev
-   ```
-
-This setup provides a faster JavaScript runtime and efficient package management for enhanced development efficiency.
 
 ## Key Benefits
 
