@@ -99,9 +99,18 @@ pnpm test       # Run test suite
 - **Supabase** – Database, authentication, real-time services.
 - **Ponder** – Blockchain event indexing and processing.
 
+For detailed information about our backend architecture, including how Ponder.sh and Supabase work together, database branching, and deployment workflows, please refer to [BACKEND.md](./BACKEND.md).
+
 ## Frontend Overview
 
-Built with **Next.js**, featuring **React components, Web3 hooks, Tailwind CSS, and type-safe API routes**.
+The frontend is built with **Next.js 14** and features:
+
+- **React Components** – Reusable UI building blocks with TypeScript
+- **Web3 Integration** – Custom hooks for wallet connection, contract interactions, and transaction management
+- **Type Safety** – End-to-end type safety with TypeScript and generated contract types
+- **Modern Styling** – Tailwind CSS for rapid UI development with utility classes
+- **Performance** – Server components, static optimization, and code splitting
+- **Developer Experience** – Hot reloading, error boundaries, and debugging tools
 
 ## Key Benefits
 
