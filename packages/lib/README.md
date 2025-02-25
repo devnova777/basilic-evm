@@ -1,41 +1,54 @@
-# Lib Folder
+# @repo/lib Package
 
-The `lib/` directory in this Next.js application is designed to house functions, constants, and configuration files specific to this webapp. For shared resources across all projects, please refer to the `@repo/utils` package.
+This package contains shared utilities, functions, constants, and configuration files that can be used across multiple projects in the monorepo.
 
 ## Key Principles
 
-1. **App-Specific Functions**: Functions in this lib directory should be relevant only to this specific Next.js application.
+1. **Shared Utilities**: Functions in this package should be reusable across different applications and projects.
 
-2. **Local Constants**: This folder contains constant values used within this webapp, promoting consistency and ease of maintenance for app-specific data.
+2. **Common Constants**: This package contains constant values that can be shared across projects, promoting consistency across the codebase.
 
-3. **App Configuration**: Configuration files stored here are specific to this Next.js application, allowing for easy management of app-wide settings.
+3. **Shared Configuration**: Configuration utilities stored here can be used by any application in the monorepo.
 
-4. **App-Specific Utilities**: Utility functions that are only used within this webapp are kept in this directory.
+4. **Generic Utilities**: Utility functions that are useful across multiple projects are kept in this package.
 
-## Best Practices
+## Best Practices 
 
-- Keep functions simple, focused, and well-documented.
-- Use TypeScript for strong typing of function inputs and outputs.
-- Document each function with clear JSDoc comments.
-- Avoid any direct interactions with external APIs or state management within this folder. Use the `services/` directory for API interactions and state management instead.
-- Regularly review and update the contents to ensure they align with the latest application requirements.
-- For shared resources across projects, use the `@repo/utils` package instead of this local lib folder.
+- Keep functions simple, focused, and well-documented
+- Use TypeScript for strong typing of function inputs and outputs
+- Document each function with clear JSDoc comments
+- Ensure utilities are generic enough to be useful across different projects
+- Avoid project-specific implementations
+- Regularly review and update the contents to ensure they remain relevant and maintainable
+- Version the package appropriately when making breaking changes
 
-By adhering to these principles and practices, we maintain a clean, efficient, and easily maintainable library of app-specific resources while leveraging shared resources from `@repo/utils` for cross-project functionality.
+## Current Utilities
 
-## Lib Location Flexibility
+The package currently includes:
 
-While functions and utilities are typically located in this `lib/` directory within the webapp, it's important to note that they can be moved to a shared location if needed. Specifically:
+- Async utilities (sleep, runAsyncFnWithoutBlocking)
+- Currency formatting helpers
+- Nanoid string generation
+- Common TypeScript types
 
-- **Shared Utilities**: If a function or utility needs to be used across multiple applications or components of our project ecosystem, it can be relocated to `packages/project-lib`.
+## Usage
 
-- **Rationale for Sharing**: This flexibility allows for code reuse and maintains consistency across different parts of the project that may require the same functionality.
+To use this package in your project:
 
-- **Decision Process**: When deciding to move a utility to the shared location, consider:
-  1. The scope of its usage (is it used in multiple apps?)
-  2. The potential for future reuse
-  3. The impact on maintainability and versioning
+1. Install the package in your project:
 
-- **Implementation**: If a utility is moved to `packages/project-lib`, ensure that it's properly exported and that all existing references are updated accordingly.
+```bash
+pnpm install @repo/lib
+```
 
-This approach promotes modularity and scalability in our project architecture, allowing utilities to be easily shared and maintained across different applications as needed.
+2. Import the desired utilities from the package:
+
+```typescript
+import { sleep } from '@repo/lib'
+```
+
+3. Use the imported utilities in your project:
+
+```typescript
+const result = await sleep(1000)
+```

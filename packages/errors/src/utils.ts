@@ -1,5 +1,10 @@
 import type { ErrorWithMessage } from './types'
 
+/**
+ * Type guard to check if an unknown error has a message property
+ * @param error - The error to check
+ * @returns True if error is an object with a string message property
+ */
 export function isErrorWithMessage(error: unknown): error is ErrorWithMessage {
   return (
     typeof error === 'object' &&
@@ -9,10 +14,16 @@ export function isErrorWithMessage(error: unknown): error is ErrorWithMessage {
   )
 }
 
+/**
+ * Converts any error-like value into an Error object with a message
+ * @param maybeError - The value to convert to an error
+ * @returns An Error object with a message property
+ */
 export function toErrorWithMessage(maybeError: unknown): ErrorWithMessage {
   if (isErrorWithMessage(maybeError)) return maybeError
 
   try {
+    // Try to stringify the error object
     return new Error(JSON.stringify(maybeError))
   } catch {
     // fallback in case there's an error stringifying the maybeError
@@ -21,6 +32,11 @@ export function toErrorWithMessage(maybeError: unknown): ErrorWithMessage {
   }
 }
 
+/**
+ * Extracts the message from any error-like value
+ * @param error - The error to get the message from
+ * @returns The error message string
+ */
 export function getErrorMessage(error: unknown) {
   return toErrorWithMessage(error).message
 }

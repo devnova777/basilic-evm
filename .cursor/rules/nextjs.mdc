@@ -52,7 +52,7 @@ function ClientComponent() {
 ## Server Actions
 ```tsx
 'use server'
-import { type ActionResult, success, failure } from '@repo/lib'
+import { type ActionResult, success, failure } from '@repo/next'
 import { createSafeActionClient } from 'next-safe-action'
 
 export const saveAction = createSafeActionClient()

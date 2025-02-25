@@ -8,8 +8,9 @@ globs: "**/hooks/**/*.{ts,tsx}"
 ## Core Principles
 - Use TanStack Query (React Query) as primary data fetching solution
 - Use useAsync/useAsyncFn for one-off async operations
-- Follow hooks naming conventions
+- Follow hooks naming conventions ( use-something.ts )
 - Handle loading and error states consistently
+- Never build large hooks, use single responsibility 
 
 ## TanStack Query Patterns
 ```tsx

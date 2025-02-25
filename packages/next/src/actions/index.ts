@@ -14,18 +14,18 @@
  */
 
 import { captureAppError } from '@repo/errors'
-import type { repoInteralError, repoUserError } from '@repo/errors'
+import type { RepoError, RepoInteralError } from '@repo/errors'
 
 export type ActionResult<T> = Success<T> | Failure
 
 export type Success<T> = { success: true; info: T; error: null }
-export type Failure = { success: false; error: repoUserError; info: null }
+export type Failure = { success: false; error: RepoError; info: null }
 
 export function success<T>(info: T): Success<T> {
   return { success: true, info, error: null }
 }
 
-export function failure(repoInternalError: repoInteralError): Failure {
+export function failure(repoInternalError: RepoInteralError): Failure {
   return {
     success: false,
     error: captureAppError(repoInternalError),
