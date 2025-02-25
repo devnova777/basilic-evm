@@ -90,7 +90,7 @@ function isActive(href: string, pathname: string) {
 
 const navOptions = [
   { text: 'Swap', href: '/', icon: null },
-  { text: 'Markets', href: '/markets', icon: null },
+  { text: 'Pools', href: '/pools', icon: null },
   {
     text: 'More',
     options: [

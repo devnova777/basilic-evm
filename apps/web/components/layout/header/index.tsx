@@ -1,7 +1,6 @@
 'use client'
 
 import { client } from '@/lib/thirdweb'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ConnectButton } from 'thirdweb/react'
 import { Menu } from './menu'
@@ -15,17 +14,7 @@ export function Header() {
         }
       >
         <div className="flex items-center gap-3">
-          <Link href="/">
-            <Image
-              className="mt-1.5"
-              src="/images/repo-logo.png"
-              alt="repo"
-              width={132}
-              height={40}
-              objectFit="contain"
-              objectPosition="center"
-            />
-          </Link>
+          <Link href="/">BasilicEVM</Link>
 
           <div className="hidden md:flex md:gap-3 md:pl-4 lg:ml-[-1px] lg:gap-10">
             <Menu />
