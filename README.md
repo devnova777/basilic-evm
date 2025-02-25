@@ -58,14 +58,14 @@ A **high-performance toolkit** for Solidity development, built with Rust for spe
 - **AI-Assisted Coding** – Rules and contextual guidance for Solidity and TypeScript.
 - **Streamlined UI Generation** – v0.dev simplifies front-end development.
 - **AI-Powered Database Design** – Faster schema iteration with postgres.new.
-- **Specialized Cursor Rules (********`.cursor/rules`********\*\*\*\*)** – Tuned for this repository's conventions and quality standards, ensuring consistency and best pra[ctices.](https://cursor.so/)
+- **Specialized Cursor Rules (********`.cursor/rules`********\*\*\*\*)** – Tuned for this repository's conventions and quality standards, ensuring consistency and best practices.
 
 ### AI Tools Used
 
-- [Cursor.so](https://cursor.so/) – AI-assisted [develo](https://v0.dev/)pment environment.
-- [v0.dev](https://v0.dev/) – [Automated UI](https://postgres.new/) generation.
-- [postgres.new](https://postgres.new/) – AI-powered[ database sch](https://coderabbit.ai/)ema design.
-- [CodeRabbit.ai](https://coderabbit.ai/) –[ AI-driven c](https://supabase.com/)ode reviews.
+- [Cursor.so](https://cursor.so/) – AI-assisted development environment.
+- [v0.dev](https://v0.dev/) – Automated UI generation.
+- [postgres.new](https://postgres.new/) – AI-powered database schema design.
+- [CodeRabbit.ai](https://coderabbit.ai/) – AI-driven code reviews.
 - [Supabase.com](https://supabase.com/) – AI-powered backend tools.
 
 ## Quick Start
