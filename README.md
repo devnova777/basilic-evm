@@ -32,9 +32,13 @@
 
 ## Packages
 
+- **UI (********`/packages/ui`********\*\*\*\*)** – Shadcn/ui components, design system.
+- **Core (********`/packages/core`********\*\*\*\*)** – Shared core utilities.
+- **React (********`/packages/react`********\*\*\*\*)** – React hooks.
 - **Supabase (********`/packages/supabase`********\*\*\*\*)** – Database and authentication.
 - **Errors (********`/packages/errors`********\*\*\*\*)** – Standardized error handling.
 - **Lib (********`/packages/lib`********\*\*\*\*)** – Utility functions.
+- **Next (********`/packages/next`********\*\*\*\*)** – Next.js utilities.
 - **TypeScript Config (********`/packages/tsconfig`********\*\*\*\*)** – Shared configurations.
 
 ## Foundry
