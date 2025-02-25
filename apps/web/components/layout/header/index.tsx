@@ -1,5 +1,6 @@
 'use client'
 
+import { generatePayload, isLoggedIn, login, logout } from '@/actions/login'
 import { client } from '@/lib/thirdweb'
 import Link from 'next/link'
 import { ConnectButton } from 'thirdweb/react'
@@ -28,28 +29,17 @@ export function Header() {
               auth={{
                 isLoggedIn: async (address) => {
                   console.log('checking if logged in!', { address })
-                  return true
+                  return await isLoggedIn()
                 },
                 doLogin: async (params) => {
                   console.log('logging in!')
+                  await login(params)
                 },
-                getLoginPayload: async ({ address }) => {
-                  return {
-                    domain: 'example.com',
-                    address,
-                    statement: 'Please sign this message to log in.',
-                    version: '1',
-                    chainId: 1,
-                    nonce: 'mock-nonce',
-                    issued_at: new Date().toISOString(),
-                    expiration_time: new Date(
-                      Date.now() + 24 * 60 * 60 * 1000,
-                    ).toISOString(),
-                    invalid_before: new Date().toISOString(),
-                  }
-                },
+                getLoginPayload: async ({ address }) =>
+                  generatePayload({ address }),
                 doLogout: async () => {
                   console.log('logging out!')
+                  await logout()
                 },
               }}
             />
