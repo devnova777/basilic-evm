@@ -2,63 +2,63 @@
 
 ## Overview
 
-**BasilicEVM** is a high-performance development stack designed for building cutting-edge **EVM-based applications** with speed, modularity, and AI-powered enhancements. Whether you're building decentralized applications across DeFi, NFTs, GameFi, governance or infrastructure, BasilicEVM provides a streamlined and scalable environment for rapid development.
+__BasilicEVM__ is a high-performance development stack designed for building cutting-edge __EVM-based applications__ with speed, modularity, and AI-powered enhancements. Whether you're building decentralized applications across DeFi, NFTs, GameFi, governance or infrastructure, BasilicEVM provides a streamlined and scalable environment for rapid development.
 
 ## Features
 
-- 🧩 **Modular Architecture** – Customizable for specific needs.
-- 👛 **Wallet Integration** – Secure authentication and transactions.
-- 🔨 **Foundry-Powered Smart Contracts** – High-speed Solidity compilation and testing.
-- ⚡ **Optimized Workflow** – Turbo monorepo, AI-assisted development, and best practices.
-- 🤖 **AI-Enhanced Development** – Automation for faster coding and reviews.
-- 🛠️ **TypeScript Monorepo** – Shared configurations and package management.
-- 📚 **Comprehensive Documentation** – Best practices and guides.
+- 🧩 __Modular Architecture__ – Customizable for specific needs.
+- 👛 __Wallet Integration__ – Secure authentication and transactions.
+- 🔨 __Foundry-Powered Smart Contracts__ – High-speed Solidity compilation and testing.
+- ⚡ __Optimized Workflow__ – Turbo monorepo, AI-assisted development, and best practices.
+- 🤖 __AI-Enhanced Development__ – Automation for faster coding and reviews.
+- 🛠️ __TypeScript Monorepo__ – Shared configurations and package management.
+- 📚 __Comprehensive Documentation__ – Best practices and guides.
 
 ## Core Stack
 
-- **Smart Contracts**: Foundry for high-speed compilation and testing.
-- **Full-Stack Framework**: Next.js 15 with React Server Components.
-- **Styling & UI**: Tailwind CSS and shadcn/ui.
-- **Blockchain Integration**: viem, wagmi, thirdweb, and Alchemy.
-- **Monorepo Management**: Turbo for scalable project organization.
-- **Linting & Formatting**: Biome, a modern developer-friendly toolchain.
+- __Smart Contracts__: Foundry for high-speed compilation and testing.
+- __Full-Stack Framework__: Next.js 15 with React Server Components.
+- __Styling & UI__: Tailwind CSS and shadcn/ui.
+- __Blockchain Integration__: viem, wagmi, thirdweb, and Alchemy.
+- __Monorepo Management__: Turbo for scalable project organization.
+- __Linting & Formatting__: Biome, a modern developer-friendly toolchain.
 
 ## Project Structure
 
 ## Applications
 
-- **Web (`/apps/web`)** – Next.js front-end.
-- **Ponder (`/apps/ponder`)** – Blockchain event indexing.
+- __Web__ ([`/apps/web`](/apps/web/README.md)) – Next.js front-end.
+- __Ponder__ ([`/apps/ponder`](/apps/ponder/README.md)) – Blockchain event indexing.
 
 ## Packages
 
-- **UI (`/packages/ui`)** – Shadcn/ui components, design system.
-- **Core (`/packages/core`)** – Shared core utilities.
-- **React (`/packages/react`)** – React hooks.
-- **Supabase (`/packages/supabase`)** – Database and authentication.
-- **Errors (`/packages/errors`)** – Standardized error handling.
-- **Lib (`/packages/lib`)** – Utility functions.
-- **Next (`/packages/next`)** – Next.js utilities.
-- **TypeScript Config (`/packages/tsconfig`)** – Shared configurations.
+- __UI__ ([`/packages/ui`](/packages/ui/README.md)) – Shadcn/ui components, design system.
+- __Core__ ([`/packages/core`](/packages/core/README.md)) – Shared core utilities.
+- __React__ ([`/packages/react`](/packages/react/README.md)) – React hooks.
+- __Supabase__ ([`/packages/supabase`](/packages/supabase/README.md)) – Database and authentication.
+- __Errors__ ([`/packages/errors`](/packages/errors/README.md)) – Standardized error handling.
+- __Lib__ ([`/packages/lib`](/packages/lib/README.md)) – Utility functions.
+- __Next__ ([`/packages/next`](/packages/next/README.md)) – Next.js utilities.
+- __TypeScript Config__ ([`/packages/tsconfig`](/packages/tsconfig/README.md)) – Shared configurations.
 
 ## Foundry
 
-A **high-performance toolkit** for Solidity development, built with Rust for speed and efficiency. Key features:
+A __high-performance toolkit__ for Solidity development, built with Rust for speed and efficiency. Key features:
 
-- **Blazing-Fast Compilation & Testing** – Significantly faster than Hardhat or Truffle.
-- **Advanced Fuzz Testing** – `forge test --fuzz-runs` for uncovering edge cases.
-- **Gas Optimization Insights** – `forge snapshot` provides detailed gas reports.
-- **Robust Debugging** – `forge inspect` and `forge stack-trace` for analyzing transactions.
-- **Flexible Script Execution** – Deploy, verify, and interact with contracts.
-- **Seamless EVM Interactions** – Use `cast` for transactions, querying contract states, and fetching on-chain data.
+- __Blazing-Fast Compilation & Testing__ – Significantly faster than Hardhat or Truffle.
+- __Advanced Fuzz Testing__ – `forge test --fuzz-runs` for uncovering edge cases.
+- __Gas Optimization Insights__ – `forge snapshot` provides detailed gas reports.
+- __Robust Debugging__ – `forge inspect` and `forge stack-trace` for analyzing transactions.
+- __Flexible Script Execution__ – Deploy, verify, and interact with contracts.
+- __Seamless EVM Interactions__ – Use `cast` for transactions, querying contract states, and fetching on-chain data.
 
 ## AI-Powered Development Workflow
 
-- **Automated Code Reviews** – AI-powered suggestions for best practices.
-- **AI-Assisted Coding** – Rules and contextual guidance for Solidity and TypeScript.
-- **Streamlined UI Generation** – v0.dev simplifies front-end development.
-- **AI-Powered Database Design** – Faster schema iteration with postgres.new.
-- **Specialized Cursor Rules (********`.cursor/rules`********\*\*\*\*)** – Tuned for this repository's conventions and quality standards, ensuring consistency and best practices.
+- __Automated Code Reviews__ – AI-powered suggestions for best practices.
+- __AI-Assisted Coding__ – Rules and contextual guidance for Solidity and TypeScript.
+- __Streamlined UI Generation__ – v0.dev simplifies front-end development.
+- __AI-Powered Database Design__ – Faster schema iteration with postgres.new.
+- __Specialized Cursor Rules (`.cursor/rules`)__ – Tuned for this repository's conventions and quality standards, ensuring consistency and best practices.
 
 ### AI Tools Used
 
@@ -96,29 +96,29 @@ pnpm test       # Run test suite
 
 ## Backend Architecture
 
-- **Supabase** – Database, authentication, real-time services.
-- **Ponder** – Blockchain event indexing and processing.
+- __Supabase__ – Database, authentication, real-time services.
+- __Ponder__ – Blockchain event indexing and processing.
 
 For detailed information about our backend architecture, including how Ponder.sh and Supabase work together, database branching, and deployment workflows, please refer to [BACKEND.md](./BACKEND.md).
 
 ## Frontend Overview
 
-The frontend is built with **Next.js 15** and features:
+The frontend is built with __Next.js 15__ and features:
 
-- **React Components** – Reusable UI building blocks with TypeScript
-- **Web3 Integration** – Custom hooks for wallet connection, contract interactions, and transaction management
-- **Type Safety** – End-to-end type safety with TypeScript and generated contract types
-- **Modern Styling** – Tailwind CSS for rapid UI development with utility classes
-- **Performance** – Server components, static optimization, and code splitting
-- **Developer Experience** – Hot reloading, error boundaries, and debugging tools
+- __React Components__ – Reusable UI building blocks with TypeScript
+- __Web3 Integration__ – Custom hooks for wallet connection, contract interactions, and transaction management
+- __Type Safety__ – End-to-end type safety with TypeScript and generated contract types
+- __Modern Styling__ – Tailwind CSS for rapid UI development with utility classes
+- __Performance__ – Server components, static optimization, and code splitting
+- __Developer Experience__ – Hot reloading, error boundaries, and debugging tools
 
 ## Key Benefits
 
-1. **Faster Development** – Pre-configured stack accelerates iteration.
-2. **Best Practices** – Security and performance optimizations.
-3. **Scalability** – Modular and performance-focused.
-4. **AI-Powered Efficiency** – Automated workflows.
-5. **Code Consistency** – Shared configurations in monorepo.
+1. __Faster Development__ – Pre-configured stack accelerates iteration.
+2. __Best Practices__ – Security and performance optimizations.
+3. __Scalability__ – Modular and performance-focused.
+4. __AI-Powered Efficiency__ – Automated workflows.
+5. __Code Consistency__ – Shared configurations in monorepo.
 
 ## References
 
