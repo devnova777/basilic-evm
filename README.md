@@ -2,7 +2,7 @@
 
 ## Overview
 
-**BasilicEVM** is a high-performance development stack designed for building cutting-edge **EVM-based applications** with speed, modularity, and AI-powered enhancements. Whether you're developing **DeFi platforms, DAOs, or NFT projects**, BasilicEVM provides a streamlined and scalable environment for rapid development.
+**BasilicEVM** is a high-performance development stack designed for building cutting-edge **EVM-based applications** with speed, modularity, and AI-powered enhancements. Whether you're building decentralized applications across DeFi, NFTs, GameFi, governance or infrastructure, BasilicEVM provides a streamlined and scalable environment for rapid development.
 
 ## Features
 
