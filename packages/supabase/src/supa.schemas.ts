@@ -54,45 +54,221 @@ export const ponderStatusUpdateSchema = z.object({
 
 export const ponderStatusRelationshipsSchema = z.tuple([])
 
-export const reorgUserRowSchema = z.object({
-  address: z.string(),
+export const reorgAssetRowSchema = z.object({
+  address: z.string().nullable(),
+  chain_id: z.string().nullable(),
   checkpoint: z.string(),
+  decimals: z.number().nullable(),
+  id: z.string(),
+  is_nft: z.boolean().nullable(),
+  is_stable: z.boolean().nullable(),
   name: z.string().nullable(),
   operation: z.number(),
   operation_id: z.number(),
+  symbol: z.string().nullable(),
+})
+
+export const reorgAssetInsertSchema = z.object({
+  address: z.string().optional().nullable(),
+  chain_id: z.string().optional().nullable(),
+  checkpoint: z.string(),
+  decimals: z.number().optional().nullable(),
+  id: z.string(),
+  is_nft: z.boolean().optional().nullable(),
+  is_stable: z.boolean().optional().nullable(),
+  name: z.string().optional().nullable(),
+  operation: z.number(),
+  operation_id: z.number().optional(),
+  symbol: z.string().optional().nullable(),
+})
+
+export const reorgAssetUpdateSchema = z.object({
+  address: z.string().optional().nullable(),
+  chain_id: z.string().optional().nullable(),
+  checkpoint: z.string().optional(),
+  decimals: z.number().optional().nullable(),
+  id: z.string().optional(),
+  is_nft: z.boolean().optional().nullable(),
+  is_stable: z.boolean().optional().nullable(),
+  name: z.string().optional().nullable(),
+  operation: z.number().optional(),
+  operation_id: z.number().optional(),
+  symbol: z.string().optional().nullable(),
+})
+
+export const reorgAssetRelationshipsSchema = z.tuple([])
+
+export const reorgSwapEventRowSchema = z.object({
+  amount0: z.string().nullable(),
+  amount1: z.string().nullable(),
+  block_number: z.number().nullable(),
+  checkpoint: z.string(),
+  id: z.string(),
+  operation: z.number(),
+  operation_id: z.number(),
+  pool_address: z.string().nullable(),
+  sqrt_price_x_96: z.string().nullable(),
+  timestamp: z.number().nullable(),
+  token0_address: z.string().nullable(),
+  token1_address: z.string().nullable(),
+})
+
+export const reorgSwapEventInsertSchema = z.object({
+  amount0: z.string().optional().nullable(),
+  amount1: z.string().optional().nullable(),
+  block_number: z.number().optional().nullable(),
+  checkpoint: z.string(),
+  id: z.string(),
+  operation: z.number(),
+  operation_id: z.number().optional(),
+  pool_address: z.string().optional().nullable(),
+  sqrt_price_x_96: z.string().optional().nullable(),
+  timestamp: z.number().optional().nullable(),
+  token0_address: z.string().optional().nullable(),
+  token1_address: z.string().optional().nullable(),
+})
+
+export const reorgSwapEventUpdateSchema = z.object({
+  amount0: z.string().optional().nullable(),
+  amount1: z.string().optional().nullable(),
+  block_number: z.number().optional().nullable(),
+  checkpoint: z.string().optional(),
+  id: z.string().optional(),
+  operation: z.number().optional(),
+  operation_id: z.number().optional(),
+  pool_address: z.string().optional().nullable(),
+  sqrt_price_x_96: z.string().optional().nullable(),
+  timestamp: z.number().optional().nullable(),
+  token0_address: z.string().optional().nullable(),
+  token1_address: z.string().optional().nullable(),
+})
+
+export const reorgSwapEventRelationshipsSchema = z.tuple([])
+
+export const reorgUserRowSchema = z.object({
+  address: z.string(),
+  checkpoint: z.string(),
+  created_at: z.number().nullable(),
+  ens_name: z.string().nullable(),
+  operation: z.number(),
+  operation_id: z.number(),
+  updated_at: z.number().nullable(),
 })
 
 export const reorgUserInsertSchema = z.object({
   address: z.string(),
   checkpoint: z.string(),
-  name: z.string().optional().nullable(),
+  created_at: z.number().optional().nullable(),
+  ens_name: z.string().optional().nullable(),
   operation: z.number(),
   operation_id: z.number().optional(),
+  updated_at: z.number().optional().nullable(),
 })
 
 export const reorgUserUpdateSchema = z.object({
   address: z.string().optional(),
   checkpoint: z.string().optional(),
-  name: z.string().optional().nullable(),
+  created_at: z.number().optional().nullable(),
+  ens_name: z.string().optional().nullable(),
   operation: z.number().optional(),
   operation_id: z.number().optional(),
+  updated_at: z.number().optional().nullable(),
 })
 
 export const reorgUserRelationshipsSchema = z.tuple([])
 
+export const assetRowSchema = z.object({
+  address: z.string().nullable(),
+  chain_id: z.string().nullable(),
+  decimals: z.number().nullable(),
+  id: z.string(),
+  is_nft: z.boolean().nullable(),
+  is_stable: z.boolean().nullable(),
+  name: z.string().nullable(),
+  symbol: z.string().nullable(),
+})
+
+export const assetInsertSchema = z.object({
+  address: z.string().optional().nullable(),
+  chain_id: z.string().optional().nullable(),
+  decimals: z.number().optional().nullable(),
+  id: z.string(),
+  is_nft: z.boolean().optional().nullable(),
+  is_stable: z.boolean().optional().nullable(),
+  name: z.string().optional().nullable(),
+  symbol: z.string().optional().nullable(),
+})
+
+export const assetUpdateSchema = z.object({
+  address: z.string().optional().nullable(),
+  chain_id: z.string().optional().nullable(),
+  decimals: z.number().optional().nullable(),
+  id: z.string().optional(),
+  is_nft: z.boolean().optional().nullable(),
+  is_stable: z.boolean().optional().nullable(),
+  name: z.string().optional().nullable(),
+  symbol: z.string().optional().nullable(),
+})
+
+export const assetRelationshipsSchema = z.tuple([])
+
+export const swapEventRowSchema = z.object({
+  amount0: z.string().nullable(),
+  amount1: z.string().nullable(),
+  block_number: z.number().nullable(),
+  id: z.string(),
+  pool_address: z.string().nullable(),
+  sqrt_price_x_96: z.string().nullable(),
+  timestamp: z.number().nullable(),
+  token0_address: z.string().nullable(),
+  token1_address: z.string().nullable(),
+})
+
+export const swapEventInsertSchema = z.object({
+  amount0: z.string().optional().nullable(),
+  amount1: z.string().optional().nullable(),
+  block_number: z.number().optional().nullable(),
+  id: z.string(),
+  pool_address: z.string().optional().nullable(),
+  sqrt_price_x_96: z.string().optional().nullable(),
+  timestamp: z.number().optional().nullable(),
+  token0_address: z.string().optional().nullable(),
+  token1_address: z.string().optional().nullable(),
+})
+
+export const swapEventUpdateSchema = z.object({
+  amount0: z.string().optional().nullable(),
+  amount1: z.string().optional().nullable(),
+  block_number: z.number().optional().nullable(),
+  id: z.string().optional(),
+  pool_address: z.string().optional().nullable(),
+  sqrt_price_x_96: z.string().optional().nullable(),
+  timestamp: z.number().optional().nullable(),
+  token0_address: z.string().optional().nullable(),
+  token1_address: z.string().optional().nullable(),
+})
+
+export const swapEventRelationshipsSchema = z.tuple([])
+
 export const userRowSchema = z.object({
   address: z.string(),
-  name: z.string().nullable(),
+  created_at: z.number().nullable(),
+  ens_name: z.string().nullable(),
+  updated_at: z.number().nullable(),
 })
 
 export const userInsertSchema = z.object({
   address: z.string(),
-  name: z.string().optional().nullable(),
+  created_at: z.number().optional().nullable(),
+  ens_name: z.string().optional().nullable(),
+  updated_at: z.number().optional().nullable(),
 })
 
 export const userUpdateSchema = z.object({
   address: z.string().optional(),
-  name: z.string().optional().nullable(),
+  created_at: z.number().optional().nullable(),
+  ens_name: z.string().optional().nullable(),
+  updated_at: z.number().optional().nullable(),
 })
 
 export const userRelationshipsSchema = z.tuple([])

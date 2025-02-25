@@ -4,7 +4,7 @@ import type { RepoError, RepoErrorCode } from './types'
  * A catalog of user-facing errors with their corresponding codes and messages.
  * Used to provide consistent error responses across the application.
  */
-export const RepoErrors: Record<RepoErrorCode, RepoError> = {
+export const repoErrors: Record<RepoErrorCode, RepoError> = {
   // Input validation errors
   INVALID_INPUT: { code: 'INVALID_INPUT', message: 'Invalid input provided' },
   INVALID_SIGNATURE: {

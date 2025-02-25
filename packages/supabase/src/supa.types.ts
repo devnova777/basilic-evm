@@ -70,42 +70,210 @@ export type Database = {
         }
         Relationships: []
       }
-      _reorg__user: {
+      _reorg__Asset: {
         Row: {
-          address: string
+          address: string | null
+          chain_id: string | null
           checkpoint: string
+          decimals: number | null
+          id: string
+          is_nft: boolean | null
+          is_stable: boolean | null
           name: string | null
           operation: number
           operation_id: number
+          symbol: string | null
+        }
+        Insert: {
+          address?: string | null
+          chain_id?: string | null
+          checkpoint: string
+          decimals?: number | null
+          id: string
+          is_nft?: boolean | null
+          is_stable?: boolean | null
+          name?: string | null
+          operation: number
+          operation_id?: number
+          symbol?: string | null
+        }
+        Update: {
+          address?: string | null
+          chain_id?: string | null
+          checkpoint?: string
+          decimals?: number | null
+          id?: string
+          is_nft?: boolean | null
+          is_stable?: boolean | null
+          name?: string | null
+          operation?: number
+          operation_id?: number
+          symbol?: string | null
+        }
+        Relationships: []
+      }
+      _reorg__SwapEvent: {
+        Row: {
+          amount0: string | null
+          amount1: string | null
+          block_number: number | null
+          checkpoint: string
+          id: string
+          operation: number
+          operation_id: number
+          pool_address: string | null
+          sqrt_price_x_96: string | null
+          timestamp: number | null
+          token0_address: string | null
+          token1_address: string | null
+        }
+        Insert: {
+          amount0?: string | null
+          amount1?: string | null
+          block_number?: number | null
+          checkpoint: string
+          id: string
+          operation: number
+          operation_id?: number
+          pool_address?: string | null
+          sqrt_price_x_96?: string | null
+          timestamp?: number | null
+          token0_address?: string | null
+          token1_address?: string | null
+        }
+        Update: {
+          amount0?: string | null
+          amount1?: string | null
+          block_number?: number | null
+          checkpoint?: string
+          id?: string
+          operation?: number
+          operation_id?: number
+          pool_address?: string | null
+          sqrt_price_x_96?: string | null
+          timestamp?: number | null
+          token0_address?: string | null
+          token1_address?: string | null
+        }
+        Relationships: []
+      }
+      _reorg__User: {
+        Row: {
+          address: string
+          checkpoint: string
+          created_at: number | null
+          ens_name: string | null
+          operation: number
+          operation_id: number
+          updated_at: number | null
         }
         Insert: {
           address: string
           checkpoint: string
-          name?: string | null
+          created_at?: number | null
+          ens_name?: string | null
           operation: number
           operation_id?: number
+          updated_at?: number | null
         }
         Update: {
           address?: string
           checkpoint?: string
-          name?: string | null
+          created_at?: number | null
+          ens_name?: string | null
           operation?: number
           operation_id?: number
+          updated_at?: number | null
         }
         Relationships: []
       }
-      user: {
+      Asset: {
+        Row: {
+          address: string | null
+          chain_id: string | null
+          decimals: number | null
+          id: string
+          is_nft: boolean | null
+          is_stable: boolean | null
+          name: string | null
+          symbol: string | null
+        }
+        Insert: {
+          address?: string | null
+          chain_id?: string | null
+          decimals?: number | null
+          id: string
+          is_nft?: boolean | null
+          is_stable?: boolean | null
+          name?: string | null
+          symbol?: string | null
+        }
+        Update: {
+          address?: string | null
+          chain_id?: string | null
+          decimals?: number | null
+          id?: string
+          is_nft?: boolean | null
+          is_stable?: boolean | null
+          name?: string | null
+          symbol?: string | null
+        }
+        Relationships: []
+      }
+      SwapEvent: {
+        Row: {
+          amount0: string | null
+          amount1: string | null
+          block_number: number | null
+          id: string
+          pool_address: string | null
+          sqrt_price_x_96: string | null
+          timestamp: number | null
+          token0_address: string | null
+          token1_address: string | null
+        }
+        Insert: {
+          amount0?: string | null
+          amount1?: string | null
+          block_number?: number | null
+          id: string
+          pool_address?: string | null
+          sqrt_price_x_96?: string | null
+          timestamp?: number | null
+          token0_address?: string | null
+          token1_address?: string | null
+        }
+        Update: {
+          amount0?: string | null
+          amount1?: string | null
+          block_number?: number | null
+          id?: string
+          pool_address?: string | null
+          sqrt_price_x_96?: string | null
+          timestamp?: number | null
+          token0_address?: string | null
+          token1_address?: string | null
+        }
+        Relationships: []
+      }
+      User: {
         Row: {
           address: string
-          name: string | null
+          created_at: number | null
+          ens_name: string | null
+          updated_at: number | null
         }
         Insert: {
           address: string
-          name?: string | null
+          created_at?: number | null
+          ens_name?: string | null
+          updated_at?: number | null
         }
         Update: {
           address?: string
-          name?: string | null
+          created_at?: number | null
+          ens_name?: string | null
+          updated_at?: number | null
         }
         Relationships: []
       }

@@ -12,6 +12,7 @@
   "author": "blockmatic.io",
   "license": "MIT",
   "dependencies": {
+    "@repo/errors": "workspace:*",
     "@supabase/ssr": "^0.5.2",
     "unist-builder": "^4.0.0"
   },

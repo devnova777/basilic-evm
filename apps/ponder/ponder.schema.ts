@@ -22,3 +22,10 @@ export const SwapEvent = onchainTable('SwapEvent', (t) => ({
   timestamp: t.integer(),
   blockNumber: t.integer(),
 }))
+
+export const User = onchainTable('User', (t) => ({
+  address: t.text().primaryKey(),
+  ensName: t.text(),
+  createdAt: t.integer(),
+  updatedAt: t.integer(),
+}))

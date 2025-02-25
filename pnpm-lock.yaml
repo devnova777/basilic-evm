@@ -80,6 +80,15 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/errors':
+        specifier: workspace:*
+        version: link:../../packages/errors
+      '@repo/supabase':
+        specifier: workspace:*
+        version: link:../../packages/supabase
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@tanstack/react-query':
         specifier: ^5.66.9
         version: 5.66.9(react@19.0.0)
@@ -114,9 +123,6 @@ importers:
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@types/node':
         specifier: ^22
         version: 22.13.5
@@ -163,6 +169,9 @@ importers:
 
   packages/supabase:
     dependencies:
+      '@repo/errors':
+        specifier: workspace:*
+        version: link:../errors
       '@supabase/ssr':
         specifier: ^0.5.2
         version: 0.5.2(@supabase/supabase-js@2.48.1)
