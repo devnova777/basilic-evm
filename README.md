@@ -27,19 +27,19 @@
 
 ## Applications
 
-- **Web (********`/apps/web`********\*\*\*\*)** – Next.js front-end.
-- **Ponder (********`/apps/ponder`********\*\*\*\*)** – Blockchain event indexing.
+- **Web (`/apps/web`)** – Next.js front-end.
+- **Ponder (`/apps/ponder`)** – Blockchain event indexing.
 
 ## Packages
 
-- **UI (********`/packages/ui`********\*\*\*\*)** – Shadcn/ui components, design system.
-- **Core (********`/packages/core`********\*\*\*\*)** – Shared core utilities.
-- **React (********`/packages/react`********\*\*\*\*)** – React hooks.
-- **Supabase (********`/packages/supabase`********\*\*\*\*)** – Database and authentication.
-- **Errors (********`/packages/errors`********\*\*\*\*)** – Standardized error handling.
-- **Lib (********`/packages/lib`********\*\*\*\*)** – Utility functions.
-- **Next (********`/packages/next`********\*\*\*\*)** – Next.js utilities.
-- **TypeScript Config (********`/packages/tsconfig`********\*\*\*\*)** – Shared configurations.
+- **UI (`/packages/ui`)** – Shadcn/ui components, design system.
+- **Core (`/packages/core`)** – Shared core utilities.
+- **React (`/packages/react`)** – React hooks.
+- **Supabase (`/packages/supabase`)** – Database and authentication.
+- **Errors (`/packages/errors`)** – Standardized error handling.
+- **Lib (`/packages/lib`)** – Utility functions.
+- **Next (`/packages/next`)** – Next.js utilities.
+- **TypeScript Config (`/packages/tsconfig`)** – Shared configurations.
 
 ## Foundry
 
@@ -103,7 +103,7 @@ For detailed information about our backend architecture, including how Ponder.sh
 
 ## Frontend Overview
 
-The frontend is built with **Next.js 14** and features:
+The frontend is built with **Next.js 15** and features:
 
 - **React Components** – Reusable UI building blocks with TypeScript
 - **Web3 Integration** – Custom hooks for wallet connection, contract interactions, and transaction management
@@ -129,12 +129,11 @@ The frontend is built with **Next.js 14** and features:
 - [EIP-2771: Secure Meta Transactions](https://eips.ethereum.org/EIPS/eip-2771) – Ethereum Improvement Proposal for meta-transactions, enabling gasless transactions through trusted relayers.
 - [Codex API Documentation](https://www.codex.io/) – Developer guide for integrating Codex's decentralized and verifiable data indexing services with EVM applications.
 
-
 ## Contributing
 
-We welcome contributions of all experience levels! Whether it's fixing typos, improving documentation, or contributing code, check out our [Contribution Guide](https://github.com/blockmatic/basilic-evm/CONTRIBUTING.md)[lines](https://github.com/blockmatic/basilic-evm/issues)[.](https://github.com/blockmatic/basilic-evm/issues)
+We welcome contributions of all experience levels! Whether it's fixing typos, improving documentation, or contributing code, check out our [Contribution Guide](https://github.com/blockmatic/basilic-evm/blob/main/CONTRIBUTING.md).
 
-- [Rep](https://github.com/blockmatic/basilic-evm/issues)ort issues via [GitHub Issues](https://github.com/blockmatic/basilic-evm/issues).
+- Report issues via [GitHub Issues](https://github.com/blockmatic/basilic-evm/issues)
 - Submit PRs following our guidelines.
 
 ## License
