@@ -58,6 +58,9 @@ importers:
 
   apps/ponder:
     dependencies:
+      '@repo/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       bignumber.js:
         specifier: ^9.1.2
         version: 9.1.2
@@ -136,6 +139,15 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
+  packages/core:
+    dependencies:
+      '@repo/errors':
+        specifier: workspace:*
+        version: link:../errors
+      viem:
+        specifier: ^2.21.3
+        version: 2.23.4(typescript@5.7.3)
+
   packages/errors:
     dependencies:
       typescript:
@@ -162,6 +174,12 @@ importers:
         version: 1.2.3
 
   packages/next:
+    dependencies:
+      '@repo/errors':
+        specifier: workspace:*
+        version: link:../errors
+
+  packages/react:
     dependencies:
       '@repo/errors':
         specifier: workspace:*

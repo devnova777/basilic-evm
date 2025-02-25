@@ -16,7 +16,8 @@
     "bignumber.js": "^9.1.2",
     "hono": "^4.5.0",
     "ponder": "^0.9.19",
-    "viem": "^2.21.3"
+    "viem": "^2.21.3",
+    "@repo/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",

@@ -1,3 +1,5 @@
+import type { Abi } from 'viem'
+
 export const UniswapV3PoolAbi = [
   {
     inputs: [],
@@ -985,4 +987,4 @@ export const UniswapV3PoolAbi = [
     stateMutability: 'view',
     type: 'function',
   },
-] as const
+] as const satisfies Abi

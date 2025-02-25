@@ -119,7 +119,7 @@ Built with **Next.js**, featuring **React components, Web3 hooks, Tailwind CSS, 
 
 ## Contributing
 
-We welcome contributions of all experience levels! Whether it's fixing typos, improving documentation, or contr[ibuting code, check out](https://github.com/blockmatic/basilic-evm/CONTRIBUTING.md) our [Contribution Guide](https://github.com/blockmatic/basilic-evm/CONTRIBUTING.md)[lines](https://github.com/blockmatic/basilic-evm/issues)[.](https://github.com/blockmatic/basilic-evm/issues)
+We welcome contributions of all experience levels! Whether it's fixing typos, improving documentation, or contributing code, check out our [Contribution Guide](https://github.com/blockmatic/basilic-evm/CONTRIBUTING.md)[lines](https://github.com/blockmatic/basilic-evm/issues)[.](https://github.com/blockmatic/basilic-evm/issues)
 
 - [Rep](https://github.com/blockmatic/basilic-evm/issues)ort issues via [GitHub Issues](https://github.com/blockmatic/basilic-evm/issues).
 - Submit PRs following our guidelines.

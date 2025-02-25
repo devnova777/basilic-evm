@@ -1,3 +1,5 @@
+import type { Abi } from 'viem'
+
 export const UniswapV3FactoryAbi = [
   {
     inputs: [],
@@ -233,4 +235,4 @@ export const UniswapV3FactoryAbi = [
     stateMutability: 'nonpayable',
     type: 'function',
   },
-] as const
+] as const satisfies Abi

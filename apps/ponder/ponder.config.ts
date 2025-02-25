@@ -1,6 +1,6 @@
+import { UniswapV3PoolAbi } from '@repo/core/abis'
 import { createConfig } from 'ponder'
 import { http } from 'viem'
-import { UniswapV3PoolAbi } from './abis/UniswapV3PoolAbi'
 
 export default createConfig({
   networks: {
