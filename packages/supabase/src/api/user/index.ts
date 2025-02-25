@@ -8,7 +8,7 @@ export async function upsertUserAddress({
   address: string
 }) {
   const { data, error } = await supabase
-    .from('user')
+    .from('User')
     .upsert({ address })
     .select()
     .single()

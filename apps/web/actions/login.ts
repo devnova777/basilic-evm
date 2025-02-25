@@ -3,6 +3,7 @@ import { client } from '@/lib/thirdweb'
 import { cookies } from 'next/headers'
 import { type VerifyLoginPayloadParams, createAuth } from 'thirdweb/auth'
 import { privateKeyToAccount } from 'thirdweb/wallets'
+import { createSupabaseServerClient, upsertUserAddress } from '@repo/supabase'
 
 const privateKey = process.env.AUTH_PRIVATE_KEY || ''
 
@@ -25,6 +26,12 @@ export async function login(payload: VerifyLoginPayloadParams) {
       payload: verifiedPayload.payload,
     })
     ;(await cookies()).set('jwt', jwt)
+    
+    // Track user addresses in our database for analytics and user engagement metrics
+    await upsertUserAddress({
+      supabase: await createSupabaseServerClient(),
+      address: verifiedPayload.payload.address
+    })
   }
 }
 
