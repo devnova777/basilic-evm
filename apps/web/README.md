@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# BasilicEVM Webapp
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The BasilicEVM webapp is built with Next.js 14 and follows a performance-optimized architecture for EVM applications. It's part of a larger monorepo that includes smart contracts (Foundry), indexing services (Ponder), and shared packages.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Core Features
+
+- URL-based state management
+- API for reading and subscribing to data
+- EVM transaction push for writing
+- Code organization by route and feature
+- Pragmatic abstraction (AHA Programming)
+
+## Architectural Principles
+
+### URL-Based State Management
+
+The application uses URL parameters as the source of truth for state management:
+
+```typescript
+import { useSearchParams } from 'next/navigation'
+import { createQueryString } from '@repo/lib'
+
+function Component() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  
+  const updateFilters = (filters) => {
+    const queryString = createQueryString({
+      ...searchParams,
+      ...filters
+    })
+    setSearchParams(queryString)
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Benefits:
+- Shareable application states
+- SEO-friendly routes
+- Persistent state across page reloads
+- Reduced client-side state complexity
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Data Fetching Strategy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+The application implements a robust data fetching pattern using React Query:
 
-## Learn More
+```typescript
+function useFeatureData(params: FeatureParams) {
+  return useQuery({
+    queryKey: ['feature', params],
+    queryFn: () => fetchFeatureData(params),
+  })
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+Key aspects:
+- One subscription per route to minimize connection overhead
+- Cached queries for efficient data sharing
+- Type-safe contract interactions via viem/wagmi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Code Organization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+├── (routes)/           # Route groups
+│   ├── layout.tsx     # Root layout
+│   └── page.tsx       # Root page
+├── components/        # React components
+│   ├── layout/       # Layout components
+│   └── features/     # Feature-specific components
+├── lib/              # Utility functions
+└── services/         # External integrations
+```
 
-## Deploy on Vercel
+### Error Handling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Standardized error handling approach:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```typescript
+import { captureAppError } from '@repo/errors'
+
+try {
+  // Implementation
+} catch (error) {
+  captureAppError({
+    code: 'FEATURE_ERROR',
+    error,
+    label: 'featureOperation'
+  })
+}
+```
+
+Features:
+- Error boundaries for unexpected errors
+- Form validation using zod schemas
+- Centralized error logging with Sentry
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org) 14
+  - React Server Components
+  - App Router
+  - Server actions
+- [shadcn/ui](https://ui.shadcn.com)
+  - Tailwind CSS
+  - Radix UI primitives
+- [viem](https://viem.sh)
+  - Type-safe Ethereum interface
+- [wagmi](https://wagmi.sh)
+  - React hooks for Ethereum
+- [@tanstack/react-query](https://tanstack.com/query)
+  - Data fetching and caching
+- [zod](https://zod.dev)
+  - Schema validation
+
+## Development Setup
+
+### Requirements
+- Node.js 18+
+- pnpm
+- Git
+
+### Quick Start
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+```
+
+## Directory Structure
+
+```
+.
+├── app/                # Next.js app directory
+│   ├── (routes)/      # Route groups
+│   ├── layout.tsx     # Root layout
+│   └── page.tsx       # Root page
+├── components/        # React components
+│   ├── layout/       # Layout components
+│   ├── features/     # Feature components
+│   └── ui/           # UI components
+├── lib/              # Utility functions
+│   ├── config.ts     # App configuration
+│   └── utils.ts      # Helper functions
+├── services/         # External services
+└── public/           # Static assets
+```
+
+## Contributing
+
+Please refer to the root [CONTRIBUTING.md](../../CONTRIBUTING.md) for development guidelines.
+
+## License
+
+MIT License
