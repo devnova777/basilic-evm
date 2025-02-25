@@ -10,7 +10,6 @@ The BasilicEVM webapp is built with Next.js 14 and follows a performance-optimiz
 - API for reading and subscribing to data
 - EVM transaction push for writing
 - Code organization by route and feature
-- Pragmatic abstraction (AHA Programming)
 
 ## Architectural Principles
 
@@ -61,17 +60,41 @@ Key aspects:
 
 ### Code Organization
 
+The project follows a React fractal architecture pattern, where each feature maintains a consistent, self-similar structure across different scales. This approach promotes modularity, scalability, and reusability. For more details, see [React Fractal Compoundnents](https://gaboesquivel.com/blog/2024-11-react-fractal-compoundnents).
+
 ```
 app/
-├── (routes)/           # Route groups
-│   ├── layout.tsx     # Root layout
-│   └── page.tsx       # Root page
-├── components/        # React components
+├── (routes)/         # Route groups by feature
+│   ├── market/       # Market feature
+│   │   ├── list/     # Market listing
+│   │   │   ├── index.tsx
+│   │   │   └── types.ts
+│   │   └── detail/   # Market details
+│   │       ├── index.tsx
+│   │       └── types.ts
+│   └── account/      # Account feature
+│       ├── index.tsx
+│       ├── health.tsx
+│       └── types.ts
+├── components/       # Shared components
 │   ├── layout/       # Layout components
 │   └── features/     # Feature-specific components
-├── lib/              # Utility functions
-└── services/         # External integrations
+├── hooks/            # Custom hooks by feature
+│   ├── market/
+│   │   ├── use-markets.ts
+│   │   └── types.ts
+│   └── account/
+│       ├── use-account.ts
+│       └── types.ts
+└── lib/              # Utility functions
 ```
+
+Key benefits:
+- Consistent folder structure across features
+- Self-contained, portable components
+- Clear separation of concerns
+- Scalable and maintainable architecture
+- Improved developer experience through predictability
 
 ### Error Handling
 
@@ -113,6 +136,8 @@ Features:
   - Data fetching and caching
 - [zod](https://zod.dev)
   - Schema validation
+- [nuqs](https://nuqs.dev)
+  - URL-based state management
 
 ## Development Setup
 
