@@ -22,8 +22,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "thirdweb": "^5.88.7",
-    "viem": "^2.21.3",
-    "wagmi": "^2.14.12"
+    "viem": "^2.x",
+    "wagmi": "2.x"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",

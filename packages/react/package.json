@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@repo/errors": "workspace:*"
+    "@repo/errors": "workspace:*",
+    "@repo/core": "workspace:*",
+    "viem": "^2.x",
+    "wagmi": "2.x"
   }
 }

@@ -5,6 +5,8 @@ globs: "**/hooks/**/*.{ts,tsx}"
 
 # Wagmi v2 Best Practices
 
+- Always use 2.x version https://wagmi.sh/react/guides/migrate-from-v1-to-v2
+
 ## Core Principles
 - Use Wagmi 2.x hooks
 - Handle loading and error states
