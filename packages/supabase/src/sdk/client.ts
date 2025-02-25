@@ -1,8 +1,8 @@
 'use client'
 
-import type { Database } from '../supa.types'
 import { createBrowserClient } from '@supabase/ssr'
 import { useMemo } from 'react'
+import type { Database } from '../supa.types'
 import { supaConfig } from './config'
 
 export function getSupabaseBrowserClient() {

@@ -1,8 +1,8 @@
 'use server'
 
-import type { Database } from '../supa.types'
 import { type CookieOptions, createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
+import type { Database } from '../supa.types'
 import { supaConfig } from './config'
 
 export async function createSupabaseNextClient() {
