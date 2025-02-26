@@ -174,7 +174,7 @@ pnpm build
 ├── lib/              # Utility functions
 │   ├── config.ts     # App configuration
 │   └── utils.ts      # Helper functions
-├── services/         # External services
+├── hooks/            # Custom hooks
 └── public/           # Static assets
 ```
 
