@@ -159,25 +159,6 @@ pnpm dev
 pnpm build
 ```
 
-## Directory Structure
-
-```
-.
-├── app/                # Next.js app directory
-│   ├── (routes)/      # Route groups
-│   ├── layout.tsx     # Root layout
-│   └── page.tsx       # Root page
-├── components/        # React components
-│   ├── layout/       # Layout components
-│   ├── features/     # Feature components
-│   └── ui/           # UI components
-├── lib/              # Utility functions
-│   ├── config.ts     # App configuration
-│   └── utils.ts      # Helper functions
-├── hooks/            # Custom hooks
-└── public/           # Static assets
-```
-
 ## Contributing
 
 Please refer to the root [CONTRIBUTING.md](../../CONTRIBUTING.md) for development guidelines.
