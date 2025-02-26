@@ -2,6 +2,7 @@
 
 import { webConfig } from '@/config'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ThemeProvider } from 'next-themes'
 import { ThirdwebProvider } from 'thirdweb/react'
 import { http } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
@@ -18,11 +19,13 @@ export const wagmiConfig = createConfig({
 
 export function Providers({ children }: ProvidersProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <WagmiProvider config={wagmiConfig}>
-        <ThirdwebProvider>{children}</ThirdwebProvider>
-      </WagmiProvider>
-    </QueryClientProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <QueryClientProvider client={queryClient}>
+        <WagmiProvider config={wagmiConfig}>
+          <ThirdwebProvider>{children}</ThirdwebProvider>
+        </WagmiProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   )
 }
 

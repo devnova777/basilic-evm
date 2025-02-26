@@ -1,6 +1,7 @@
 'use client'
 
 import { generatePayload, isLoggedIn, login, logout } from '@/actions/login'
+import { ThemeToggle } from '@/components/layout/header/theme-toggle'
 import { client } from '@/lib/thirdweb'
 import Link from 'next/link'
 import { ConnectButton } from 'thirdweb/react'
@@ -44,8 +45,9 @@ export function Header() {
               }}
             />
           </div>
-          <div className="flex lg:hidden">
-            {/* DynamicMobileNav component removed */}
+
+          <div className="flex ">
+            <ThemeToggle />
           </div>
         </div>
       </div>
