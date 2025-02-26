@@ -1,7 +1,5 @@
 # BasilicEVM: EVM Development Stack
 
-## Overview
-
 A performance-optimized development stack for EVM applications. Built with Foundry, viem/wagmi, and Next.js 15.
 
 ## Core Features
