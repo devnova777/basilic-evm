@@ -4,8 +4,8 @@
   "scripts": {
     "build": "turbo run build",
     "backend": "bash scripts/backend.sh",
-    "dev": "turbo run dev",
-    "check-types": "turbo run check-types",
+    "dev": "turbo dev",
+    "check-types": "turbo check-types",
     "lint": "biome check .",
     "lint:fix": "biome check . --write"
   },
@@ -18,6 +18,5 @@
     "node": ">=18"
   },
   "packageManager": "pnpm@8.15.4",
-  "workspaces": ["apps/*", "packages/*"],
   "dependencies": {}
 }

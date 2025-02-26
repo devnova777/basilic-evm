@@ -5,5 +5,9 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "files": ["base.json", "reset.json", "nextjs.json", "react-library.json"],
+  "dependencies": {
+    "@total-typescript/ts-reset": "^0.5.1"
   }
 }

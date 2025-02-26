@@ -89,8 +89,11 @@ function isActive(href: string, pathname: string) {
 }
 
 const navOptions = [
-  { text: 'Swap', href: '/', icon: null },
+  { text: 'Markets', href: '/', icon: null },
+  { text: 'Swap', href: '/swap', icon: null },
   { text: 'Pools', href: '/pools', icon: null },
+  { text: 'Wallet', href: '/wallet', icon: null },
+  { text: 'Ponder', href: '/ponder', icon: null },
   {
     text: 'More',
     options: [

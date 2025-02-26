@@ -1,7 +1,7 @@
-export default function PoolsPage() {
+export default function PonderPage() {
   return (
     <div className="container mx-auto">
-      <h1>Pools</h1>
+      <h1>Ponder</h1>
     </div>
   )
 }
