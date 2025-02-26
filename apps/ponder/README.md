@@ -2,50 +2,32 @@
 
 ## Overview
 
-The BasilicEVM Ponder service handles blockchain data indexing and provides a GraphQL + RPC API. It's integrated with Supabase for database management and deployment workflows.
+BasilicEVM Ponder indexes blockchain events, transforms data, and exposes it via a GraphQL + RPC API. Integrated with Supabase for database lifecycle management and deployment.
 
-## Core Features
+## Features
 
-- Blockchain event indexing and data transformation
-- GraphQL API for querying indexed data
-- RPC API supporting raw SQL queries
-- Automatic database migrations
-- Integration with Supabase for database lifecycle management
+- **Event Indexing:** Tracks blockchain events and transactions.  
+- **GraphQL + RPC API:** Query indexed data or execute raw SQL.  
+- **Automated Migrations:** Schema managed by Ponder, no manual Supabase migrations.  
+- **Supabase Integration:** Enables database branching and isolation.
 
 ## Architecture
 
-### Data Flow
-1. Ponder indexes blockchain events and transactions
-2. Data is transformed and stored in PostgreSQL
-3. GraphQL/RPC APIs expose the indexed data
-4. Frontend queries data via generated types
+1. Ponder indexes blockchain events → Stores in PostgreSQL  
+2. Data exposed via GraphQL/RPC APIs → Typed access for frontend  
+3. Supabase handles database environments → No manual migrations  
 
-### Database Management
-- Ponder controls all schema migrations
-- Supabase provides database branching and environment isolation
-- No manual Supabase migrations (handled by Ponder)
+## Development
 
-## Development Setup
-
-### Requirements
-- Node.js 18+
-- pnpm
-- PostgreSQL
-- Supabase CLI
+### Prerequisites
+- Node.js 18+, pnpm, PostgreSQL, Supabase CLI  
 
 ### Quick Start
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Start the service
-pnpm dev # or pnpm silent
-
-# Build for production
-pnpm build
+pnpm install   # Install dependencies
+pnpm dev       # Start service (or use `pnpm silent`)
+pnpm build     # Build for production
 ```
 
-## Backend Documentation
-
-For detailed information about our backend architecture, including how Ponder.sh and Supabase work together, database branching, and deployment workflows, please refer to [BACKEND.md](../../BACKEND.md).
+For backend architecture details, see [BACKEND.md](../../BACKEND.md).
