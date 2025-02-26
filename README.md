@@ -63,13 +63,14 @@ pnpm test       # Run tests
 
 - [viem](https://viem.sh)
 - [wagmi](https://wagmi.sh)
-- [tanstack](https://tanstack.com)
-- [Foundry](https://book.getfoundry.sh)
-- [EIP-2771: Meta Transactions](https://eips.ethereum.org/EIPS/eip-2771)
-- [0x Protocol Gasless API](https://0x.org/docs/gasless-api/introduction)
+- [tanstack query](https://tanstack.com/query)
+- [thirdweb connect](https://thirdweb.com/connect)
 - [Next.js](https://nextjs.org/docs)
 - [Ponder](https://ponder.sh/docs)
 - [Supabase](https://supabase.com/docs)
+- [Foundry](https://book.getfoundry.sh)
+- [EIP-2771: Meta Transactions](https://eips.ethereum.org/EIPS/eip-2771)
+- [0x Protocol Gasless API](https://0x.org/docs/gasless-api/introduction)
 
 ## Contributing
 
