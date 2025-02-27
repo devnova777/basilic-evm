@@ -1,6 +1,6 @@
-# Contributing to BasilicEVM
+# Contributing 
 
-Thank you for your interest in contributing to BasilicEVM! This document outlines our contribution guidelines and development workflow.
+Thank you for your interest in contributing! This document outlines our contribution guidelines and development workflow.
 
 ## Code Standards & Rules
 

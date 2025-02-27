@@ -1,4 +1,4 @@
-# @repo/lib Package
+# @repo/lib package
 
 This package contains shared utilities, functions, constants, and configuration files that can be used across multiple projects in the monorepo.
 

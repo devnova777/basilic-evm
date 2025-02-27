@@ -1,4 +1,4 @@
-# @repo/core Package
+# @repo/core package
 
 Core package for interacting smart contracts.
 

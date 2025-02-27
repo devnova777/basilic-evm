@@ -8,6 +8,7 @@ A performance-optimized development stack for EVM applications. Built with Found
 - __Chain Integration__: viem/wagmi, Alchemy RPC
 - __Frontend__: Next.js 15, React Server Components
 - __Data Layer__: Ponder indexing, Supabase
+- 
 ## Project Structure
 
 ### Apps
@@ -15,10 +16,12 @@ A performance-optimized development stack for EVM applications. Built with Found
 - [__apps/ponder__](./apps/ponder/README.md) - Chain indexing service
 
 ### Packages
+- [__packages/ui__](./packages/ui/README.md) - Shadcn/ui and custom components
 - [__packages/core__](./packages/core/README.md) - Chain interactions, contract ABIs
 - [__packages/react__](./packages/react/README.md) - Web3 React hooks
 - [__packages/supabase__](./packages/supabase/README.md) - Database/auth integration
 - [__packages/lib__](./packages/lib/README.md) - Shared utilities
+- [__packages/tsconfig__](./packages/tsconfig/README.md) - TypeScript configuration
 
 ## Development Setup
 

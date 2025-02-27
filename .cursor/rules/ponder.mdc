@@ -5,6 +5,11 @@ globs: "**/ponder/**/*.ts"
 
 # Ponder Best Practices
 
+- Define clear indexing strategies for your use case
+- Implement efficient event handlers
+- Use Ponder's GraphQL API for querying indexed data
+- Optimize indexing performance with proper database indexing
+
 ## Database Operations
 
 ### Reading Data

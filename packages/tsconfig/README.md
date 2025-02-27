@@ -1,4 +1,4 @@
-# @repo/tsconfig
+# @repo/tsconfig package
 
 This package contains shared TypeScript configurations used across the monorepo.
 

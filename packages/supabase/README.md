@@ -1,6 +1,7 @@
-# @repo/supabase
+# @repo/supabase package
 
-Supabase module that handles database interactions.
+This module provides comprehensive tools for managing database interactions using Supabase.
+For detailed usage instructions please refer to the [BACKEND.md](../../BACKEND.md) documentation.
 
 ## Features
 

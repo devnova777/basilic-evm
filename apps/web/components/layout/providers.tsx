@@ -13,7 +13,7 @@ const queryClient = new QueryClient()
 export const wagmiConfig = createConfig({
   chains: [arbitrumSepolia],
   transports: {
-    [arbitrumSepolia.id]: http(webConfig.services.rpc.arbitrumSepolia)
+    [arbitrumSepolia.id]: http(webConfig.services.rpc.arbitrumSepolia),
   },
 })
 

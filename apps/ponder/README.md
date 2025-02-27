@@ -1,8 +1,9 @@
-# BasilicEVM Ponder Service
+# Ponder
 
 ## Overview
 
-BasilicEVM Ponder indexes blockchain events, transforms data, and exposes it via a GraphQL + RPC API. Integrated with Supabase for database lifecycle management and deployment.
+Ponder indexes blockchain events, transforms data, and exposes it via a GraphQL + RPC API. Integrated with Supabase for database lifecycle management and deployment.
+For detailed usage instructions please refer to the [BACKEND.md](../../BACKEND.md) documentation.
 
 ## Features
 

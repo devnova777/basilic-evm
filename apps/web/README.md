@@ -1,8 +1,8 @@
-# BasilicEVM Webapp
+# Web
 
 ## Overview
 
-The BasilicEVM webapp is built with Next.js 14 and follows a performance-optimized architecture for EVM applications. It's part of a larger monorepo that includes smart contracts (Foundry), indexing services (Ponder), and shared packages.
+The web app is built with Next.js 15 and follows a performance-optimized architecture for EVM applications. 
 
 ## Core Features
 
@@ -10,6 +10,8 @@ The BasilicEVM webapp is built with Next.js 14 and follows a performance-optimiz
 - API for reading and subscribing to data
 - EVM transaction push for writing
 - Code organization by route and feature
+- Next.js 15's new Turbopack for faster builds
+- React Server Components for improved performance
 
 ## Architectural Principles
 

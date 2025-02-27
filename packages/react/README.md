@@ -1,4 +1,4 @@
-# @repo/react Package
+# @repo/react package
 
 A TypeScript package that provides React hooks for interacting with smart contracts using Wagmi v2 and Viem v2.
 
