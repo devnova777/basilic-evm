@@ -1,4 +1,4 @@
-# BasilicEVM: EVM Development Stack
+# BasilicEVM: FullStack EVM Project Starter
 
 A performance-optimized development stack for EVM applications. Built with Foundry, viem/wagmi, and Next.js 15.
 
