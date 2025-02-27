@@ -5,13 +5,24 @@ globs: "app/**/*.{ts,tsx}"
 
 # Next.js Best Practices
 
-## Core Principles
-- Default to Server Components for better performance
-- Minimize 'use client' directives
-- Follow App Router patterns and conventions
-- Handle errors with proper error boundaries
+## **Core Principles**
+- **Default to Server Components** for better performance.
+- **Minimize `'use client'` directives** to leverage SSR benefits.
+- Follow **App Router patterns and conventions**.
+- **Handle errors properly** using `error.tsx` and **error boundaries**.
+- Use **Next.js 15 built-in components** (`Image`, `Link`, `Script`, `Head`, etc.).
+- Optimize **Web Vitals** (`LCP`, `CLS`, `FID`).
 
-## Component Architecture
+### **Key Conventions**
+- Use **`nuqs`** for URL search parameter state management.
+- **Limit `'use client'`**:
+  - Favor **Server Components** and **Next.js SSR**.
+  - Use only for **Web API access in small components**.
+  - Avoid for **data fetching or state management**.
+
+---
+
+## **Component Architecture**
 ```tsx
 // Prefer Server Components by default
 export function ServerComponent() {
@@ -31,25 +42,17 @@ function ClientComponent() {
 }
 ```
 
-## Data Fetching
-- Use Server Components for data fetching
-- Implement proper caching strategies
-- Handle loading and error states
-- Use proper revalidation patterns
+---
 
-## Route Handlers
-- Use Next.js route handlers for API endpoints
-- Implement proper error handling
-- Follow RESTful conventions
-- Use proper response types
+## **Data Fetching**
+- **Use Server Components** for data fetching.
+- **Implement proper caching strategies**.
+- **Handle loading and error states**.
+- **Use revalidation patterns** to optimize freshness.
 
-## File Conventions
-- Use proper loading.tsx for loading states
-- Implement error.tsx for error boundaries
-- Follow page.tsx convention for routes
-- Use layout.tsx for shared layouts
+---
 
-## Server Actions
+## **Server Actions**
 ```tsx
 'use server'
 import { type ActionResult, success, failure } from '@repo/next'
@@ -71,8 +74,9 @@ export const saveAction = createSafeActionClient()
   })
 ```
 
+---
 
-## Performance Patterns
+## **Performance Patterns**
 ```tsx
 // Use Image component with proper sizing
 import { Image } from 'next/image'
@@ -100,39 +104,24 @@ export function LazyComponent() {
 }
 ```
 
-## Next.js Optimizations
-- Use App Router for efficient navigation and state management
-- Implement streaming with Suspense for progressive loading
-- Follow proper caching strategies:
-  - Use fetch cache options appropriately
-  - Implement revalidation when needed
-- Minimize 'use client' directives to leverage SSR benefits
-- Use proper loading.tsx and error.tsx files for better UX 
-  
+---
 
-## Services Pattern
-```tsx
-import { captureAppError } from '@repo/errors'
-import type { SupaApiParams } from '../types'
+## **Next.js Optimizations**
+- **Use App Router** with `nuqs` for efficient navigation and state management.
+- **Implement streaming** with `Suspense` for progressive loading.
+- **Follow proper caching strategies**:
+  - Use `fetch` cache options appropriately.
+  - Implement **revalidation when needed**.
+- **Minimize `'use client'`**, `'useEffect'`, and `'setState'` in favor of **React Server Components (RSC)**.
+- **Wrap client components** in `Suspense` with a fallback.
+- **Use dynamic loading** for non-critical components.
+- **Optimize images**:
+  - Use **WebP format**.
+  - Include **size data**.
+  - Implement **lazy loading**.
 
-export async function getData({
-  params,
-  supabase,
-}: SupaApiParams & {
-  params: DataParams
-}) {
-  const { data, error } = await supabase
-    .from('table')
-    .select()
-    .single()
+---
 
-  if (error || !data) 
-    captureAppError({ 
-      code: 'FETCH_ERROR', 
-      error, 
-      label: 'getData' 
-    })
-
-  return data as NonNullable<typeof data>
-}
-``` 
+## **UI & Styling**
+- **Use Shadcn UI, Radix, and Tailwind** for components and styling.
+- **Implement responsive design** with **Tailwind CSS** using a **mobile-first approach**.

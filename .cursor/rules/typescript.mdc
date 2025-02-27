@@ -5,36 +5,40 @@ globs: "**/*.{ts,tsx}"
 
 # TypeScript Best Practices
 
-## Core Principles
+### **Core Principles**
+- Use **TypeScript** for all code; prefer **interfaces** over types.
+- Use the **`function`** keyword for pure functions; **omit semicolons**.
+- Avoid **enums**; use **maps** or **union types** instead.
+- Use **descriptive variable names** with auxiliary verbs (e.g., `isLoading`, `hasError`).
+- Follow the **RORO (Receive an Object, Return an Object)** pattern for function arguments and return values.
+- Use **lowercase-with-dashes** for directories (e.g., `components/auth-wizard`).
+- Favor **named exports** for components.
+- Use **functional & declarative programming** patterns; **avoid classes**.
+- Prefer **iteration & modularization** over code duplication.
+- **Avoid unnecessary curly braces** in conditionals, especially for single-line statements.
 
-- Use the function keyword for pure functions; omit semicolons.
-- Prefer TypeScript over JavaScript and interfaces over types.
-- Avoid enums, use maps or union types instead.
-- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
-- Follow the RORO (Receive an Object, Return an Object) pattern for function arguments and return values.
+### **Error Handling**
+- **Fail fast**: Handle errors early using **guard clauses & early returns**.
+- Place the **happy path last** for improved readability.
+- **Avoid unnecessary else statements**; prefer `if-return` pattern.
+- Use **preconditions** to check for invalid states upfront.
+- Throw errors from `@repo/errors` for consistency.
+- Implement **proper error logging** and **user-friendly messages**.
+- Consider using **custom error types** or **error factories** for consistent error handling.
 
-## Error Handling
+### **File Structure & Organization**
+Maintain a structured and logical order when organizing files:
+1. **Main Component** – The primary component that orchestrates logic and renders subcomponents.
+2. **Subcomponents** – Smaller, reusable components that support the main component.
+3. **Helpers & Utilities** – Functions or modules that provide reusable logic and utilities.
+4. **Static Content** – Non-code assets such as constants, images, or localization files.
+5. **Types & Interfaces** – Type definitions for TypeScript to ensure type safety and maintain consistency.
 
-- Fail fast: Handle errors early using guard clauses and early returns.
-- Place the happy path last for improved readability.
-- Avoid unnecessary else statements; use if-return instead.
-- Use preconditions to check for invalid states upfront.
-- Throw errors from @repo/errors to maintain consistency.
+This hierarchy improves **readability, maintainability, and scalability**.
 
-## File Structure
-
-Alwyas maintain a structured and logical order when organizing files within a project. Follow this hierarchy:
-
-1. **Main Component** – The primary component that orchestrates the logic and renders subcomponents.  
-2. **Subcomponents** – Smaller, reusable components that support the main component.  
-3. **Helpers & Utilities** – Functions or modules that provide reusable logic and utilities.  
-4. **Static Content** – Non-code assets such as constants, images, or localization files.  
-5. **Types & Interfaces** – Type definitions for TypeScript to ensure type safety and maintain consistency.  
-
-This order improves readability, maintainability, and scalability.
-
+#### **Example**
 ```tsx
-// Export order: main component -> subcomponents -> helpers -> content -> types
+// Export order: main component → subcomponents → helpers → content → types
 export function MainComponent() {
   return (
     <div className="flex flex-col gap-4">
@@ -61,4 +65,4 @@ const content = {
 interface SubComponentProps {
   message: string
 }
-``` 
+```

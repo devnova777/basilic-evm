@@ -110,5 +110,4 @@ export function useUserWithPosts(userId: string) {
 - Implement stale-while-revalidate patterns
 - Use suspense mode when appropriate
 - Handle pagination and infinite queries efficiently
-``` 
-</rewritten_file>
+```   

@@ -5,25 +5,106 @@ globs: "**/hooks/**/*.{ts,tsx}"
 
 # Wagmi v2 Best Practices
 
-- Always use 2.x version https://wagmi.sh/react/guides/migrate-from-v1-to-v2
+- **Use Wagmi v2.x**: Ensure all hooks and configurations adhere to Wagmi v2.x standards. ([Wagmi Migration Guide](https://wagmi.sh/react/guides/migrate-from-v1-to-v2))
 
-## Core Principles
-- Use Wagmi 2.x hooks
-- Handle loading and error states
-- Use proper types from wagmi/core
+- **TypeScript Enforcement**: Use `wagmi/core` and `viem` types for strict type safety.
 
-## Hook Patterns
-```tsx
+## Hooks and State Management Rules
+
+### Account Connection
+
+- Use `useAccount`, `useConnect`, and `useDisconnect` hooks.
+- Avoid unnecessary re-renders.
+
+```typescript
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import { InjectedConnector } from 'wagmi/connectors/injected'
 
 function WalletConnect() {
-  const { address } = useAccount()
-  const { connect } = useConnect()
+  const { address, isConnected } = useAccount()
+  const { connect } = useConnect({ connector: new InjectedConnector() })
   const { disconnect } = useDisconnect()
 
-  if (!address) 
-    return <Button onClick={() => connect()}>Connect</Button>
-
-  return <Button onClick={() => disconnect()}>Disconnect</Button>
+  return isConnected ? (
+    <button onClick={() => disconnect()}>Disconnect</button>
+  ) : (
+    <button onClick={() => connect()}>Connect Wallet</button>
+  )
 }
-``` 
+```
+
+## Smart Contract Interaction Rules
+
+### Reading from Contracts
+
+- Use `useReadContract` for single contract reads.
+
+```typescript
+import { useReadContract } from 'wagmi'
+import { wagmiContractConfig } from './contracts'
+
+function ReadContract() {
+  const { data: balance, isError, isLoading } = useReadContract({
+    ...wagmiContractConfig,
+    functionName: 'balanceOf',
+    args: ['0x03A71968491d55603FFe1b11A9e23eF013f75bCF'],
+  })
+
+  if (isLoading) return <div>Loading...</div>
+  if (isError) return <div>Error fetching balance</div>
+  return <div>Balance: {balance?.toString()}</div>
+}
+```
+
+### Writing to Contracts
+
+- Use `useWriteContract` for contract mutations.
+- Prefer small, composable hooks for encapsulating contract logic.
+
+```typescript
+import { UniswapV3QuoterV2Abi } from '@repo/core/abis'
+import type {
+  AbiParametersToPrimitiveTypes,
+  Address,
+  ExtractAbiFunction,
+} from 'abitype'
+import { useAccount, useWriteContract } from 'wagmi'
+
+export function useUniswapQuote({ quoterAddress }: { quoterAddress: Address }) {
+  const { address: account } = useAccount()
+  const { writeContract, ...o } = useWriteContract()
+
+  const getQuote = async (args: QuoteInputType) => {
+    if (!account) throw new Error('Wallet not connected')
+
+    const result = await writeContract({
+      address: quoterAddress,
+      abi: UniswapV3QuoterV2Abi,
+      functionName: 'quoteExactInput',
+      args,
+      account,
+      chain: undefined, // Let wagmi infer the current chain
+    })
+    return result
+  }
+
+  return {
+    getQuote,
+    ...o,
+  }
+}
+
+export type QuoteInputType = AbiParametersToPrimitiveTypes<
+  ExtractAbiFunction<typeof UniswapV3QuoterV2Abi, 'quoteExactInput'>['inputs']
+>
+```
+
+## Error Handling Rules
+
+- Handle loading and error states in all async operations.
+- Avoid hooks inside loops or conditionals.
+
+## Performance and Optimization Rules
+
+- Use dynamic imports for non-critical components.
+- Implement Suspense with fallback components.

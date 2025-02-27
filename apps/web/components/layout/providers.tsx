@@ -4,7 +4,7 @@ import { webConfig } from '@/config'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ThemeProvider } from 'next-themes'
 import { ThirdwebProvider } from 'thirdweb/react'
-import { http } from 'viem'
+import { http, type Transport } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
 import { arbitrumSepolia } from 'wagmi/chains'
 
@@ -13,7 +13,7 @@ const queryClient = new QueryClient()
 export const wagmiConfig = createConfig({
   chains: [arbitrumSepolia],
   transports: {
-    [arbitrumSepolia.id]: http(webConfig.services.rpc.arbitrumSepolia),
+    [arbitrumSepolia.id]: http(webConfig.services.rpc.arbitrumSepolia)
   },
 })
 

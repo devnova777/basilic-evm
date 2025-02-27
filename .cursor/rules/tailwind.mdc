@@ -9,7 +9,7 @@ globs: "**/*.{ts,tsx,css}"
 - Use mobile-first responsive design
 - Use Shadcn UI components from @repo/ui
 - Follow design system tokens
-- Use Heroicons
+- Use lucide-react icons
 
 ## Component Patterns
 ```tsx
