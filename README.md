@@ -62,7 +62,7 @@ pnpm test       # Run tests
 
 ### AI Tools Used
 
-- [Cursor.so](https://cursor.so/) – AI-assisted [develo](https://v0.dev/)pment environment.
+- [Cursor.so](https://cursor.so/) – AI-assisted development environment.
 - [v0.dev](https://v0.dev/) – [Automated UI](https://postgres.new/) generation.
 - [postgres.new](https://postgres.new/) – AI-powered[ database sch](https://coderabbit.ai/)ema design.
 - [CodeRabbit.ai](https://coderabbit.ai/) –[ AI-driven c](https://supabase.com/)ode reviews.
