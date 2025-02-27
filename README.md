@@ -8,7 +8,7 @@ A performance-optimized development stack for EVM applications. Built with Found
 - __Chain Integration__: viem/wagmi, Alchemy RPC
 - __Frontend__: Next.js 15, React Server Components
 - __Data Layer__: Ponder indexing, Supabase
-- 
+  
 ## Project Structure
 
 ### Apps
