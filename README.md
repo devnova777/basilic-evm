@@ -2,13 +2,6 @@
 
 A performance-optimized development stack for EVM applications. Built with Foundry, viem/wagmi, and Next.js 15.
 
-## Core Features
-
-- Foundry-based contract development
-- Type-safe contract interactions with viem/wagmi
-- Indexed chain data via Ponder
-- Modular monorepo structure with TypeScript
-
 ## Stack Components
 
 - __Contracts__: Foundry, Solidity ^0.8.19
