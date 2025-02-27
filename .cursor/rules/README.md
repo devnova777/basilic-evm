@@ -6,29 +6,27 @@ This directory contains development standards and best practices for different a
 
 ### Frontend Development
 
-- **[nextjs.mdc](./nextjs.mdc)**: Next.js development standards and patterns
-- **[react-hooks.mdc](./react-hooks.mdc)**: React hooks patterns and best practices
-- **[tailwind.mdc](./tailwind.mdc)**: Tailwind CSS and UI component guidelines
-- **[typescript.mdc](./typescript.mdc)**: TypeScript coding standards and best practices
-- **[web-vitals-perf.mdc](./web-vitals-perf.mdc)**: Web Vitals and performance optimization guidelines
+- **[nextjs.mdc](./nextjs.mdc)**: Next.js development standards and patterns.
+- **[react-hooks.mdc](./react-hooks.mdc)**: React hooks patterns and best practices.
+- **[tailwind.mdc](./tailwind.mdc)**: Tailwind CSS and UI component guidelines.
+- **[typescript.mdc](./typescript.mdc)**: TypeScript coding standards and best practices.
+- **[web-vitals-perf.mdc](./web-vitals-perf.mdc)**: Web Vitals and performance optimization guidelines.
 
 ### Web3 Integration
 
-- **[viem.mdc](./viem.mdc)**: Viem v2 integration patterns and best practices
-- **[wagmi.mdc](./wagmi.mdc)**: Web3 integration patterns using Wagmi v2
-- **[solidity.mdc](./solidity.mdc)**: Solidity development standards with Foundry
+- **[viem.mdc](./viem.mdc)**: Viem v2 integration patterns and best practices.
+- **[wagmi.mdc](./wagmi.mdc)**: Web3 integration patterns using Wagmi v2.
+- **[solidity.mdc](./solidity.mdc)**: Solidity development standards with Foundry.
 
 ### Data Layer
 
-- **[ponder.mdc](./ponder.mdc)**: Ponder indexing standards and best practices
+- **[ponder.mdc](./ponder.mdc)**: Ponder indexing standards and best practices.
 
 ## Usage
 
-These rules are automatically applied when:
+These rules are seamlessly applied when files matching the specified glob patterns are accessed, the AI assistant is requested to assist with code pertaining to a particular technology, or when the AI assistant provides code suggestions.
 
-1. Files matching the rule's glob pattern are opened
-2. The AI assistant is asked to help with code related to a specific technology
-3. Code reviews are performed by the AI assistant
+The rules ensure that AI-driven suggestions and enforcement adhere to the best practices detailed in **[Cursor AI Rules](https://docs.cursor.com/context/rules-for-ai)**.
 
 ## Rule Format
 
@@ -51,24 +49,28 @@ More specific rules...
 
 ## Contributing
 
-When adding new rule files or updating existing rules:
+When adding new files or new rules in existing files:
 
-1. Follow the established concise format
-2. Include clear examples and explanations
-3. Define appropriate glob patterns
-4. Add the rule file or update the rule entry in this README
-5. Ensure consistency with existing rules
-6. Review and test the new or updated rules to ensure they work as expected
+1. Follow the established format.
+2. Include clear examples and explanations.
+3. Define appropriate glob patterns.
+4. Add the new file or rule to this README.
+5. Ensure consistency with existing rules and files.
+
+Before submitting a new rule, verify its effectiveness by testing it with Cursor’s AI-powered review workflow and referring to **[Cursor AI Rules](https://docs.cursor.com/context/rules-for-ai)** for proper formatting and integration.
 
 ## Maintenance
 
 Rules should be regularly reviewed and updated to:
 
-- Keep up with latest best practices
-- Incorporate team feedback
-- Address common issues
-- Align with project evolution
+- Keep up with the latest best practices.
+- Incorporate team feedback.
+- Address common issues.
+- Align with project evolution.
+
+Use AI-assisted linting and validation tools within Cursor to ensure that all rules remain up-to-date and effective.
 
 ## License
 
 MIT License
+
