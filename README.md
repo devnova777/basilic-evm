@@ -53,6 +53,21 @@ pnpm build      # Production build
 pnpm test       # Run tests
 ```
 
+## AI-Powered Development Workflow
+
+- **Specialized cursor rules** ([`.cursor/rules`](./.cursor/rules/README.md)) – Ensures code consistency and quality.
+- **Streamlined UI Generation** – Simplifies front-end development with v0.dev.
+- **Automated Code Reviews** – Provides AI-driven best practice suggestions.
+- **AI-Powered Database Design** – Accelerates schema iteration with postgres.new and Supabase AI agent.
+
+### AI Tools Used
+
+- [Cursor.so](https://cursor.so/) – AI-assisted [develo](https://v0.dev/)pment environment.
+- [v0.dev](https://v0.dev/) – [Automated UI](https://postgres.new/) generation.
+- [postgres.new](https://postgres.new/) – AI-powered[ database sch](https://coderabbit.ai/)ema design.
+- [CodeRabbit.ai](https://coderabbit.ai/) –[ AI-driven c](https://supabase.com/)ode reviews.
+- [Supabase.com](https://supabase.com/) – AI-powered backend tools.
+
 ## Technical References
 
 - [viem](https://viem.sh)
