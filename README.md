@@ -4,11 +4,10 @@ A performance-optimized development stack for EVM applications. Built with Found
 
 ## Core Features
 
-- Foundry-based contract development with fuzzing and gas optimization
+- Foundry-based contract development
 - Type-safe contract interactions with viem/wagmi
-- Modular monorepo structure with TypeScript
 - Indexed chain data via Ponder
-- Supabase for off-chain state and auth
+- Modular monorepo structure with TypeScript
 
 ## Stack Components
 
