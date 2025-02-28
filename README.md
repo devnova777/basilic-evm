@@ -20,7 +20,7 @@ A performance-optimized development stack for EVM applications. Built with Found
 - [__packages/core__](./packages/core/README.md) - Chain interactions, contract ABIs
 - [__packages/api__](./packages/api/README.md) - Ponder api client, api sdk and hooks
 - [__packages/react__](./packages/react/README.md) - Web3 React hooks
-- [__packages/supabase__](./packages/supabase/README.md) - Database/auth integration
+- [__packages/supabase__](./packages/supabase/README.md) - Postgres database.
 - [__packages/lib__](./packages/lib/README.md) - Shared utilities
 - [__packages/tsconfig__](./packages/tsconfig/README.md) - TypeScript configuration
 
