@@ -1,0 +1,28 @@
+{
+  "name": "@repo/api",
+  "version": "1.0.0",
+  "description": "Ponder based api client for dapps",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {},
+  "dependencies": {
+    "@ponder/client": "^0.9.24",
+    "@ponder/react": "^0.9.24",
+    "@repo/errors": "workspace:*",
+    "@repo/ponder": "workspace:*",
+    "viem": "^2.21.3"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": "^5.0.0"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@tanstack/react-query": "^5.28.4"
+  }
+}

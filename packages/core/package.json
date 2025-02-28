@@ -16,5 +16,8 @@
   "dependencies": {
     "@repo/errors": "workspace:*",
     "viem": "^2.21.3"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*"
   }
 }

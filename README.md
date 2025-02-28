@@ -18,6 +18,7 @@ A performance-optimized development stack for EVM applications. Built with Found
 ### Packages
 - [__packages/ui__](./packages/ui/README.md) - Shadcn/ui and custom components
 - [__packages/core__](./packages/core/README.md) - Chain interactions, contract ABIs
+- [__packages/api__](./packages/api/README.md) - Ponder api client, api sdk and hooks
 - [__packages/react__](./packages/react/README.md) - Web3 React hooks
 - [__packages/supabase__](./packages/supabase/README.md) - Database/auth integration
 - [__packages/lib__](./packages/lib/README.md) - Shared utilities

@@ -74,6 +74,12 @@ importers:
         specifier: ^2.21.3
         version: 2.23.5(typescript@5.7.3)
     devDependencies:
+      '@repo/errors':
+        specifier: workspace:*
+        version: link:../../packages/errors
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@types/node':
         specifier: ^20.9.0
         version: 20.17.19
@@ -86,6 +92,9 @@ importers:
       '@binance/connector-typescript':
         specifier: ^0.3.15
         version: 0.3.15
+      '@repo/api':
+        specifier: workspace:*
+        version: link:../../packages/api
       '@repo/errors':
         specifier: workspace:*
         version: link:../../packages/errors
@@ -145,6 +154,31 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
+  packages/api:
+    dependencies:
+      '@ponder/client':
+        specifier: ^0.9.24
+        version: 0.9.24(typescript@5.7.3)
+      '@ponder/react':
+        specifier: ^0.9.24
+        version: 0.9.24(@ponder/client@0.9.24)(@tanstack/react-query@5.66.9)(react@19.0.0)(typescript@5.7.3)
+      '@repo/errors':
+        specifier: workspace:*
+        version: link:../errors
+      '@repo/ponder':
+        specifier: workspace:*
+        version: link:../../apps/ponder
+      viem:
+        specifier: ^2.21.3
+        version: 2.23.5(typescript@5.7.3)
+    devDependencies:
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@tanstack/react-query':
+        specifier: ^5.28.4
+        version: 5.66.9(react@19.0.0)
+
   packages/core:
     dependencies:
       '@repo/errors':
@@ -153,6 +187,10 @@ importers:
       viem:
         specifier: ^2.21.3
         version: 2.23.5(typescript@5.7.3)
+    devDependencies:
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
 
   packages/errors:
     dependencies:
@@ -1932,6 +1970,66 @@ packages:
     requiresBuild: true
     optional: true
 
+  /@ponder/client@0.9.24(typescript@5.7.3):
+    resolution: {integrity: sha512-0PUmPn/HiqASXhtlUrF+CHAXkiXKmHCaH/j1z/7vNVENUvWTN3Ca1brvezX7UPQwap82wWKnqN33s8Xe5W/1ZQ==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      drizzle-orm: 0.39.3(@electric-sql/pglite@0.2.13)(kysely@0.26.3)(pg@8.13.3)
+      eventsource: 3.0.5
+      superjson: 2.2.2
+      typescript: 5.7.3
+    transitivePeerDependencies:
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@libsql/client-wasm'
+      - '@neondatabase/serverless'
+      - '@op-engineering/op-sqlite'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@prisma/client'
+      - '@tidbcloud/serverless'
+      - '@types/better-sqlite3'
+      - '@types/pg'
+      - '@types/sql.js'
+      - '@vercel/postgres'
+      - '@xata.io/client'
+      - better-sqlite3
+      - bun-types
+      - expo-sqlite
+      - knex
+      - kysely
+      - mysql2
+      - pg
+      - postgres
+      - prisma
+      - sql.js
+      - sqlite3
+    dev: false
+
+  /@ponder/react@0.9.24(@ponder/client@0.9.24)(@tanstack/react-query@5.66.9)(react@19.0.0)(typescript@5.7.3):
+    resolution: {integrity: sha512-EZOsCyGxm98jUiRd94Q2O3kNIOUGrOQ7ea9PeIP8kXaf0ybugNeRBPehLVGUIljvC3zalA7L2I6uqLph5aq3lA==}
+    peerDependencies:
+      '@ponder/client': '>=0.9.24'
+      '@tanstack/react-query': '>=5.0.0'
+      react: '>=18'
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@ponder/client': 0.9.24(typescript@5.7.3)
+      '@tanstack/react-query': 5.66.9(react@19.0.0)
+      react: 19.0.0
+      superjson: 2.2.2
+      typescript: 5.7.3
+    dev: false
+
   /@ponder/utils@0.2.3(typescript@5.7.3)(viem@2.23.5):
     resolution: {integrity: sha512-QdlRXrn48nRM/QxNHRffO3PnIFvUf9qHE+rXSut44r74E4iiq9UrIPMhSMyCbJN68yU4QyTupZ/qpqE5PNAo8A==}
     peerDependencies:
@@ -2937,7 +3035,6 @@ packages:
 
   /@tanstack/query-core@5.66.4:
     resolution: {integrity: sha512-skM/gzNX4shPkqmdTCSoHtJAPMTtmIJNS0hE+xwTTUVYwezArCT34NMermABmBVUg5Ls5aiUXEDXfqwR1oVkcA==}
-    dev: false
 
   /@tanstack/react-query@5.66.0(react@19.0.0):
     resolution: {integrity: sha512-z3sYixFQJe8hndFnXgWu7C79ctL+pI0KAelYyW+khaNJ1m22lWrhJU2QrsTcRKMuVPtoZvfBYrTStIdKo+x0Xw==}
@@ -2964,7 +3061,6 @@ packages:
     dependencies:
       '@tanstack/query-core': 5.66.4
       react: 19.0.0
-    dev: false
 
   /@tootallnate/quickjs-emscripten@0.23.0:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
@@ -5405,6 +5501,18 @@ packages:
     engines: {node: '>=0.8.x'}
     dev: false
 
+  /eventsource-parser@3.0.0:
+    resolution: {integrity: sha512-T1C0XCUimhxVQzW4zFipdx0SficT651NnkR0ZSH3yQwh+mFMdLfgjABVi4YtMTtaL4s168593DaoaRLMqryavA==}
+    engines: {node: '>=18.0.0'}
+    dev: false
+
+  /eventsource@3.0.5:
+    resolution: {integrity: sha512-LT/5J605bx5SNyE+ITBDiM3FxffBiq9un7Vx0EwMDM3vg8sWKx/tO2zC+LMqZ+smAM0F2hblaDZUVZF0te2pSw==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      eventsource-parser: 3.0.0
+    dev: false
+
   /execa@5.1.1:
     resolution: {integrity: sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==}
     engines: {node: '>=10'}
@@ -7639,7 +7747,6 @@ packages:
   /react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
