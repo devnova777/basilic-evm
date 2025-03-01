@@ -1,6 +1,5 @@
 'use server'
 import { client } from '@/lib/thirdweb'
-import { createSupabaseServerClient, upsertUserAddress } from '@repo/supabase'
 import { cookies } from 'next/headers'
 import { type VerifyLoginPayloadParams, createAuth } from 'thirdweb/auth'
 import { privateKeyToAccount } from 'thirdweb/wallets'
@@ -28,10 +27,10 @@ export async function login(payload: VerifyLoginPayloadParams) {
     ;(await cookies()).set('jwt', jwt)
 
     // Track user addresses in our database for analytics and user engagement metrics
-    await upsertUserAddress({
-      supabase: await createSupabaseServerClient(),
-      address: verifiedPayload.payload.address,
-    })
+    // await upsertUserAddress({
+    //   supabase: await createSupabaseServerClient(),
+    //   address: verifiedPayload.payload.address,
+    // })
   }
 }
 

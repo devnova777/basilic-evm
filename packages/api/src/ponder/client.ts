@@ -1,8 +1,8 @@
-import { createClient, desc } from "@ponder/client";
-import { getPonderQueryOptions } from "@ponder/react";
-import * as schema from "@repo/ponder/schema";
+import { createClient, desc } from '@ponder/client'
+import { getPonderQueryOptions } from '@ponder/react'
+import * as schema from '@repo/ponder/schema'
 
-const client = createClient("http://localhost:42069/sql", { schema });
+const client = createClient('http://localhost:42069/sql', { schema })
 
 const swapsQueryOptions = getPonderQueryOptions(client, (db) =>
   db
@@ -10,8 +10,8 @@ const swapsQueryOptions = getPonderQueryOptions(client, (db) =>
     .from(schema.SwapEvent)
     .orderBy(desc(schema.SwapEvent.timestamp))
     .limit(10),
-);  
+)
 
-type Swaps = Awaited<ReturnType<typeof swapsQueryOptions.queryFn>>;
+type Swaps = Awaited<ReturnType<typeof swapsQueryOptions.queryFn>>
 
-export { client, schema, swapsQueryOptions, type Swaps };
+export { client, schema, swapsQueryOptions, type Swaps }

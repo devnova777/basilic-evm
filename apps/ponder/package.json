@@ -14,7 +14,7 @@
     "codegen": "ponder codegen",
     "lint": "eslint .",
     "typecheck": "tsc"
-  },  
+  },
   "dependencies": {
     "bignumber.js": "^9.1.2",
     "hono": "^4.5.0",
@@ -22,7 +22,7 @@
     "viem": "^2.21.3",
     "@repo/core": "workspace:*"
   },
-  "devDependencies": {  
+  "devDependencies": {
     "@repo/tsconfig": "workspace:*",
     "@repo/errors": "workspace:*",
     "@types/node": "^20.9.0",

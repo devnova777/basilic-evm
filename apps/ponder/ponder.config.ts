@@ -1,12 +1,13 @@
 import { UniswapV3PoolAbi } from '@repo/core/abis'
 import { createConfig } from 'ponder'
 import { http } from 'viem'
+import { ponderConfig } from './src/config'
 
 export default createConfig({
   networks: {
     arbitrum: {
       chainId: 42161,
-      transport: http(process.env.PONDER_RPC_URL_1),
+      transport: http(ponderConfig.database.url),
     },
   },
   contracts: {
