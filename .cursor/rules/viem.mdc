@@ -1,9 +1,9 @@
 ---
-description: Viem v2 integration patterns and best practices
+description: Viem v2 integration patterns and Rules
 globs: "**/web3/**/*.{ts,tsx}"
 ---
 
-# Viem v2 Best Practices
+# Viem v2 Rules
 
 ## Core Principles
 - Use viem 2.x APIs consistently

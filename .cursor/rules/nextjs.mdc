@@ -3,7 +3,7 @@ description: Next.js development standards and patterns
 globs: "app/**/*.{ts,tsx}"
 ---
 
-# Next.js Best Practices
+# Next.js Rules
 
 ## **Core Principles**
 - **Default to Server Components** for better performance.

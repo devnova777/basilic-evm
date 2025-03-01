@@ -1,167 +1,150 @@
 ---
-description: Ponder indexing standards and best practices
+description: Ponder indexing standards and Rules
 globs: "**/ponder/**/*.ts"
 ---
 
-# Ponder Best Practices
+# Ponder Rules
 
-- Define clear indexing strategies for your use case
-- Implement efficient event handlers
-- Use Ponder's GraphQL API for querying indexed data
-- Optimize indexing performance with proper database indexing
+- **Use the latest Ponder package** (no `@ponder/core`).
+- **Define clear indexing strategies** tailored to your use case.
+- **Optimize queries** by using proper indexing and query functions.
+- **Leverage Ponder’s API** for efficient event processing and querying.
+- **Structure event handlers efficiently** to minimize processing time.
+
+## Ponder Configuration (`ponder.config.ts`)
+
+- **Define networks and transports** using `http()` from `viem`.
+- **Specify contracts** with `abi`, `network`, `address`, and `startBlock`.
+
+```ts
+import { createConfig } from "ponder";
+import { http } from "viem";
+
+import { UniswapV3FactoryAbi } from "./abis/UniswapV3Factory";
+
+export default createConfig({
+  networks: {
+    mainnet: {
+      chainId: 1,
+      transport: http(process.env.MAINNET_RPC_URL!),
+    },
+    polygon: {
+      chainId: 137,
+      transport: http(process.env.POLYGON_RPC_URL!),
+    },
+  },
+  contracts: {
+    UniswapV3Factory: {
+      abi: UniswapV3FactoryAbi,
+      network: "mainnet",
+      address: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      startBlock: 12369621,
+    },
+  },
+});
+```
+
+## Schema Design (`ponder.schema.ts`)
+
+- **Define tables with `onchainTable()`** and use meaningful primary keys.
+- **Use indexed fields** for efficient lookups.
+
+```ts
+import { onchainTable, primaryKey, index } from "ponder";
+
+export const allowances = onchainTable(
+  "allowances",
+  (t) => ({
+    owner: t.hex(),
+    spender: t.hex(),
+    amount: t.bigint(),
+  }),
+  (table) => ({
+    pk: primaryKey({ columns: [table.owner, table.spender] }),
+    ownerIdx: index().on(table.owner),
+  })
+);
+```
+
+## Event Handling
+
+- **Use `ponder.on()` to register event handlers.**
+- **Destructure event and context parameters** for better readability.
+- **Handle errors gracefully** using `try/catch`.
+
+```ts
+import { ponder } from "ponder:registry";
+
+ponder.on("UniswapV3Factory:PoolCreated", async ({ event, context }) => {
+  const { args, log } = event;
+  const { db, client, contracts } = context;
+
+  try {
+    const poolAddress = args.pool;
+    const token0 = await client.readContract({
+      abi: contracts.UniswapV3Factory.abi,
+      address: poolAddress,
+      functionName: "token0",
+    });
+
+    await db.insert(pools).values({
+      id: poolAddress,
+      token0,
+    });
+  } catch (error) {
+    console.error(`Error processing PoolCreated event: ${error}`);
+  }
+});
+```
 
 ## Database Operations
 
-### Reading Data
-- Use `db.find()` instead of `db.get()` for single record lookups
-- Use `db.findMany()` for multiple records
-- Always handle null cases when querying data
+- **Read data** using `db.select()` or `db.query()` for complex queries.
+- **Write data** using `db.insert()` or `db.update()`.
+- **Always handle null cases** to avoid runtime errors.
 
 ```ts
-// ❌ Don't use db.get
-const asset = await context.db.get(Asset, { id });
-
-// ✅ Use db.find
-const asset = await context.db.find(Asset, { id });
+const asset = await db.select().from(assets).where(eq(assets.id, id)).limit(1);
 if (!asset) {
   // Handle missing asset case
 }
-```
 
-### Writing Data
-- Use `db.insert()` for creating new records
-- Use `db.update()` for modifying existing records
-- Use transactions for related operations
-- Handle duplicate inserts gracefully
-
-```ts
-await context.db.insert(Asset).values({
+await db.insert(assets).values({
   id,
   name,
   symbol,
   decimals,
   chainId,
-  address: tokenAddress
+  address: tokenAddress,
 });
 ```
 
-## Event Handling
+## Performance Optimization
 
-### Event Handler Structure
-- Define event handlers with proper type annotations
-- Destructure event and context parameters
-- Use early returns for guard clauses
-- Log meaningful information for debugging
+- **Cache frequently accessed data** to avoid redundant queries.
+- **Batch database operations** to reduce execution time.
+- **Index fields appropriately** to speed up queries.
 
 ```ts
-ponder.on(
-  "Contract:Event",
-  async ({
-    event,
-    context
-  }: {
-    event: Event<"Contract:Event">
-    context: Context
-  }) => {
-    const { args, log } = event;
-    // Handler logic
-  }
-);
-```
+// Check cache before querying the database
+const cachedAsset = await cache.get(assetId);
+if (cachedAsset) return cachedAsset;
 
-### Error Handling
-- Wrap chain calls in try/catch blocks
-- Provide fallback values for failed operations
-- Log errors with meaningful context
-- Continue processing where possible
-
-```ts
-try {
-  const result = await context.client.readContract({...});
-} catch (error) {
-  console.error(`Failed to read contract: ${error}`);
-  // Provide fallback or default value
-}
-```
-
-## Contract Interactions
-
-### Reading Contract Data
-- Use `context.client.readContract()` for contract calls
-- Cache frequently accessed data in database
-- Batch related contract calls with `Promise.all`
-- Use proper ABIs from context.contracts
-
-```ts
-const [name, symbol, decimals] = await Promise.all([
-  context.client.readContract({
-    abi: context.contracts.Token.abi,
-    address,
-    functionName: "name"
-  }),
-  // Additional calls...
+// Batch insert operations
+await db.insert(assets).values([
+  { id: '1', name: 'Asset1' },
+  { id: '2', name: 'Asset2' },
 ]);
 ```
 
-### Data Formatting
-- Use `formatUnits()` for token amounts
-- Handle different token decimals appropriately
-- Use BigNumber for precise calculations
-- Format chain IDs consistently
+## Logging
+
+- **Log important events and errors** for debugging.
+- **Use structured logging** for better tracking.
 
 ```ts
-const amountFormatted = formatUnits(amount, decimals);
-const chainId = event.block.chainId.toString();
+console.log(`[Event] PoolCreated: ${poolAddress}`);
+console.error(`Error: ${error.message}`, { stack: error.stack });
 ```
 
-## Schema Design
 
-### Table Structure
-- Use meaningful primary keys
-- Include timestamps and block numbers for events
-- Add indexes for frequent query patterns
-- Use appropriate column types
-
-```ts
-export const SwapEvent = onchainTable("swap_events", (t) => ({
-  id: t.text().primaryKey(),
-  timestamp: t.bigint().notNull(),
-  blockNumber: t.bigint().notNull(),
-  // Additional fields...
-}));
-```
-
-### Data Relationships
-- Use composite IDs for related data
-- Maintain referential integrity
-- Cache related entity data
-- Use consistent ID formats
-
-```ts
-const assetId = `${tokenAddress}-${chainId}`;
-```
-
-## Performance
-
-### Optimization Patterns
-- Cache frequently accessed data
-- Batch database operations
-- Use appropriate indexes
-- Minimize chain calls
-
-```ts
-// Check cache before chain call
-const cached = await context.db.find(Asset, { id });
-if (cached) return cached;
-```
-
-### Logging
-- Log important events and errors
-- Include relevant transaction data
-- Use structured logging format
-- Add context for debugging
-
-```ts
-console.log(`[Event] Type: Swap, Pool: ${poolAddress}`);
-console.log(`Details: Amount0=${amount0}, Amount1=${amount1}`);
-```

@@ -1,9 +1,9 @@
 ---
-description: React hooks patterns and best practices
+description: React hooks patterns and Rules
 globs: "**/hooks/**/*.{ts,tsx}"
 ---
 
-# React Hooks Best Practices
+# React Hooks Rules
 
 ## Core Principles
 - Use TanStack Query (React Query) as primary data fetching solution

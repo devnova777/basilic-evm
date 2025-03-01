@@ -2,8 +2,12 @@
 description: TypeScript coding standards and best practices
 globs: "**/*.{ts,tsx}"
 ---
+---
+description: TypeScript coding standards and best practices
+globs: "**/*.{ts,tsx}"
+---
 
-# TypeScript Best Practices
+# TypeScript Rules
 
 ### **Core Principles**
 - Use **TypeScript** for all code; prefer **interfaces** over types.
@@ -26,7 +30,7 @@ globs: "**/*.{ts,tsx}"
 - Implement **proper error logging** and **user-friendly messages**.
 - Consider using **custom error types** or **error factories** for consistent error handling.
 
-### **File Structure & Organization**
+### **File Structure & Organization** IMPORTANT
 Maintain a structured and logical order when organizing files:
 1. **Main Component** – The primary component that orchestrates logic and renders subcomponents.
 2. **Subcomponents** – Smaller, reusable components that support the main component.
@@ -38,13 +42,11 @@ This hierarchy improves **readability, maintainability, and scalability**.
 
 #### **Example**
 ```tsx
-// Export order: main component → subcomponents → helpers → content → types
 export function MainComponent() {
   return (
     <div className="flex flex-col gap-4">
       <h1>{content.title}</h1>
       <SubComponent message={content.welcome} />
-      <span>{formatMessage(content.welcome)}</span>
     </div>
   )
 }
@@ -53,16 +55,12 @@ function SubComponent({ message }: SubComponentProps) {
   return <p>{message}</p>
 }
 
-function formatMessage(message: string) {
-  return `${message} (${new Date().getFullYear()})`
-}
-
 const content = {
   title: "Main Component",
-  welcome: "Welcome to our application"
+  welcome: "Welcome"
 } as const
 
 interface SubComponentProps {
   message: string
 }
-```
+``` 

@@ -3,7 +3,7 @@ description: Tailwind CSS and UI component guidelines
 globs: "**/*.{ts,tsx,css}"
 ---
 
-# Tailwind & UI Components
+# Tailwind & UI Rules
 
 ## Core Principles
 - Use mobile-first responsive design

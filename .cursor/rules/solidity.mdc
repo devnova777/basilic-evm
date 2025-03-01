@@ -3,7 +3,7 @@ description: Solidity development standards with Foundry
 globs: "**/*.{sol,t.sol}"
 ---
 
-# Solidity & Foundry Best Practices
+# Solidity & Foundry Rules
 
 ## Core Principles
 - Use latest stable Solidity version (^0.8.20)

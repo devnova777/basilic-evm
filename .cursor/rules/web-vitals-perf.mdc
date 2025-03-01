@@ -3,7 +3,7 @@ description: Web Vitals and performance optimization guidelinespd
 globs: "**/*.{ts,tsx}"
 ---
 
-# Web Vitals & Performance Best Practices
+# Web Vitals & Performance Rules
 
 ## Core Metrics
 - Optimize for Core Web Vitals:
