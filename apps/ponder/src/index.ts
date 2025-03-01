@@ -1,5 +1,5 @@
 import { type Context, type Event, ponder } from 'ponder:registry'
-import { Asset, SwapEvent } from 'ponder:schema'
+import { Asset, SwapEvent, PriceData, VolumeData, LiquidityData } from 'ponder:schema'
 import BigNumber from 'bignumber.js'
 import { formatUnits } from 'viem'
 import { erc20Abi } from 'viem'
@@ -51,9 +51,11 @@ ponder.on(
       poolAddress,
       token0Address: token0,
       token1Address: token1,
-      amount0: amount0Formatted,
-      amount1: amount1Formatted,
-      sqrtPriceX96: price,
+      amount0,
+      amount1,
+      sqrtPriceX96,
+      price,
+      volume: new BigNumber(amount0Formatted).plus(amount1Formatted).toString(),
       timestamp: Number(event.block.timestamp),
       blockNumber: Number(event.block.number),
     })

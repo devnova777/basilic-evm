@@ -9,16 +9,19 @@ export const Asset = onchainTable('Asset', (t) => ({
   address: t.text(),
   isStable: t.boolean(),
   isNFT: t.boolean(),
-}))
+})) 
 
 export const SwapEvent = onchainTable('SwapEvent', (t) => ({
-  id: t.text().primaryKey(),
+  id: t.text().primaryKey(), // Composite key of chainId and poolAddress
+  chainId: t.text(),
   poolAddress: t.text(),
   token0Address: t.text(),
   token1Address: t.text(),
-  amount0: t.text(),
-  amount1: t.text(),
-  sqrtPriceX96: t.text(),
+  amount0: t.bigint(),
+  amount1: t.bigint(),
+  sqrtPriceX96: t.bigint(),
+  volume: t.text(),
+  price: t.text(),
   timestamp: t.integer(),
   blockNumber: t.integer(),
 }))

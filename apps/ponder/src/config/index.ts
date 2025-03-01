@@ -1,8 +1,6 @@
-export const ponderConfig = {
+export const indexerConfig = {
   database: {
     url: process.env.PONDER_DATABASE_URL || '',
-    user: process.env.PONDER_DATABASE_USER || '',
-    password: process.env.PONDER_DATABASE_PASSWORD || '',
   },
   api: {
     key: process.env.PONDER_API_KEY || '',
