@@ -165,6 +165,4 @@ pnpm build
 
 Please refer to the root [CONTRIBUTING.md](../../CONTRIBUTING.md) for development guidelines.
 
-## License
 
-MIT License

@@ -70,7 +70,5 @@ Rules should be regularly reviewed and updated to:
 
 Use AI-assisted linting and validation tools within Cursor to ensure that all rules remain up-to-date and effective.
 
-## License
 
-MIT License
 

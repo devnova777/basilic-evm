@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "ponder dev",
+    "debug": "ponder dev --log-level debug",
     "start": "ponder start",
     "silent": "ponder dev --log-level silent",
     "db": "ponder db",

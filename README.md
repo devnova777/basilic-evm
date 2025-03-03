@@ -30,7 +30,6 @@ A performance-optimized development stack for EVM applications. Built with Found
 - Node.js 18+
 - pnpm
 - Foundry
-- Git
 
 ### Quick Start
 

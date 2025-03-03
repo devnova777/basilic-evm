@@ -15,7 +15,7 @@ export default createConfig({
       network: 'arbitrum',
       abi: UniswapV3PoolAbi,
       address: '0xc6962004f452be9203591991d15f6b388e09e8d0', // USDC/WETH pool
-      startBlock: 308590083,
+      startBlock: 311172963,
       filter: {
         event: 'Swap',
         args: {

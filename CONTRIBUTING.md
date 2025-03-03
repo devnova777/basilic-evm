@@ -6,11 +6,6 @@ Thank you for your interest in contributing! This document outlines our contribu
 
 We follow strict coding standards defined in our [.cursor/rules](/.cursor/rules) configuration. Key highlights include:
 
-- AI-powered code review suggestions
-- Contextual guidance for Solidity and TypeScript
-- Repository-specific conventions
-- Quality and consistency checks
-
 ## Getting Started
 
 1. Review our [coding standards](/.cursor/rules)
@@ -22,7 +17,7 @@ We follow strict coding standards defined in our [.cursor/rules](/.cursor/rules)
 ## Need Help?
 
 - Check our [documentation](./README.md)
-- Review [existing issues](https://github.com/basilic-evm/basilic-evm/issues)
+- Review [existing issues](https://github.com/blockmatic/basilic-evm/issues)
 - Join our community discussions
 
 We use AI-enhanced workflows to streamline development. See our [README](./README.md#ai-powered-development-workflow) for details on our AI tooling.
