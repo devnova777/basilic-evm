@@ -1,3 +1,5 @@
+
+
 export const indexerConfig = {
   database: {
     url: process.env.PONDER_DATABASE_URL || '',
@@ -11,4 +13,13 @@ export const indexerConfig = {
       level: process.env.PONDER_LOGGING_LEVEL || 'info',
     },
   },
+  networks: {
+    arbitrum: {
+      chainId: 42161,
+      rpcUrl: process.env.PONDER_ARB_RPC_URL || '',
+    },
+  },
 } as const
+
+
+console.log('indexerConfig', indexerConfig)

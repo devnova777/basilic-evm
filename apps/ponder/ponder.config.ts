@@ -4,10 +4,14 @@ import { http } from 'viem'
 import { indexerConfig } from './src/config'
 
 export default createConfig({
+  database: {
+    kind: "postgres",
+    connectionString: indexerConfig.database.url,
+  },
   networks: {
     arbitrum: {
-      chainId: 42161,
-      transport: http(indexerConfig.database.url),
+      chainId: indexerConfig.networks.arbitrum.chainId,
+      transport: http(indexerConfig.networks.arbitrum.rpcUrl),  
     },
   },
   contracts: {
@@ -15,7 +19,7 @@ export default createConfig({
       network: 'arbitrum',
       abi: UniswapV3PoolAbi,
       address: '0xc6962004f452be9203591991d15f6b388e09e8d0', // USDC/WETH pool
-      startBlock: 311172963,
+      startBlock: 317381000,
       filter: {
         event: 'Swap',
         args: {

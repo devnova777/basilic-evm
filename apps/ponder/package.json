@@ -18,16 +18,16 @@
   },
   "dependencies": {
     "bignumber.js": "^9.1.2",
-    "hono": "^4.5.0",
-    "ponder": "^0.9.19",
-    "viem": "^2.21.3",
+    "hono": "^4.7.4",
+    "ponder": "^0.10.0",
+    "viem": "^2.23.12",
     "@repo/core": "workspace:*"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
     "@repo/errors": "workspace:*",
-    "@types/node": "^20.9.0",
-    "typescript": "^5.2.2"
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": ">=18.14"
