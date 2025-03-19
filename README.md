@@ -2,7 +2,7 @@
 
 A performance-optimized development stack for EVM applications. Built with Foundry, viem/wagmi, and Next.js 15.
 
-__This is still a work in progress__
+> 🚧 Note: This project is in active development (80% complete) - feel free to explore and contribute! 🏗️
 
 ## Stack Components
 
