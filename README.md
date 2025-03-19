@@ -2,6 +2,8 @@
 
 A performance-optimized development stack for EVM applications. Built with Foundry, viem/wagmi, and Next.js 15.
 
+__This is still a work in progress__
+
 ## Stack Components
 
 - __Contracts__: Foundry, Solidity ^0.8.19
@@ -21,10 +23,12 @@ A performance-optimized development stack for EVM applications. Built with Found
 ### Packages
 - [__packages/ui__](./packages/ui/README.md) - Shadcn/ui and custom components
 - [__packages/core__](./packages/core/README.md) - Chain interactions, contract ABIs
-- [__packages/api__](./packages/api/README.md) - Ponder api client, api sdk and hooks
+- [__packages/api__](./packages/api/README.md) - Ponder api client, api sdk for queries and subscriptions
 - [__packages/react__](./packages/react/README.md) - Web3 React hooks
 - [__packages/lib__](./packages/lib/README.md) - Shared utilities
 - [__packages/tsconfig__](./packages/tsconfig/README.md) - TypeScript configuration
+
+This monorepo structure is designed for building modular blockchain applications with reusable SDKs. The separation of packages makes it easy for other teams to integrate specific functionality into their dapps, whether they need just the core contract interactions, React hooks, or the complete UI components. While these packages work seamlessly within the monorepo, they are also designed to be published individually to npm, allowing external projects to install and use specific packages as needed.
 
 ## Development Setup
 
