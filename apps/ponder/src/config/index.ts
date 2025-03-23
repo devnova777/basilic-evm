@@ -1,5 +1,3 @@
-
-
 export const indexerConfig = {
   database: {
     url: process.env.PONDER_DATABASE_URL || '',
@@ -20,6 +18,5 @@ export const indexerConfig = {
     },
   },
 } as const
-
 
 console.log('indexerConfig', indexerConfig)

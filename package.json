@@ -9,9 +9,11 @@
     "dev": "turbo dev",
     "check-types": "turbo check-types",
     "lint": "biome check .",
-    "lint:fix": "biome check . --write"
+    "lint:fix": "biome check . --write",
+    "hooks:pre-commit": "biome check --write --staged --no-errors-on-unmatched && git update-index --again"
   },
   "devDependencies": {
+    "simple-git-hooks": "2.11.1",
     "turbo": "^2.4.2",
     "typescript": "5.7.3",
     "@biomejs/biome": "^1.9.4"
@@ -20,5 +22,8 @@
     "node": ">=18"
   },
   "packageManager": "pnpm@8.15.4",
-  "dependencies": {}
+  "dependencies": {},
+  "simple-git-hooks": {
+    "pre-commit": "bun run hooks:pre-commit"
+  }
 }

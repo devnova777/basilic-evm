@@ -5,13 +5,13 @@ import { indexerConfig } from './src/config'
 
 export default createConfig({
   database: {
-    kind: "postgres",
+    kind: 'postgres',
     connectionString: indexerConfig.database.url,
   },
   networks: {
     arbitrum: {
       chainId: indexerConfig.networks.arbitrum.chainId,
-      transport: http(indexerConfig.networks.arbitrum.rpcUrl),  
+      transport: http(indexerConfig.networks.arbitrum.rpcUrl),
     },
   },
   contracts: {
