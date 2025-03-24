@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Source shared library
+source "$(dirname "$0")/backend-lib.sh"
+
 # Exit on error, undefined variables, and pipe failures
 set -euo pipefail
 
@@ -72,11 +75,8 @@ trap cleanup EXIT
 ORIGINAL_DIR=$(pwd)
 SUPABASE_DIR="apps/supabase"
 
-# Ensure Supabase CLI is installed
-if ! command -v supabase &> /dev/null; then
-    print_error "Supabase CLI is not installed. Please install it first."
-    exit 1
-fi
+# Check Supabase CLI installation
+check_supabase_cli
 
 # Find and stop Ponder process
 PONDER_PID=$(pgrep -f "bun run silent" || true)
@@ -86,20 +86,7 @@ else
     print_warning "No running Ponder process found"
 fi
 
-# Stop Supabase with timeout
-print_status "Stopping Supabase..."
-if ! command -v timeout &> /dev/null; then
-    # If timeout is not available, run without it
-    if ! supabase stop --workdir "$SUPABASE_DIR"; then
-        print_error "Failed to stop Supabase"
-        exit 1
-    fi
-else
-    # Use timeout command if available
-    if ! timeout 30s supabase stop --workdir "$SUPABASE_DIR"; then
-        print_error "Supabase stop timed out after 30 seconds"
-        exit 1
-    fi
-fi
+# Stop Supabase
+stop_supabase
 
 print_status "All services have been stopped!"

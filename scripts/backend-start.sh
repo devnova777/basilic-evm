@@ -32,21 +32,14 @@ is_process_running() {
 ORIGINAL_DIR=$(pwd)
 SUPABASE_DIR="apps/supabase"
 
-# Ensure Supabase CLI is installed
-if ! command -v supabase &> /dev/null; then
-    print_error "Supabase CLI is not installed. Please install it first."
-    exit 1
-fi
+# Source shared library
+source "$(dirname "$0")/backend-lib.sh"
 
 # Cleanup function
 cleanup() {
     print_status "Cleaning up..."
-    if [ -n "${SUPABASE_PID:-}" ]; then
-        kill "$SUPABASE_PID" 2>/dev/null || true
-    fi
-    if [ -n "${PONDER_PID:-}" ]; then
-        kill "$PONDER_PID" 2>/dev/null || true
-    fi
+    # Call backend-stop.sh to ensure proper cleanup
+    "$(dirname "$0")/backend-stop.sh"
     if [ -n "${ORIGINAL_DIR:-}" ]; then
         cd "$ORIGINAL_DIR" 2>/dev/null || true
     fi
@@ -55,6 +48,9 @@ cleanup() {
 # Register cleanup on script exit
 trap cleanup EXIT INT TERM
 
+# Check Supabase CLI installation
+check_supabase_cli
+
 # Start Supabase without migrations and seeds
 print_status "Starting Supabase without migrations and seeds..."
 supabase stop --no-backup --workdir "$SUPABASE_DIR" || true
@@ -62,45 +58,10 @@ supabase start --workdir "$SUPABASE_DIR" &
 SUPABASE_PID=$!
 
 # Wait for Supabase to be ready
-print_status "Waiting for Supabase to be ready..."
-TIMEOUT=300 # enough time for first run to download docker images
-COUNTER=0
-until curl -s http://localhost:54323/rest/v1/ > /dev/null; do
-    if ! is_process_running "$SUPABASE_PID"; then
-        print_error "Supabase process died unexpectedly"
-        exit 1
-    fi
-    sleep 1
-    COUNTER=$((COUNTER + 1))
-    if [ $COUNTER -ge $TIMEOUT ]; then
-        print_error "Timeout waiting for Supabase"
-        exit 1
-    fi
-done
+wait_for_supabase "$SUPABASE_PID"
 
 # Start Ponder
-print_status "Starting Ponder..."
-cd apps/ponder || exit 1
-
-# Check for .env.local file
-if [ ! -f ".env.local" ]; then
-    print_error "No .env.local file found in apps/ponder. Please create it first."
-    exit 1
-fi
-
-# Source .env.local file
-set -o allexport && source .env.local && set +o allexport
-
-bun run dev &
-PONDER_PID=$!
-cd "$ORIGINAL_DIR"
-
-# Verify Ponder started successfully
-sleep 2
-if ! is_process_running "$PONDER_PID"; then
-    print_error "Ponder failed to start"
-    exit 1
-fi
+start_ponder
 
 print_status "All services are running!"
 print_warning "Press Ctrl+C to stop all services."
