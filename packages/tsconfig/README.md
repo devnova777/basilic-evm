@@ -4,23 +4,63 @@ This package contains shared TypeScript configurations used across the monorepo.
 
 ## Configurations
 
+### reset.json
+The most basic configuration that includes [@total-typescript/ts-reset](https://github.com/total-typescript/ts-reset) for improved TypeScript types. This serves as the foundation for all other configurations.
+
 ### base.json
-The base TypeScript configuration that all other configs extend from. It includes:
+The base TypeScript configuration that all other configs extend from. It includes common settings for all TypeScript projects:
 - ES2022 target
-- Node module resolution
 - Strict type checking
 - Declaration file generation
-- And other common settings
+- Common compiler options
+- Module interoperability settings
+- Type safety features
 
-### reset.json 
-Includes [@total-typescript/ts-reset](https://github.com/total-typescript/ts-reset) for improved TypeScript types.
+### node.json
+Configuration specifically for Node.js projects. Extends base.json and adds:
+- Node-specific module resolution (NodeNext)
+- Build output settings (dist directory)
+- Source directory configuration
+- Node.js specific compiler options
 
 ### nextjs.json
-Configuration specifically for Next.js projects.
+Configuration specifically for Next.js projects. Extends base.json and adds:
+- Next.js specific plugin
+- ESNext module system
+- Bundler module resolution
+- JSX support
+- No emit (Next.js handles compilation)
 
 ### react-library.json
-Configuration for React library packages.
+Configuration for React library packages. Extends base.json and adds:
+- React JSX support
 
 ## Usage
 
 Reference these configs in your `tsconfig.json`:
+
+```json
+{
+  "extends": "@repo/tsconfig/base.json"
+}
+```
+
+For specific project types, use their respective configs:
+
+```json
+{
+  "extends": "@repo/tsconfig/node.json"  // For Node.js projects
+}
+```
+
+```json
+{
+  "extends": "@repo/tsconfig/nextjs.json"  // For Next.js projects
+}
+```
+
+```json
+{
+  "extends": "@repo/tsconfig/react-library.json"  // For React libraries
+}
+```

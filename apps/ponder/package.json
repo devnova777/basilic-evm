@@ -21,7 +21,9 @@
     "hono": "^4.7.4",
     "ponder": "^0.10.0",
     "viem": "^2.23.12",
-    "@repo/core": "workspace:*"
+    "@repo/core": "workspace:*",
+    "@repo/errors": "workspace:*",
+    "@repo/tsconfig": "workspace:*"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
