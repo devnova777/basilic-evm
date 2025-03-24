@@ -30,7 +30,7 @@ is_process_running() {
 
 # Store the original directory
 ORIGINAL_DIR=$(pwd)
-SUPABASE_DIR="apps/db"
+SUPABASE_DIR="apps/supabase"
 
 # Ensure Supabase CLI is installed
 if ! command -v supabase &> /dev/null; then

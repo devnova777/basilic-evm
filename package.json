@@ -10,7 +10,8 @@
     "check-types": "turbo check-types",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
-    "hooks:pre-commit": "biome check --write --staged --no-errors-on-unmatched && git update-index --again"
+    "hooks:pre-commit": "biome check --write --staged --no-errors-on-unmatched && git update-index --again",
+    "supa:psql": "psql -h localhost -p 54321 -U postgres -W"
   },
   "devDependencies": {
     "simple-git-hooks": "2.11.1",

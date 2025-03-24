@@ -16,7 +16,7 @@ A performance-optimized development stack for EVM applications. Built with Found
 ### Apps
 - [__apps/web__](./apps/web/README.md) - Next.js frontend
 - [__apps/ponder__](./apps/ponder/README.md) - Chain indexing service with GraphQL + RPC API
-- [__apps/db__](./packages/db/README.md) - Local Supabase PostgreSQL instance
+- [__apps/supabase__](./packages/supabase/README.md) - Local Supabase PostgreSQL instance
 - [__apps/node__](./packages/node/README.md) - NodeJS service starter.
 - [__apps/docs__](./packages/docs/README.md) - Docs starter.
 
@@ -54,7 +54,7 @@ Our backend uses a combination of Ponder.sh and Supabase:
 
 - **Ponder.sh**: Handles all database operations, migrations, and provides GraphQL + RPC APIs
 - **Supabase**: 
-  - Local development via apps/db
+  - Local development via apps/supabase
   - Database branching and preview environments
   - Vercel integration for deployments
   - Database management tools and monitoring
