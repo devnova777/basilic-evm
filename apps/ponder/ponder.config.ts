@@ -1,7 +1,16 @@
 import { UniswapV3PoolAbi } from '@repo/core/abis'
 import { createConfig } from 'ponder'
-import { http } from 'viem'
+import { http, createPublicClient } from 'viem'
 import { indexerConfig } from './src/config'
+
+// Create a public client to interact with Arbitrum
+const publicClient = createPublicClient({
+  transport: http(indexerConfig.networks.arbitrum.rpcUrl),
+})
+
+// Get the latest block number
+// This is for demo purposes, in production, the start block should be set manually
+const startBlock = Number(await publicClient.getBlockNumber())
 
 export default createConfig({
   database: {
@@ -19,7 +28,7 @@ export default createConfig({
       network: 'arbitrum',
       abi: UniswapV3PoolAbi,
       address: '0xc6962004f452be9203591991d15f6b388e09e8d0', // USDC/WETH pool
-      startBlock: 317381000,
+      startBlock, // Use the fetched block number
       filter: {
         event: 'Swap',
         args: {
