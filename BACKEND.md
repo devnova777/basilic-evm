@@ -2,13 +2,13 @@
 
 This document explains how **Ponder.sh** and **Supabase** work together in our infrastructure.
 
-## 🚀 **Why Use Supabase with Ponder?**
+## **Why Use Supabase with Ponder?**
 
 **Important:** Ponder supports PostgreSQL databases, which we use through Supabase both locally and in production.
 
 ### Configuration
 
-We use a custom configuration setup in [`apps/ponder/src/config/index.ts`](./apps/ponder/src/config/index.ts) instead of relying on Ponder's default environment variables. This allows us to maintain consistent configuration across environments and provides better type safety and control over our settings.
+Custom configuration setup in [`apps/ponder/src/config/index.ts`](./apps/ponder/src/config/index.ts) instead of relying on Ponder's default environment variables. This allows us to maintain consistent configuration across environments and provides better type safety and control over our settings.
 
 You can configure Ponder to use any PostgreSQL instance by:
 - Setting the `DATABASE_URL` environment variable
@@ -16,16 +16,16 @@ You can configure Ponder to use any PostgreSQL instance by:
 
 While **Ponder.sh** handles database migrations and provides a **GraphQL + RPC API**, **Supabase** serves two key purposes:
 
-✅ **Database Branching & Preview Environments**
+**Database Branching & Preview Environments**
 - Create isolated database environments per branch
 - [Automatic branch creation and management](https://supabase.com/docs/guides/deployment/branching)
 - Preview environments auto-pause after 5 minutes of inactivity
 
-✅ **Vercel Integration**
+**Vercel Integration**
 - [Automated database connection configuration](https://supabase.com/partners/integrations/vercel)
 - Seamless deployment pipeline integration
 
-✅ **Database Management Tools**
+**Database Management Tools**
 
 - Supabase's **AI SQL Editor** provides powerful assistance for database exploration and report generation
 - Access to intuitive dashboard for database monitoring and management
