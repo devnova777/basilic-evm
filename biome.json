@@ -12,7 +12,11 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "noNonNullAssertion": "error",
+        "useNodejsImportProtocol": "error"
+      }
     },
     "ignore": ["contracts"]
   },
@@ -21,12 +25,16 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80,
-    "ignore": ["contracts"]
+    "ignore": ["contracts"],
+    "lineEnding": "lf",
+    "formatWithErrors": false
   },
   "javascript": {
     "formatter": {
       "semicolons": "asNeeded",
-      "quoteStyle": "single"
+      "quoteStyle": "single",
+      "bracketSameLine": false,
+      "bracketSpacing": true
     }
   }
 }
