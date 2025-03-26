@@ -11,7 +11,17 @@
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
     "hooks:pre-commit": "biome check --write --staged --no-errors-on-unmatched && git update-index --again",
-    "supa:psql": "psql -h localhost -p 54321 -U postgres -W"
+    "psql": "psql -h localhost -p 54321 -U postgres -W",
+    "supa:start": "docker-compose -f docker/supa-docker-compose.yml -p basilic up --build -d",
+    "supa:stop": "docker-compose -f docker/supa-docker-compose.yml -p basilic stop",
+    "supa:reset": "pnpm run supa:down && pnpm run supa:start",
+    "supa:down": "docker-compose -f docker/supa-docker-compose.yml -p basilic down -v --remove-orphans",
+    "supa:logs": "docker-compose -f docker/supa-docker-compose.yml -p basilic logs -f",
+    "pg:start": "docker-compose -f docker/pg-docker-compose.yml -p basilic up --build -d",
+    "pg:stop": "docker-compose -f docker/pg-docker-compose.yml -p basilic stop",
+    "pg:reset": "pnpm run pg:down && pnpm run pg:start",
+    "pg:down": "docker-compose -f docker/pg-docker-compose.yml -p basilic down -v --remove-orphans",
+    "pg:logs": "docker-compose -f docker/pg-docker-compose.yml -p basilic logs -f"
   },
   "devDependencies": {
     "simple-git-hooks": "2.11.1",
