@@ -28,7 +28,7 @@ jobs:
       run: pnpm install
 
     - name: Run Biome lint
-      run: pnpm biome:lint
+      run: pnpm lint
 
     - name: Build
       run: pnpm build 
