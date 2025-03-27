@@ -1,6 +1,6 @@
 import { ThemeToggle } from '@/components/layout/header/theme-toggle'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 import Link from 'next/link'
+import { AppConnectButton } from './connect'
 import { Menu } from './menu'
 
 export function Header() {
@@ -17,7 +17,7 @@ export function Header() {
 
         <div className="flex justify-end lg:min-w-[300px] lg:gap-5">
           <div className="items-center gap-5 flex">
-            <ConnectButton />
+            <AppConnectButton />
           </div>
 
           <div className="flex">
