@@ -6,9 +6,7 @@ import { privateKeyToAccount } from 'thirdweb/wallets'
 
 const privateKey = process.env.AUTH_PRIVATE_KEY || ''
 
-if (!privateKey) {
-  throw new Error('Missing AUTH_PRIVATE_KEY in .env file.')
-}
+if (!privateKey) throw new Error('Missing AUTH_PRIVATE_KEY in .env file.')
 
 const thirdwebAuth = createAuth({
   domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || '',
@@ -24,7 +22,8 @@ export async function login(payload: VerifyLoginPayloadParams) {
     const jwt = await thirdwebAuth.generateJWT({
       payload: verifiedPayload.payload,
     })
-    ;(await cookies()).set('jwt', jwt)
+    const cookieStore = await cookies()
+    cookieStore.set('jwt', jwt)
 
     // Track user addresses in our database for analytics and user engagement metrics
     // await upsertUserAddress({
@@ -35,15 +34,15 @@ export async function login(payload: VerifyLoginPayloadParams) {
 }
 
 export async function isLoggedIn() {
-  const jwt = (await cookies()).get('jwt')
-  if (!jwt?.value) {
-    return false
-  }
+  const cookieStore = await cookies()
+  const jwt = cookieStore.get('jwt')
+  if (!jwt?.value) return false
 
   const authResult = await thirdwebAuth.verifyJWT({ jwt: jwt.value })
   return authResult.valid
 }
 
 export async function logout() {
-  ;(await cookies()).delete('jwt')
+  const cookieStore = await cookies()
+  cookieStore.delete('jwt')
 }

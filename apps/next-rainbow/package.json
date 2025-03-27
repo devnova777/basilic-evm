@@ -1,5 +1,5 @@
 {
-  "name": "next-thirdweb",
+  "name": "next-rainbow",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.4",
     "@repo/api": "workspace:*",
     "@repo/errors": "workspace:*",
     "@repo/markets": "workspace:*",
@@ -22,7 +23,7 @@
     "pino-pretty": "^13.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "thirdweb": "^5.88.7",
+    "siwe": "^3.0.0",
     "viem": "^2.x",
     "wagmi": "2.x",
     "zod": "^3.23.8"

@@ -1,4 +1,4 @@
-# NextJS with Thirdweb Connect
+# NextJS with RainbowKit
 
 ## Overview
 
@@ -12,8 +12,8 @@ The web app is built with Next.js 15 and follows a performance-optimized archite
 - Code organization by route and feature
 - Next.js 15's new Turbopack for faster builds
 - React Server Components for improved performance
-- Secure wallet authentication with Thirdweb Auth
-- Modern wallet connection UI with Thirdweb Connect
+- Secure wallet authentication with Sign-In with Ethereum (SIWE)
+- Modern wallet connection UI with RainbowKit
 
 ## Architectural Principles
 
@@ -125,42 +125,39 @@ Features:
 
 ### Wallet Connection & Authentication
 
-The application uses Thirdweb Connect for wallet connection and authentication:
+The application uses RainbowKit for wallet connection and SIWE for secure authentication:
 
 ```typescript
-const thirdwebAuth = createAuth({
-  domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || '',
-  adminAccount: privateKeyToAccount({ client, privateKey }),
-  client: client,
+const authenticationAdapter = createAuthenticationAdapter({
+  getNonce: async () => {
+    return Math.random().toString(36).slice(2)
+  },
+  createMessage: ({ address, chainId, nonce }) => {
+    const message = new SiweMessage({
+      domain: window.location.host,
+      address,
+      statement: 'Sign in to BasilicEVM',
+      uri: window.location.origin,
+      version: '1',
+      chainId,
+      nonce,
+    })
+    return message.prepareMessage()
+  },
+  verify: async ({ message, signature }) => {
+    return verifyAndLogin({ message, signature })
+  },
+  signOut: async () => {
+    await logout()
+  },
 })
-
-export function ConnectButton() {
-  return (
-    <ConnectButton
-      client={client}
-      auth={{
-        isLoggedIn: async (address) => {
-          return await isLoggedIn()
-        },
-        doLogin: async (params) => {
-          await login(params)
-        },
-        getLoginPayload: async ({ address }) =>
-          generatePayload({ address }),
-        doLogout: async () => {
-          await logout()
-        },
-      }}
-    />
-  )
-}
 ```
 
 Benefits:
-- Secure authentication using Thirdweb Auth
+- Secure authentication using Sign-In with Ethereum
 - Modern, user-friendly wallet connection UI
 - Support for multiple wallet providers
-- Server-side session management with JWT
+- Server-side session management with HTTP-only cookies
 - Type-safe contract interactions via viem/wagmi
 
 ## Tech Stack
@@ -172,9 +169,9 @@ Benefits:
 - [shadcn/ui](https://ui.shadcn.com)
   - Tailwind CSS
   - Radix UI primitives
-- [Thirdweb](https://thirdweb.com)
+- [RainbowKit](https://www.rainbowkit.com)
   - Wallet connection UI
-  - Authentication
+  - SIWE authentication
 - [viem](https://viem.sh)
   - Type-safe Ethereum interface
 - [wagmi](https://wagmi.sh)
@@ -196,11 +193,8 @@ Benefits:
 ### Environment Variables
 
 ```bash
-# Thirdweb Auth
-NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN="..."
-NEXT_PUBLIC_THIRDWEB_CLIENT_ID="..."
-THIRDWEB_SECRET_KEY="..."
-AUTH_PRIVATE_KEY="0x..."  # for JWT signing
+# WalletConnect - Required for RainbowKit
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID="..."
 ```
 
 ### Quick Start
@@ -212,8 +206,8 @@ pnpm install
 # Copy environment variables
 cp .env-sample .env
 
-# Add your Thirdweb credentials to .env
-# Get them at https://thirdweb.com/create-api-key
+# Add your WalletConnect project ID to .env
+# Get one at https://cloud.walletconnect.com
 
 # Start development server
 pnpm dev

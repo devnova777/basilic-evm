@@ -13,6 +13,9 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noInvalidUseBeforeDeclaration": "off"
+      },
       "style": {
         "noNonNullAssertion": "error",
         "useNodejsImportProtocol": "error"
