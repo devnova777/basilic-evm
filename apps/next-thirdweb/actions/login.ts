@@ -23,7 +23,7 @@ export async function login(payload: VerifyLoginPayloadParams) {
       payload: verifiedPayload.payload,
     })
     const cookieStore = await cookies()
-    cookieStore.set('jwt', jwt)
+    await cookieStore.set('jwt', jwt)
 
     // Track user addresses in our database for analytics and user engagement metrics
     // await upsertUserAddress({
@@ -35,7 +35,7 @@ export async function login(payload: VerifyLoginPayloadParams) {
 
 export async function isLoggedIn() {
   const cookieStore = await cookies()
-  const jwt = cookieStore.get('jwt')
+  const jwt = await cookieStore.get('jwt')
   if (!jwt?.value) return false
 
   const authResult = await thirdwebAuth.verifyJWT({ jwt: jwt.value })
@@ -44,5 +44,5 @@ export async function isLoggedIn() {
 
 export async function logout() {
   const cookieStore = await cookies()
-  cookieStore.delete('jwt')
+  await cookieStore.delete('jwt')
 }
