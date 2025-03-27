@@ -14,7 +14,8 @@ A performance-optimized development stack for EVM applications. Built with Found
 ## Project Structure
 
 ### Apps
-- [__apps/next-thirdweb__](./apps/next-thirdweb/README.md) - Next.js frontend with ThirdWeb connect
+- [__apps/next-thirdweb__](./apps/next-thirdweb/README.md) - Next.js with ThirdWeb connect
+- [__apps/next-rainbow__](./apps/next-rainbow/README.md) - Next.js with RainbowKit
 - [__apps/ponder__](./apps/ponder/README.md) - Chain indexing service with GraphQL + RPC API
 - [__apps/supabase__](./packages/supabase/README.md) - Local Supabase PostgreSQL instance
 - [__apps/node__](./packages/node/README.md) - NodeJS service starter
