@@ -9,30 +9,39 @@ export async function MarketsTracker() {
   )
 }
 
-import { Spot } from '@binance/connector-typescript'
-import BigNumber from 'bignumber.js'
-
-const binanceClient = new Spot()
-
 export async function getMarketData(): Promise<MarketData[]> {
-  const response = await binanceClient.ticker24hr()
-  const data = Array.isArray(response) ? response : [response]
+  const CMC_API_KEY = process.env.COINMARKETCAP_API_KEY
+  if (!CMC_API_KEY) {
+    throw new Error('COINMARKETCAP_API_KEY environment variable is not set')
+  }
 
-  return data
-    .map((coin) => ({
-      symbol: coin.symbol,
-      name: COIN_NAMES[coin.symbol] || coin.symbol,
-      price: Number.parseFloat(coin.lastPrice),
-      change1h: Number.parseFloat(coin.priceChangePercent),
-      change24h: Number.parseFloat(coin.priceChangePercent),
-      change7d: Math.random() * 10 - 5, // Binance API doesn't provide 7D change
-      marketCap: new BigNumber(coin.quoteVolume)
-        .times(coin.lastPrice)
-        .toNumber(), // Safer market cap calculation
-      volume24h: Number.parseFloat(coin.quoteVolume),
-      circulatingSupply: Math.random() * 1000000000, // Not available in Binance API
-    }))
-    .sort((a, b) => b.marketCap - a.marketCap) // Sort by market cap in descending order
+  const response = await fetch(
+    'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=100&convert=USD',
+    {
+      headers: {
+        'X-CMC_PRO_API_KEY': CMC_API_KEY,
+      },
+      cache: 'no-cache',
+    },
+  )
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch market data')
+  }
+
+  const data = (await response.json()) as CoinMarketCapResponse
+
+  return data.data.map((coin) => ({
+    symbol: coin.symbol,
+    name: coin.name,
+    price: coin.quote.USD.price,
+    change1h: coin.quote.USD.percent_change_1h,
+    change24h: coin.quote.USD.percent_change_24h,
+    change7d: coin.quote.USD.percent_change_7d,
+    marketCap: coin.quote.USD.market_cap,
+    volume24h: coin.quote.USD.volume_24h,
+    circulatingSupply: coin.circulating_supply,
+  }))
 }
 
 export type MarketData = {
@@ -42,19 +51,25 @@ export type MarketData = {
   change1h: number
   change24h: number
   change7d: number
-  marketCap: number
   volume24h: number
+  marketCap: number
   circulatingSupply: number
 }
 
-const COIN_NAMES: Record<string, string> = {
-  BTCUSDT: 'Bitcoin',
-  ETHUSDT: 'Ethereum',
-  USDTUSDT: 'Tether',
-  XRPUSDT: 'XRP',
-  BNBUSDT: 'BNB',
-  SOLUSDT: 'Solana',
-  USDCUSDT: 'USDC',
-  DOGEUSDT: 'Dogecoin',
-  ADAUSDT: 'Cardano',
+interface CoinMarketCapResponse {
+  data: Array<{
+    symbol: string
+    name: string
+    circulating_supply: number
+    quote: {
+      USD: {
+        price: number
+        percent_change_1h: number
+        percent_change_24h: number
+        percent_change_7d: number
+        market_cap: number
+        volume_24h: number
+      }
+    }
+  }>
 }

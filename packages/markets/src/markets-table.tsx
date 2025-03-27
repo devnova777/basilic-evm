@@ -40,7 +40,6 @@ export async function MarketsTable({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-12">#</TableHead>
               <TableHead>Name</TableHead>
               <TableHead className="text-right">Price</TableHead>
               <TableHead className="text-right">1h %</TableHead>
@@ -52,14 +51,8 @@ export async function MarketsTable({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {marketData.map((crypto, index) => (
+            {marketData.map((crypto) => (
               <TableRow key={crypto.symbol}>
-                <TableCell className="font-medium">
-                  <div className="flex items-center gap-2">
-                    <Star className="w-4 h-4 text-muted-foreground" />
-                    {index + 1}
-                  </div>
-                </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
                     <span className="font-medium">{crypto.name}</span>

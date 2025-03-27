@@ -1,13 +1,13 @@
 # @repo/markets
 
-A collection of React components for displaying and tracking cryptocurrency market data. This package provides reusable components that integrate with Binance's API to display real-time market information.
+A collection of React components for displaying and tracking cryptocurrency market data. This package provides reusable components that integrate with CoinMarketCap's API to display real-time market information.
 
 ## Features
 
 - Real-time market data display
 - Market price tracking components
 - Customizable market data tables
-- Integration with Binance API
+- Integration with CoinMarketCap API
 
 ## Components
 

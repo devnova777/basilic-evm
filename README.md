@@ -14,16 +14,17 @@ A performance-optimized development stack for EVM applications. Built with Found
 ## Project Structure
 
 ### Apps
-- [__apps/web__](./apps/web/README.md) - Next.js frontend
+- [__apps/next-thirdweb__](./apps/next-thirdweb/README.md) - Next.js frontend with ThirdWeb connect
 - [__apps/ponder__](./apps/ponder/README.md) - Chain indexing service with GraphQL + RPC API
 - [__apps/supabase__](./packages/supabase/README.md) - Local Supabase PostgreSQL instance
-- [__apps/node__](./packages/node/README.md) - NodeJS service starter.
+- [__apps/node__](./packages/node/README.md) - NodeJS service starter
 - [__apps/docs__](./packages/docs/README.md) - Docs starter.
 
 ### Packages
 - [__packages/ui__](./packages/ui/README.md) - Shadcn/ui and custom components
 - [__packages/core__](./packages/core/README.md) - Chain interactions, contract ABIs
 - [__packages/api__](./packages/api/README.md) - Ponder api client, api sdk for queries and subscriptions
+- [__packages/markets__](./packages/markets/README.md) - Market data components
 - [__packages/react__](./packages/react/README.md) - Web3 React hooks
 - [__packages/lib__](./packages/lib/README.md) - Shared utilities
 - [__packages/tsconfig__](./packages/tsconfig/README.md) - TypeScript configuration

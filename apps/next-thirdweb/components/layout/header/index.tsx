@@ -9,12 +9,8 @@ import { Menu } from './menu'
 
 export function Header() {
   return (
-    <header className="border-b">
-      <div
-        className={
-          'sticky z-10 top-0 flex max-h-[64px] h-[64px] w-full items-center justify-between p-2 bg-background'
-        }
-      >
+    <header className="sticky top-0 z-50 w-full border-b bg-background max-h-[64px] h-[64px]">
+      <div className={'flex w-full items-center justify-between p-2 px-10'}>
         <div className="flex items-center gap-3">
           <Link href="/">BasilicEVM</Link>
 
