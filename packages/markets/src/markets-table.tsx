@@ -1,4 +1,3 @@
-import type { MarketData } from '@/lib/binance'
 import {
   Table,
   TableBody,
@@ -8,6 +7,7 @@ import {
   TableRow,
 } from '@repo/ui/components/table'
 import { Star } from 'lucide-react'
+import type { MarketData } from './markets-tracker'
 
 export async function MarketsTable({
   marketData = [],

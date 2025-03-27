@@ -1,12 +1,12 @@
 {
-  "extends": "@repo/tsconfig/next.json",
+  "extends": "@repo/tsconfig/nextjs.json",
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@repo/next/*": ["./src/*"]
+      "@repo/markets/*": ["./src/*"]
     }
   },
   "include": ["."],

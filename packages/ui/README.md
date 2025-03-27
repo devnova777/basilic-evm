@@ -55,4 +55,8 @@ The package hosts the following components:
 
 Please refer to the root [CONTRIBUTING.md](../../CONTRIBUTING.md) for development guidelines.
 
+## License
+
+WTFPL © [blockmatic.io](https://blockmatic.io)
+
 

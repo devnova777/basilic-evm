@@ -1,3 +1,14 @@
+import { MarketsTable } from './markets-table'
+
+export async function MarketsTracker() {
+  const marketData = await getMarketData()
+  return (
+    <div>
+      <MarketsTable marketData={marketData} />
+    </div>
+  )
+}
+
 import { Spot } from '@binance/connector-typescript'
 import BigNumber from 'bignumber.js'
 

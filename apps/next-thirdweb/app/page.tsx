@@ -1,4 +1,4 @@
-import { MarketsTracker } from '@/components/home/markets-tracker'
+import { MarketsTracker } from '@repo/markets'
 
 export default function HomePage() {
   return (

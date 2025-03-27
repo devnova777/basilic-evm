@@ -161,8 +161,8 @@ pnpm dev
 pnpm build
 ```
 
-## Contributing
+## License
 
-Please refer to the root [CONTRIBUTING.md](../../CONTRIBUTING.md) for development guidelines.
+MIT © [blockmatic.io](https://blockmatic.io)
 
 

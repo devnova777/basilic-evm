@@ -64,3 +64,7 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+## License
+
+WTFPL © [blockmatic.io](https://blockmatic.io)

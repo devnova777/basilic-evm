@@ -118,5 +118,5 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for development guidelines.
 
 ## License
 
-MIT License
+WTFPL © [blockmatic.io](https://blockmatic.io)
 

@@ -32,3 +32,7 @@ pnpm build     # Build for production
 ```
 
 For backend architecture details, see [BACKEND.md](../../BACKEND.md).
+
+## License
+
+WTFPL © [blockmatic.io](https://blockmatic.io)

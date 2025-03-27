@@ -52,3 +52,7 @@ import { sleep } from '@repo/lib'
 ```typescript
 const result = await sleep(1000)
 ```
+
+## License
+
+WTFPL © [blockmatic.io](https://blockmatic.io)

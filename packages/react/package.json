@@ -15,5 +15,8 @@
     "@repo/core": "workspace:*",
     "viem": "^2.x",
     "wagmi": "2.x"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*"
   }
 }
