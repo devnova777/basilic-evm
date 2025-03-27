@@ -13,10 +13,10 @@ export const webConfig = {
       authToken: process.env.SENTRY_AUTH_TOKEN || '',
     },
     rpc: {
-      arbitrumSepolia: `https://arb-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY || ''}`,
+      arbitrumSepolia: `https://arb-sepolia.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || ''}`,
     },
     alchemy: {
-      apiKey: process.env.ALCHEMY_API_KEY || '',
+      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || '',
     },
     dub: {
       workspaceId: process.env.DUB_WORKSPACE_ID || '',

@@ -20,7 +20,7 @@ export async function verifyAndLogin({ message, signature }: LoginPayload) {
     if (fields.success) {
       console.log('Setting auth cookie for address:', fields.data.address)
       const cookieStore = await cookies()
-      cookieStore.set({
+      await cookieStore.set({
         name: 'address',
         value: fields.data.address,
         httpOnly: true,
@@ -43,7 +43,7 @@ export async function verifyAndLogin({ message, signature }: LoginPayload) {
 export async function isLoggedIn() {
   try {
     const cookieStore = await cookies()
-    const address = cookieStore.get('address')
+    const address = await cookieStore.get('address')
     console.log('Checking auth status:', !!address?.value)
     return !!address?.value
   } catch (error) {
@@ -56,7 +56,7 @@ export async function logout() {
   try {
     console.log('Logging out...')
     const cookieStore = await cookies()
-    cookieStore.delete('address')
+    await cookieStore.delete('address')
     console.log('Logged out successfully')
   } catch (error) {
     console.error('Error during logout:', error)

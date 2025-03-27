@@ -1,5 +1,3 @@
-'use client'
-
 import { ThemeToggle } from '@/components/layout/header/theme-toggle'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import Link from 'next/link'

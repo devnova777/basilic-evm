@@ -4,12 +4,15 @@ import { webConfig } from '@/config'
 import {
   RainbowKitAuthenticationProvider,
   RainbowKitProvider,
+  type Theme as RainbowKitTheme,
   createAuthenticationAdapter,
+  darkTheme,
   getDefaultConfig,
 } from '@rainbow-me/rainbowkit'
 import '@rainbow-me/rainbowkit/styles.css'
 import { isLoggedIn, logout, verifyAndLogin } from '@/actions/login'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { merge } from 'lodash'
 import { ThemeProvider } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { SiweMessage } from 'siwe'
@@ -70,6 +73,19 @@ export const config = getDefaultConfig({
   },
 }) satisfies ReturnType<typeof getDefaultConfig>
 
+const customRainbowKitTheme: RainbowKitTheme = merge(darkTheme(), {
+  colors: {
+    accentColor: '#27292B',
+    accentColorForeground: '#fff',
+    connectButtonBackground: '#27292B',
+    connectButtonText: '#FFFFFF',
+  },
+  radii: {
+    actionButton: '9999px',
+    connectButton: '9999px',
+  },
+})
+
 export function Providers({ children }: ProvidersProps) {
   const [authStatus, setAuthStatus] = useState<
     'loading' | 'authenticated' | 'unauthenticated'
@@ -77,6 +93,7 @@ export function Providers({ children }: ProvidersProps) {
 
   useEffect(() => {
     const checkAuth = async () => {
+      console.log('Checking auth')
       try {
         const authenticated = await isLoggedIn()
         console.log(
@@ -100,7 +117,16 @@ export function Providers({ children }: ProvidersProps) {
             adapter={authenticationAdapter}
             status={authStatus}
           >
-            <RainbowKitProvider>{children}</RainbowKitProvider>
+            <RainbowKitProvider
+              theme={customRainbowKitTheme}
+              modalSize="compact"
+              showRecentTransactions={true}
+              appInfo={{
+                appName: 'BasilicEVM',
+              }}
+            >
+              {children}
+            </RainbowKitProvider>
           </RainbowKitAuthenticationProvider>
         </WagmiProvider>
       </QueryClientProvider>

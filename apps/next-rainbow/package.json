@@ -31,6 +31,7 @@
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
     "@turbo/gen": "^2.2.3",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
