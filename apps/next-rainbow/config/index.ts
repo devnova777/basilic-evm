@@ -13,23 +13,17 @@ export const webConfig = {
       authToken: process.env.SENTRY_AUTH_TOKEN || '',
     },
     rpc: {
-      arbitrumSepolia: `https://arb-sepolia.g.alchemy.com/v2/${getRequiredEnvVar('ALCHEMY_API_KEY')}`,
+      arbitrumSepolia: `https://arb-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY || ''}`,
     },
-    // alchemy: {
-    //   apiKey: getRequiredEnvVar('ALCHEMY_API_KEY'),
-    // },
+    alchemy: {
+      apiKey: process.env.ALCHEMY_API_KEY || '',
+    },
     dub: {
       workspaceId: process.env.DUB_WORKSPACE_ID || '',
       apiKey: process.env.DUB_API_KEY || '',
     },
     walletconnect: {
-      projectId: getRequiredEnvVar('WALLETCONNECT_PROJECT_ID'),
+      projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
     },
   },
 } as const
-
-function getRequiredEnvVar(key: string) {
-  const value = process.env[key]
-  if (!value) console.error(`Missing required environment variable: ${key}`)
-  return value || ''
-}
