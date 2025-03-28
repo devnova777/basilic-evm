@@ -1,10 +1,11 @@
 ---
 description: TypeScript coding standards and best practices
-globs: "**/*.{ts,tsx}"
+globs: **/*.{ts,tsx}
+alwaysApply: false
 ---
 ---
 description: TypeScript Rules
-globs: "**/*.{ts,tsx}"
+globs: **/*.{ts,tsx}
 ---
 
 # TypeScript Rules
@@ -20,6 +21,7 @@ globs: "**/*.{ts,tsx}"
 - Use **functional & declarative programming** patterns; **avoid classes**.
 - Prefer **iteration & modularization** over code duplication.
 - **Avoid unnecessary curly braces** in conditionals, especially for single-line statements.
+- CRITICAL: Always infer types and keep them inline unless you need to reuse them.
 
 ### **Error Handling**
 - **Fail fast**: Handle errors early using **guard clauses & early returns**.
