@@ -25,5 +25,8 @@ export const webConfig = {
     walletconnect: {
       projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
     },
+    coinmarketcap: {
+      apiKey: process.env.COINMARKETCAP_API_KEY || '', // server-side only
+    },
   },
 } as const
