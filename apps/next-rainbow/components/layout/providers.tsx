@@ -10,7 +10,7 @@ import {
   getDefaultConfig,
 } from '@rainbow-me/rainbowkit'
 import '@rainbow-me/rainbowkit/styles.css'
-import { isLoggedIn, logout, verifyAndLogin } from '@/actions/login'
+import { getNonce, isLoggedIn, logout, verifyMessage } from '@/actions/login'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { merge } from 'lodash'
 import { ThemeProvider } from 'next-themes'
@@ -24,13 +24,14 @@ const queryClient = new QueryClient()
 
 const authenticationAdapter = createAuthenticationAdapter({
   getNonce: async () => {
-    const nonce = Math.random().toString(36).slice(2)
-    console.log('Generated nonce:', nonce)
+    console.log('📝 Requesting new nonce...')
+    const { nonce } = await getNonce()
+    console.log('✅ Received nonce:', nonce)
     return nonce
   },
 
   createMessage: ({ address, chainId, nonce }) => {
-    console.log('Creating message for:', { address, chainId, nonce })
+    console.log('📝 Creating SIWE message:', { address, chainId, nonce })
     const message = new SiweMessage({
       domain: window.location.host,
       address,
@@ -41,48 +42,25 @@ const authenticationAdapter = createAuthenticationAdapter({
       nonce,
     })
     const preparedMessage = message.prepareMessage()
-    console.log('Prepared message:', preparedMessage)
+    console.log('✅ Prepared SIWE message:', preparedMessage)
     return preparedMessage
   },
 
   verify: async ({ message, signature }) => {
-    console.log('Verifying signature:', { message, signature })
+    console.log('🔐 Verifying signature...', { message, signature })
     try {
-      const success = await verifyAndLogin({ message, signature })
-      console.log('Verification result:', success)
-      return success
+      const result = await verifyMessage({ message, signature })
+      return result.success
     } catch (error) {
-      console.error('Verification failed:', error)
+      console.error('❌ Verification error:', error)
       return false
     }
   },
 
   signOut: async () => {
-    console.log('Signing out')
+    console.log('👋 Initiating sign out...')
     await logout()
-  },
-})
-
-// Configure wagmi and rainbowkit together
-export const config = getDefaultConfig({
-  appName: 'BasilicEVM',
-  projectId: webConfig.services.walletconnect.projectId,
-  chains: [arbitrumSepolia],
-  transports: {
-    [arbitrumSepolia.id]: http(webConfig.services.rpc.arbitrumSepolia),
-  },
-}) satisfies ReturnType<typeof getDefaultConfig>
-
-const customRainbowKitTheme: RainbowKitTheme = merge(darkTheme(), {
-  colors: {
-    accentColor: '#27292B',
-    accentColorForeground: '#fff',
-    connectButtonBackground: '#27292B',
-    connectButtonText: '#FFFFFF',
-  },
-  radii: {
-    actionButton: '9999px',
-    connectButton: '9999px',
+    console.log('✅ Logout successful')
   },
 })
 
@@ -92,22 +70,32 @@ export function Providers({ children }: ProvidersProps) {
   >('loading')
 
   useEffect(() => {
-    const checkAuth = async () => {
-      console.log('Checking auth')
-      try {
-        const authenticated = await isLoggedIn()
-        console.log(
-          'Auth status:',
-          authenticated ? 'authenticated' : 'unauthenticated',
-        )
-        setAuthStatus(authenticated ? 'authenticated' : 'unauthenticated')
-      } catch (error) {
-        console.error('Auth check failed:', error)
-        setAuthStatus('unauthenticated')
-      }
-    }
-    checkAuth()
+    isLoggedIn().then((authenticated) => {
+      setAuthStatus(authenticated ? 'authenticated' : 'unauthenticated')
+    })
   }, [])
+
+  const config = getDefaultConfig({
+    appName: 'BasilicEVM',
+    projectId: webConfig.services.walletconnect.projectId,
+    chains: [arbitrumSepolia],
+    transports: {
+      [arbitrumSepolia.id]: http(webConfig.services.rpc.arbitrumSepolia),
+    },
+  }) satisfies ReturnType<typeof getDefaultConfig>
+
+  const customRainbowKitTheme: RainbowKitTheme = merge(darkTheme(), {
+    colors: {
+      accentColor: '#27292B',
+      accentColorForeground: '#fff',
+      connectButtonBackground: '#27292B',
+      connectButtonText: '#FFFFFF',
+    },
+    radii: {
+      actionButton: '9999px',
+      connectButton: '9999px',
+    },
+  })
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -121,9 +109,7 @@ export function Providers({ children }: ProvidersProps) {
               theme={customRainbowKitTheme}
               modalSize="compact"
               showRecentTransactions={true}
-              appInfo={{
-                appName: 'BasilicEVM',
-              }}
+              appInfo={{ appName: 'BasilicEVM' }}
             >
               {children}
             </RainbowKitProvider>
