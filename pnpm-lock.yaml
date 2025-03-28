@@ -127,6 +127,9 @@ importers:
       '@types/react-dom':
         specifier: 19.0.3
         version: 19.0.3(@types/react@19.0.8)
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.10
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -174,7 +177,7 @@ importers:
         version: 19.0.0(react@19.0.0)
       thirdweb:
         specifier: ^5.88.7
-        version: 5.93.5(@types/react-dom@19.0.3)(@types/react@19.0.8)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(zod@3.24.2)
+        version: 5.93.6(@types/react-dom@19.0.3)(@types/react@19.0.8)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(zod@3.24.2)
       viem:
         specifier: ^2.x
         version: 2.24.1(typescript@5.7.3)(zod@3.24.2)
@@ -4018,7 +4021,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001707
-      electron-to-chromium: 1.5.126
+      electron-to-chromium: 1.5.128
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
     dev: true
@@ -4755,8 +4758,8 @@ packages:
       '@noble/hashes': 1.7.1
     dev: false
 
-  /electron-to-chromium@1.5.126:
-    resolution: {integrity: sha512-AtH1uLcTC72LA4vfYcEJJkrMk/MY/X0ub8Hv7QGAePW2JkeUFHEL/QfS4J77R6M87Sss8O0OcqReSaN1bpyA+Q==}
+  /electron-to-chromium@1.5.128:
+    resolution: {integrity: sha512-bo1A4HH/NS522Ws0QNFIzyPcyUUNV/yyy70Ho1xqfGYzPUme2F/xr4tlEOuM6/A538U1vDA7a4XfCd1CKRegKQ==}
     dev: true
 
   /elliptic@6.6.1:
@@ -7743,8 +7746,8 @@ packages:
       any-promise: 1.3.0
     dev: false
 
-  /thirdweb@5.93.5(@types/react-dom@19.0.3)(@types/react@19.0.8)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(zod@3.24.2):
-    resolution: {integrity: sha512-ho+Ulx7QuJhmGlY0RiwomlY0YnBJe+ZEDn1ZuTxF7jVoz4CxIMEXwVdSjfopEtMA/UiDHb9a5oqaol+ZdwhgbQ==}
+  /thirdweb@5.93.6(@types/react-dom@19.0.3)(@types/react@19.0.8)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(zod@3.24.2):
+    resolution: {integrity: sha512-8+CXSgNIyTQK9BVroKkvlH4vGldpX5vQOciGpT23rWcizQcwR5PsIjUDAdRqhiAgndUIM2AMDuvfQM+CXeejag==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
